@@ -1,9 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Player.gd" type="Script" id=1]
+[ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://imports/character.png" type="Texture" id=2]
-[ext_resource path="res://imports/guns.png" type="Texture" id=3]
-[ext_resource path="res://Player/Gun.gd" type="Script" id=4]
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -15,14 +13,3 @@ __meta__ = {
 position = Vector2( 1, 0 )
 texture = ExtResource( 2 )
 flip_h = true
-
-[node name="Gun" type="Sprite" parent="."]
-position = Vector2( 8.08456, 4.91657 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 3 )
-region_enabled = true
-region_rect = Rect2( 32, 12, 19, 13 )
-script = ExtResource( 4 )
-
-[node name="Position2D" type="Position2D" parent="Gun"]
-position = Vector2( 9.76364, -3.00226 )

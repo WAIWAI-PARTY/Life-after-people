@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
+[ext_resource path="res://Weapons/Gun.tscn" type="PackedScene" id=1]
 [ext_resource path="res://imports/spawnfloorbrick.png" type="Texture" id=2]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
 
@@ -16,3 +17,6 @@ region_rect = Rect2( -172, 0, 327, 176 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 165, 103 )
+
+[node name="Gun" parent="Player" instance=ExtResource( 1 )]
+position = Vector2( 5, 8 )
