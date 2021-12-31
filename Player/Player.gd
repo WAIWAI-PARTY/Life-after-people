@@ -16,7 +16,7 @@ func _process(delta):
 		velocity = velocity.move_toward(input_vector*maxSpeed, acceleration*delta)
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
-	move_and_slide(velocity)
+	velocity = move_and_slide(velocity)
 	
 
 	
