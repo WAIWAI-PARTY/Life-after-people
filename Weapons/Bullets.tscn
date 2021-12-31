@@ -12,10 +12,11 @@ scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 2 )
 
 [node name="BulletSprite" type="Sprite" parent="."]
-modulate = Color( 0.87451, 1, 0, 1 )
+rotation = 1.5708
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 54, 13, 2, 4 )
+region_rect = Rect2( 55, 5, 7, 21 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
