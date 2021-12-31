@@ -14,6 +14,10 @@ config/name="Make Game Tgt"
 run/main_scene="res://World.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+PlayerStats="*res://Player/PlayerStats.tscn"
+
 [display]
 
 window/size/width=480
@@ -78,6 +82,14 @@ shoot={
 "events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
  ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="world"
+2d_physics/layer_2="player hurt"
+2d_physics/layer_3="player hit"
+2d_physics/layer_4="enemy hurt"
+2d_physics/layer_5="enemy hit"
 
 [physics]
 

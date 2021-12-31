@@ -22,6 +22,7 @@ func _input(event):
 		bullet_instance.rotation = rotation
 		bullet_instance.global_position = $GunSprite/Position2D.global_position
 		get_parent().add_child(bullet_instance)
+		
 		can_fire = false
 		yield(get_tree().create_timer(0.2),"timeout")
 		can_fire = true
