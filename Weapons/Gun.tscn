@@ -10,3 +10,6 @@ script = ExtResource( 1 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 offset = Vector2( 12, 0 )
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 7.51928, -3.23202 )
