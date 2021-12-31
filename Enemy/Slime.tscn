@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://imports/enemy.png" type="Texture" id=1]
+
+[node name="Slime" type="KinematicBody2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 2.65165, -7.60139 )
+texture = ExtResource( 1 )
