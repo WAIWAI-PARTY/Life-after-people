@@ -8,11 +8,10 @@
 [node name="World" type="Node"]
 
 [node name="Spawnfloorbrick" type="Sprite" parent="."]
-position = Vector2( 160.25, 97.5 )
-scale = Vector2( 0.977064, 1.09659 )
+position = Vector2( 240, 135 )
 texture = ExtResource( 2 )
 region_enabled = true
-region_rect = Rect2( -172, 0, 327, 176 )
+region_rect = Rect2( -172, 0, 480, 270 )
 
 [node name="YSort" type="YSort" parent="."]
 
@@ -23,4 +22,4 @@ position = Vector2( 234.03, 97.8397 )
 position = Vector2( 166.875, 103.5 )
 
 [node name="Gun" parent="Player" instance=ExtResource( 1 )]
-position = Vector2( 2.125, 6.75 )
+position = Vector2( 4.125, 6.5 )
