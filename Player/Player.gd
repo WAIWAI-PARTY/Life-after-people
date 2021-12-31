@@ -4,7 +4,7 @@ extends KinematicBody2D
 export var maxSpeed = 100
 export var acceleration = 1000
 export var friction = 1000
-
+var player = "."
 var velocity = Vector2.ZERO
 func _process(delta):
 	var input_vector = Vector2.ZERO
@@ -14,6 +14,10 @@ func _process(delta):
 	
 	if input_vector != Vector2.ZERO:
 		velocity = velocity.move_toward(input_vector*maxSpeed, acceleration*delta)
+		#if input_vector.x<0:
+		#	$Player.set_scale(Vector2(-1,1))
+		#else:
+		#	$Player.set_scale(Vector2(-1,1))
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 	velocity = move_and_slide(velocity)
