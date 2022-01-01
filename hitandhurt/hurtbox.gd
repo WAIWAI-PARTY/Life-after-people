@@ -4,6 +4,7 @@ var invin = false
 signal invin_start
 signal invin_ended
 onready var timer = $Timer
+
 func start_invin(duaration):
 	emit_signal("invin_start")
 	self.invin = true
