@@ -16,7 +16,7 @@ func _input(event):
 		else:
 			$GunSprite.set_scale(Vector2(0.5,0.5))
 			
-			
+func _process(delta):		
 	if Input.is_action_pressed("shoot") and can_fire:
 		var bullet_instance = bullet.instance()
 		bullet_instance.rotation = rotation
