@@ -5,6 +5,7 @@ onready var slimeAni = $slimeAnimation
 export(int) var aclt = 300
 export(int) var max_speed = 50
 export(int) var frict = 200
+const deathEffect = preload("res://Effect/Explosion_Effect.tscn")
 enum {
 	idle,
 	wander,
@@ -41,3 +42,6 @@ func _on_hurtbox_area_entered(area):
 
 func _on_Stats_no_health():
 	queue_free()
+	var edf = deathEffect.instance()
+	get_parent().add_child(edf)
+	edf.global_position = global_position
