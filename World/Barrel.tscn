@@ -1,9 +1,36 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://imports/barrel.png" type="Texture" id=1]
 [ext_resource path="res://hitandhurt/hurtbox.tscn" type="PackedScene" id=2]
 [ext_resource path="res://World/Barrel.gd" type="Script" id=3]
 [ext_resource path="res://hitandhurt/hitbox.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Animation" id=4]
+resource_name = "anim"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("hitbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 7.14284
@@ -14,7 +41,7 @@ radius = 17.1429
 height = 2.85714
 
 [sub_resource type="CircleShape2D" id=3]
-radius = 50.0
+radius = 62.8734
 
 [node name="barrel" type="KinematicBody2D"]
 scale = Vector2( 0.7, 0.7 )
@@ -22,8 +49,12 @@ collision_mask = 0
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 2, 0 )
 texture = ExtResource( 1 )
+hframes = 11
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/anim = SubResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 9 )
@@ -39,7 +70,6 @@ position = Vector2( 0, -1.5 )
 shape = SubResource( 1 )
 
 [node name="hitbox" parent="." instance=ExtResource( 4 )]
-scale = Vector2( 1e-05, 1e-05 )
 collision_layer = 4
 collision_mask = 0
 damage = 500
@@ -47,7 +77,9 @@ damage = 500
 [node name="CollisionShape2D" parent="hitbox" index="0"]
 position = Vector2( -4.76837e-07, -4.76837e-07 )
 shape = SubResource( 3 )
+disabled = true
 
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
 
 [editable path="hurtbox"]

@@ -76,7 +76,7 @@ script = ExtResource( 3 )
 [node name="slimeAnimation" type="AnimatedSprite" parent="."]
 frames = SubResource( 9 )
 animation = "idle"
-frame = 3
+frame = 4
 playing = true
 offset = Vector2( 1, -5 )
 

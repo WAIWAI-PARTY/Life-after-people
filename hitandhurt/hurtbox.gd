@@ -23,7 +23,7 @@ func _on_hurtbox_invin_ended():
 	set_deferred("monitoring", true)
 
 
-func _on_hurtbox_area_entered(area):
+func _on_hurtbox_area_entered(_area):
 	var hf = hiteffect.instance()
 	get_parent().add_child(hf)
 	hf.global_position = global_position
