@@ -4,7 +4,7 @@ var invin = false
 signal invin_start
 signal invin_ended
 onready var timer = $Timer
-
+const hiteffect = preload("res://Effect/hiteffect.tscn")
 func start_invin(duaration):
 	emit_signal("invin_start")
 	self.invin = true
@@ -21,3 +21,9 @@ func _on_hurtbox_invin_start():
 
 func _on_hurtbox_invin_ended():
 	set_deferred("monitoring", true)
+
+
+func _on_hurtbox_area_entered(area):
+	var hf = hiteffect.instance()
+	get_parent().add_child(hf)
+	hf.global_position = global_position
