@@ -22,18 +22,30 @@ position = Vector2( 134, 103 )
 [node name="Gun" parent="YSort/Player" instance=ExtResource( 1 )]
 position = Vector2( 5, 1 )
 
-[node name="Slime" parent="YSort" instance=ExtResource( 4 )]
+[node name="slimes" type="YSort" parent="YSort"]
+
+[node name="Slime" parent="YSort/slimes" instance=ExtResource( 4 )]
 position = Vector2( 234.03, 97.8397 )
 collision_layer = 0
 
-[node name="barrel" parent="YSort" instance=ExtResource( 5 )]
+[node name="Slime2" parent="YSort/slimes" instance=ExtResource( 4 )]
+position = Vector2( 130, 191 )
+collision_layer = 0
+
+[node name="Slime3" parent="YSort/slimes" instance=ExtResource( 4 )]
+position = Vector2( 291, 151 )
+collision_layer = 0
+
+[node name="barrels" type="YSort" parent="YSort"]
+
+[node name="barrel" parent="YSort/barrels" instance=ExtResource( 5 )]
 position = Vector2( 127, 136 )
 
-[node name="barrel2" parent="YSort" instance=ExtResource( 5 )]
+[node name="barrel2" parent="YSort/barrels" instance=ExtResource( 5 )]
 position = Vector2( 72, 133 )
 
-[node name="barrel3" parent="YSort" instance=ExtResource( 5 )]
+[node name="barrel3" parent="YSort/barrels" instance=ExtResource( 5 )]
 position = Vector2( 101, 99 )
 
-[node name="barrel4" parent="YSort" instance=ExtResource( 5 )]
+[node name="barrel4" parent="YSort/barrels" instance=ExtResource( 5 )]
 position = Vector2( 201, 135 )
