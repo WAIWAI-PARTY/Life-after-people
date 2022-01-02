@@ -6,6 +6,7 @@ export(int) var aclt = 300
 export(int) var max_speed = 50
 export(int) var frict = 200
 const deathEffect = preload("res://Effect/Explosion_Effect.tscn")
+const hiteffect = preload("res://Effect/hiteffect.tscn")
 enum {
 	idle,
 	wander,
@@ -39,6 +40,9 @@ func seek_player():
 	
 func _on_hurtbox_area_entered(area):
 	stats.health -= area.damage
+	var hf = hiteffect.instance()
+	get_parent().add_child(hf)
+	hf.global_position = global_position
 
 func _on_Stats_no_health():
 	queue_free()

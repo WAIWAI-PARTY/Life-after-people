@@ -50,7 +50,7 @@ animations = [ {
 "frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
 "loop": true,
 "name": "walk",
-"speed": 4.0
+"speed": 6.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=1]
@@ -76,6 +76,7 @@ script = ExtResource( 3 )
 [node name="slimeAnimation" type="AnimatedSprite" parent="."]
 frames = SubResource( 9 )
 animation = "idle"
+frame = 1
 playing = true
 offset = Vector2( 1, -5 )
 
@@ -87,7 +88,7 @@ shape = SubResource( 1 )
 [node name="hurtbox" parent="." instance=ExtResource( 2 )]
 position = Vector2( 2, -1 )
 collision_layer = 8
-collision_mask = 0
+collision_mask = 4
 
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
 rotation = 1.5708
