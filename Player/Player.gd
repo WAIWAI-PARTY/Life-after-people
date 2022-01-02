@@ -4,6 +4,7 @@ export var maxSpeed = 100
 export var acceleration = 1000
 export var friction = 1000
 
+
 var velocity = Vector2.ZERO
 var stats = PlayerStats
 
@@ -11,6 +12,7 @@ onready var hurtbox = $hurtbox
 
 func _ready():
 	stats.connect("no_health", self, "queue_free")
+	
 func _process(delta):
 	var input_vector = Vector2.ZERO
 	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
@@ -21,7 +23,8 @@ func _process(delta):
 		velocity = velocity.move_toward(input_vector*maxSpeed, acceleration*delta)
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
-	velocity = move_and_slide(velocity)
+		velocity = move_and_slide(velocity)
+	
 
 func _on_hurtbox_area_entered(area):
 	stats.health -= area.damage
