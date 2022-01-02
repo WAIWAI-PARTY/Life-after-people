@@ -16,6 +16,7 @@ enum {
 }
 var state = idle
 var velocity = Vector2.ZERO
+
 func _process(delta):
 	match state:
 		idle:
