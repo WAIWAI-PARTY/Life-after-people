@@ -33,7 +33,7 @@ position = Vector2( 234.03, 97.8397 )
 collision_layer = 0
 
 [node name="Player" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 166.875, 103.5 )
+position = Vector2( 134, 103 )
 
 [node name="Gun" parent="YSort/Player" instance=ExtResource( 1 )]
-position = Vector2( 4.125, 6.5 )
+position = Vector2( 5, 1 )

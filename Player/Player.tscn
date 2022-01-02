@@ -13,20 +13,20 @@ radius = 5.0
 height = 10.0
 
 [node name="Player" type="KinematicBody2D"]
-position = Vector2( 1, -6 )
-collision_layer = 0
+collision_layer = 32
+collision_mask = 0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 4.91863, 2.99972, 4.83512 ]
 }
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -0.00112534, 0 )
 texture = ExtResource( 2 )
+offset = Vector2( 1, -6 )
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -1, 9 )
+position = Vector2( 0, 3 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
@@ -35,7 +35,7 @@ collision_layer = 2
 collision_mask = 16
 
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
-position = Vector2( -1, 2 )
+position = Vector2( 0, -4 )
 shape = SubResource( 2 )
 
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]

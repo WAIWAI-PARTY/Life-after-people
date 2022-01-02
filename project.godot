@@ -90,6 +90,7 @@ shoot={
 2d_physics/layer_3="player hit"
 2d_physics/layer_4="enemy hurt"
 2d_physics/layer_5="enemy hit"
+2d_physics/layer_6="player"
 
 [physics]
 
