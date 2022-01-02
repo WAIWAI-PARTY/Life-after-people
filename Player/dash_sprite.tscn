@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Sprite
+
+
+func _physics_process(delta):
+	modulate.a = lerp(modulate.a,0,0.1)
+	if(modulate.a < 0.01):
+		queue_free()
+"
+
+[node name="dash_sprite" type="Sprite"]
+script = SubResource( 1 )
