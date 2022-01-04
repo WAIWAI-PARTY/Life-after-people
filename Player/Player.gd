@@ -1,8 +1,10 @@
 extends KinematicBody2D
 
-export(int) var maxSpeed = 60000
+export(int) var maxSpeed = 100
 
-const dash_duration = 0.15
+export(int) var aclt = 800
+export(int) var frict = 1000
+const dash_duration = 0.2
 
 var stats = PlayerStats
 var velocity = Vector2.ZERO
@@ -20,15 +22,17 @@ func _process(delta):
 	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	input_vector = input_vector.normalized()
-	maxSpeed = 300000 if dash.is_dashing() else 60000
+	maxSpeed = 450 if dash.is_dashing() else 100
+	aclt = 10000 if dash.is_dashing() else 800
 	if Input.is_action_just_pressed("dash") && dash.can_dash && !dash.is_dashing():
 		dash.start_dash(sprite, dash_duration, input_vector)
 	
 	if input_vector != Vector2.ZERO:
-		velocity = input_vector*maxSpeed
+		velocity = velocity.move_toward(input_vector*maxSpeed, aclt*delta)
+		
 	else:
-		velocity = Vector2.ZERO
-	velocity = velocity*delta
+		velocity = velocity.move_toward(Vector2.ZERO, frict*delta)
+	print(velocity)
 	move_and_slide(velocity)
 
 func _on_hurtbox_area_entered(area):
