@@ -25,6 +25,9 @@ script = ExtResource( 1 )
 
 [node name="Dash" parent="." instance=ExtResource( 4 )]
 
+[node name="DustTrail" parent="Dash" index="2"]
+position = Vector2( 0, 5.3317 )
+
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 3 )
 texture = ExtResource( 2 )

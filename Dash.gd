@@ -4,11 +4,14 @@ const dash_delay = 0.5
 
 onready var duration_timer =$DurationTimer
 onready var ghost_timer = $GhostTimer
+onready var dust_trail = $DustTrail
+onready var dust_burst = $DustBurst
+
 var ghost_scene = preload("res://Player/DashGhost.tscn")
 var can_dash = true
 var sprite
 
-func start_dash(sprite, duration):
+func start_dash(sprite, duration, direction):
 	self.sprite = sprite
 	sprite.material.set_shader_param("mix_weight", 0.7)
 	sprite.material.set_shader_param("whiten",true)
@@ -18,6 +21,13 @@ func start_dash(sprite, duration):
 	
 	ghost_timer.start()
 	instance_ghost()
+	
+	dust_trail.restart()
+	dust_trail.emitting = true
+	
+	dust_burst.rotation = (direction * -1).angle()
+	dust_burst.restart()
+	dust_burst.emitting = true
 
 func instance_ghost():
 	var ghost: Sprite = ghost_scene.instance()

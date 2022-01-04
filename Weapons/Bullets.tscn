@@ -35,7 +35,12 @@ damage = 50
 rotation = 1.5708
 shape = SubResource( 1 )
 
+[node name="FlyingTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="FlyingTimer" to="." method="_on_FlyingTimer_timeout"]
 
 [editable path="hitbox"]

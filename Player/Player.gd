@@ -1,8 +1,6 @@
 extends KinematicBody2D
 
-export var maxSpeed = 200000
-export var acceleration = 1000
-export var friction = 1000
+export var maxSpeed = 250000
 
 const dash_speed = 800000
 const dash_duration = 0.2
@@ -21,7 +19,7 @@ func _process(delta):
 	var move_direction = get_move_direction()
 	
 	if Input.is_action_just_pressed("dash") && dash.can_dash && !dash.is_dashing():
-		dash.start_dash(sprite, dash_duration)
+		dash.start_dash(sprite, dash_duration, move_direction)
 			
 	var speed = dash_speed if dash.is_dashing() else maxSpeed
 	
