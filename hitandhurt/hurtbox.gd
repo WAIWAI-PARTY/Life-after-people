@@ -25,10 +25,7 @@ func _on_hurtbox_invin_ended():
 
 
 func _on_hurtbox_area_entered(_area):
-	if is_dashing:
-		print(is_dashing)
-		return
-	print(is_dashing,"2")
+	if is_dashing: return
 	var hf = hiteffect.instance()
 	get_parent().add_child(hf)
 	hf.global_position = global_position
