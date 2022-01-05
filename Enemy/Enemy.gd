@@ -5,6 +5,7 @@ onready var AnimPlayer = $AnimationPlayer
 onready var AnimTree = $AnimationTree
 onready var AnimState = AnimTree.get("parameters/playback")
 onready var slimeSprite = $Sprite
+onready var soft_coll = $SoftCollision
 export(int) var aclt = 300
 export(int) var max_speed = 50
 export(int) var frict = 200
@@ -34,7 +35,8 @@ func _process(delta):
 			else:
 				state = idle
 			slimeSprite.flip_h = velocity.x > 0
-	
+	if soft_coll.iscolliding():
+		velocity+=soft_coll.get_push_vector()*delta*400
 	velocity = move_and_slide(velocity)
 			
 func seek_player():

@@ -1,11 +1,20 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://imports/slime.png" type="Texture" id=1]
 [ext_resource path="res://hitandhurt/hurtbox.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Enemy/Enemy.gd" type="Script" id=3]
 [ext_resource path="res://hitandhurt/hitbox.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Stats.tscn" type="PackedScene" id=5]
+[ext_resource path="res://hitandhurt/SoftCollision.tscn" type="PackedScene" id=6]
 [ext_resource path="res://hitandhurt/PlayerDetectionZone.tscn" type="PackedScene" id=7]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 4.0
+height = 18.0
+
+[sub_resource type="CapsuleShape2D" id=33]
+radius = 5.0
+height = 7.0
 
 [sub_resource type="Animation" id=18]
 length = 0.001
@@ -107,10 +116,6 @@ graph_offset = Vector2( -12, -38 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=32]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 4.0
-height = 18.0
-
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 6.99999
 height = 11.0
@@ -123,14 +128,27 @@ height = 11.0
 radius = 76.0
 
 [node name="Slime" type="KinematicBody2D"]
-collision_layer = 8
-collision_mask = 4
+collision_layer = 0
 script = ExtResource( 3 )
+
+[node name="Stats" parent="." instance=ExtResource( 5 )]
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 offset = Vector2( 0, -3 )
 hframes = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1, 2 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="SoftCollision" parent="." instance=ExtResource( 6 )]
+
+[node name="CollisionShape2D" parent="SoftCollision" index="0"]
+position = Vector2( 1, 2 )
+rotation = 1.5708
+shape = SubResource( 33 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 18 )
@@ -143,11 +161,6 @@ tree_root = SubResource( 31 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 32 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 1, 2 )
-rotation = 1.5708
-shape = SubResource( 1 )
 
 [node name="hurtbox" parent="." instance=ExtResource( 2 )]
 position = Vector2( 2, -1 )
@@ -169,18 +182,17 @@ position = Vector2( -1.94454, -1.32582 )
 rotation = 1.5708
 shape = SubResource( 3 )
 
-[node name="Stats" parent="." instance=ExtResource( 5 )]
-
 [node name="PlayerDetectionZone" parent="." instance=ExtResource( 7 )]
 scale = Vector2( 1.5, 1.5 )
 
 [node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
 shape = SubResource( 13 )
 
+[connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
-[connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
 
+[editable path="SoftCollision"]
 [editable path="hurtbox"]
 [editable path="hitbox"]
 [editable path="PlayerDetectionZone"]
