@@ -11,11 +11,10 @@ var velocity = Vector2.ZERO
 onready var sprite = $Sprite
 onready var hurtbox = $hurtbox
 onready var dash = $Dash
-
+onready var blink = $Blink
 func _ready():
 	stats.connect("no_health", self, "queue_free")
 
-	
 func _process(delta):
 	var input_vector = Vector2.ZERO
 	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
@@ -40,3 +39,11 @@ func _on_hurtbox_area_entered(area):
 
 func _on_Dash_dash_end():
 	velocity = Vector2.ZERO
+
+
+
+func _on_hurtbox_invin_ended():
+	blink.play("Blink_stop")
+
+func _on_hurtbox_invin_start():
+	blink.play("Blink_start")

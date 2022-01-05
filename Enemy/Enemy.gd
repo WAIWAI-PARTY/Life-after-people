@@ -6,6 +6,8 @@ onready var AnimTree = $AnimationTree
 onready var AnimState = AnimTree.get("parameters/playback")
 onready var slimeSprite = $Sprite
 onready var soft_coll = $SoftCollision
+onready var blink = $Blink
+onready var hurtbox = $hurtbox
 export(int) var aclt = 300
 export(int) var max_speed = 50
 export(int) var frict = 200
@@ -45,6 +47,7 @@ func seek_player():
 	
 func _on_hurtbox_area_entered(area):
 	stats.health -= area.damage
+	hurtbox.start_invin(0.1)
 
 func _on_Stats_no_health():
 	queue_free()
@@ -52,6 +55,13 @@ func _on_Stats_no_health():
 	get_parent().add_child(edf)
 	edf.global_position = global_position
 
-
 func _on_hitbox_area_entered(area):
 	AnimState.travel("attack")
+
+
+func _on_hurtbox_invin_start():
+	blink.play("blink_start")
+
+
+func _on_hurtbox_invin_ended():
+	blink.play("blink_end")
