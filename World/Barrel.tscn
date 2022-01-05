@@ -5,7 +5,11 @@
 [ext_resource path="res://World/Barrel.gd" type="Script" id=3]
 [ext_resource path="res://hitandhurt/hitbox.tscn" type="PackedScene" id=4]
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 7.14284
+height = 9.71429
+
+[sub_resource type="Animation" id=4]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -32,7 +36,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("CollisionShape2D:disabled")
+tracks/2/path = NodePath("hurtbox/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -44,7 +48,7 @@ tracks/2/keys = {
 "values": [ false ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("hurtbox/CollisionShape2D:disabled")
+tracks/3/path = NodePath("CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -56,9 +60,9 @@ tracks/3/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 resource_name = "anim"
-length = 1.1
+step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -78,24 +82,22 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.1, 0.5 ),
+"times": PoolRealArray( 0.1, 0.14 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
 }
-tracks/2/type = "method"
-tracks/2/path = NodePath(".")
+tracks/2/type = "value"
+tracks/2/path = NodePath("hurtbox/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 1.1 ),
+"times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "explosion_finished"
-} ]
+"update": 1,
+"values": [ true ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("CollisionShape2D:disabled")
@@ -109,22 +111,20 @@ tracks/3/keys = {
 "update": 1,
 "values": [ true ]
 }
-tracks/4/type = "value"
-tracks/4/path = NodePath("hurtbox/CollisionShape2D:disabled")
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0 ),
+"times": PoolRealArray( 1 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
+"values": [ {
+"args": [  ],
+"method": "explosion_finished"
+} ]
 }
-
-[sub_resource type="CapsuleShape2D" id=2]
-radius = 7.14284
-height = 9.71429
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 17.1429
@@ -142,14 +142,14 @@ script = ExtResource( 3 )
 texture = ExtResource( 1 )
 hframes = 11
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/RESET = SubResource( 5 )
-anims/anim = SubResource( 4 )
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 9 )
 rotation = 1.5708
 shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 4 )
+anims/anim = SubResource( 5 )
 
 [node name="hurtbox" parent="." instance=ExtResource( 2 )]
 collision_layer = 8

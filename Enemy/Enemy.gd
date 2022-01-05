@@ -55,13 +55,11 @@ func _on_Stats_no_health():
 	get_parent().add_child(edf)
 	edf.global_position = global_position
 
-func _on_hitbox_area_entered(area):
+func _on_hitbox_area_entered(_area):
 	AnimState.travel("attack")
-
 
 func _on_hurtbox_invin_start():
 	blink.play("blink_start")
-
 
 func _on_hurtbox_invin_ended():
 	blink.play("blink_end")

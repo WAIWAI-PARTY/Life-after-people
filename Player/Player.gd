@@ -30,7 +30,7 @@ func _process(delta):
 		
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, frict*delta)
-	move_and_slide(velocity)
+	velocity = move_and_slide(velocity)
 
 func _on_hurtbox_area_entered(area):
 	if dash.is_dashing(): return

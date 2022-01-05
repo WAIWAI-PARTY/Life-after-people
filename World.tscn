@@ -27,15 +27,12 @@ position = Vector2( 5, 1 )
 
 [node name="Slime" parent="YSort/slimes" instance=ExtResource( 4 )]
 position = Vector2( 234.03, 97.8397 )
-collision_layer = 0
 
 [node name="Slime2" parent="YSort/slimes" instance=ExtResource( 4 )]
 position = Vector2( 130, 191 )
-collision_layer = 0
 
 [node name="Slime3" parent="YSort/slimes" instance=ExtResource( 4 )]
 position = Vector2( 291, 151 )
-collision_layer = 0
 
 [node name="barrels" type="YSort" parent="YSort"]
 
