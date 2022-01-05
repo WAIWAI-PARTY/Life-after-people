@@ -1,7 +1,6 @@
 extends KinematicBody2D
 
 export(int) var maxSpeed = 100
-
 export(int) var aclt = 800
 export(int) var frict = 1000
 const dash_duration = 0.2
@@ -32,14 +31,12 @@ func _process(delta):
 		
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, frict*delta)
-	print(velocity)
 	move_and_slide(velocity)
 
 func _on_hurtbox_area_entered(area):
 	if dash.is_dashing(): return
 	stats.health -= area.damage
 	hurtbox.start_invin(0.5)
-	print("ouch")
 
-
-
+func _on_Dash_dash_end():
+	velocity = Vector2.ZERO

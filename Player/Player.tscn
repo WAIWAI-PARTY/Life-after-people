@@ -47,6 +47,9 @@ collision_mask = 16
 position = Vector2( 0, -4 )
 shape = SubResource( 2 )
 
+[connection signal="dash_end" from="Dash" to="." method="_on_Dash_dash_end"]
+[connection signal="dash_end" from="Dash" to="hurtbox" method="_on_Dash_dash_end"]
+[connection signal="dash_start" from="Dash" to="hurtbox" method="_on_Dash_dash_start"]
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
 
 [editable path="Dash"]

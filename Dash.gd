@@ -6,12 +6,14 @@ onready var duration_timer =$DurationTimer
 onready var ghost_timer = $GhostTimer
 onready var dust_trail = $DustTrail
 onready var dust_burst = $DustBurst
-
+signal dash_end
+signal dash_start
 var ghost_scene = preload("res://Player/DashGhost.tscn")
 var can_dash = true
 var sprite
 
 func start_dash(sprite, duration, direction):
+	emit_signal("dash_start")
 	self.sprite = sprite
 	sprite.material.set_shader_param("mix_weight", 0.7)
 	sprite.material.set_shader_param("whiten",true)
@@ -44,6 +46,7 @@ func is_dashing():
 	return !duration_timer.is_stopped()
 
 func end_dash():
+	emit_signal("dash_end")
 	ghost_timer.stop()
 	sprite.material.set_shader_param("whiten", false)
 	
