@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://imports/slime.png" type="Texture" id=1]
 [ext_resource path="res://hitandhurt/hurtbox.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://hitandhurt/SoftCollision.tscn" type="PackedScene" id=6]
 [ext_resource path="res://hitandhurt/PlayerDetectionZone.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Effect/whiten_material.gdshader" type="Shader" id=8]
+[ext_resource path="res://Enemy/WanderController.tscn" type="PackedScene" id=9]
 
 [sub_resource type="ShaderMaterial" id=34]
 resource_local_to_scene = true
@@ -253,6 +254,8 @@ scale = Vector2( 1.5, 1.5 )
 
 [node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
 shape = SubResource( 13 )
+
+[node name="WanderController" parent="." instance=ExtResource( 9 )]
 
 [connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]

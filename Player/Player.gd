@@ -13,6 +13,7 @@ onready var hurtbox = $hurtbox
 onready var dash = $Dash
 onready var blink = $Blink
 func _ready():
+	randomize()
 	stats.connect("no_health", self, "queue_free")
 
 func _process(delta):
