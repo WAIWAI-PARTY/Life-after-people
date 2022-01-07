@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://UI/HealthUI.gd" type="Script" id=1]
+
+[node name="HealthUI" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 2.99998
+margin_top = 2.0
+margin_right = 45.0
+margin_bottom = 16.0
+rect_scale = Vector2( 0.956217, 0.929412 )
+text = "Health"
+__meta__ = {
+"_edit_use_anchors_": false
+}
