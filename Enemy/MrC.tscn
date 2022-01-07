@@ -77,9 +77,11 @@ height = 10.0
 radius = 183.044
 
 [node name="MrC" type="KinematicBody2D"]
-scale = Vector2( 2, 2 )
+scale = Vector2( 1.5, 1.5 )
 collision_layer = 0
 script = ExtResource( 1 )
+rotate_speed = 50
+shooter_timer_wait_time = 0.2
 
 [node name="Blink" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 3 )

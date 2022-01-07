@@ -4,10 +4,10 @@ const bullet_scene = preload("res://Enemy/EnemyBullet.tscn")
 onready var shoot_timer = $ShootTimer
 onready var rotater = $Rotater
 
-const rotate_speed = 100
-const shooter_timer_wait_time = 0.5
-const spawn_point_count = 4
-const radius = 10
+export var rotate_speed = 200
+export var  shooter_timer_wait_time = 0.1
+export var  spawn_point_count = 2
+export var  radius = 10
 
 
 onready var stats = $Stats
