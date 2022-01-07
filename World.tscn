@@ -39,19 +39,19 @@ position = Vector2( 291, 151 )
 [node name="barrels" type="YSort" parent="YSort"]
 
 [node name="barrel" parent="YSort/barrels" instance=ExtResource( 5 )]
-position = Vector2( 127, 136 )
+position = Vector2( 330, 180 )
 
 [node name="barrel2" parent="YSort/barrels" instance=ExtResource( 5 )]
-position = Vector2( 72, 133 )
+position = Vector2( 108, 185 )
 
 [node name="barrel3" parent="YSort/barrels" instance=ExtResource( 5 )]
-position = Vector2( 101, 99 )
+position = Vector2( 109, 93 )
 
 [node name="barrel4" parent="YSort/barrels" instance=ExtResource( 5 )]
-position = Vector2( 201, 135 )
+position = Vector2( 323, 96 )
 
 [node name="MrC" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 178, 66 )
+position = Vector2( 239, 134 )
 
 [node name="HealthUI" parent="." instance=ExtResource( 8 )]
 

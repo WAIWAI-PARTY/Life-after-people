@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Enemy/MrC.gd" type="Script" id=1]
 [ext_resource path="res://imports/mrc.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://hitandhurt/PlayerDetectionZone.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Enemy/WanderController.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Effect/whiten_material.gdshader" type="Shader" id=8]
+[ext_resource path="res://UI/EnemyHealth.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Animation" id=3]
 length = 0.001
@@ -76,6 +77,7 @@ height = 10.0
 radius = 183.044
 
 [node name="MrC" type="KinematicBody2D"]
+scale = Vector2( 2, 2 )
 collision_layer = 0
 script = ExtResource( 1 )
 
@@ -85,7 +87,7 @@ anims/blink_end = SubResource( 4 )
 anims/blink_start = SubResource( 5 )
 
 [node name="Stats" parent="." instance=ExtResource( 3 )]
-max_health = 500
+max_health = 2000
 
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 6 )
@@ -120,9 +122,18 @@ shape = SubResource( 2 )
 [node name="PlayerDetectionZone" parent="." instance=ExtResource( 6 )]
 
 [node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
+visible = false
 shape = SubResource( 8 )
 
 [node name="WanderController" parent="." instance=ExtResource( 7 )]
+
+[node name="EnemyHealth" parent="." instance=ExtResource( 9 )]
+
+[node name="Label" parent="EnemyHealth" index="0"]
+margin_left = -12.1351
+margin_top = 7.1623
+margin_right = 51.8649
+margin_bottom = 21.1623
 
 [connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_ShootTimer_timeout"]
@@ -133,3 +144,4 @@ shape = SubResource( 8 )
 [editable path="SoftCollision"]
 [editable path="hurtbox"]
 [editable path="PlayerDetectionZone"]
+[editable path="EnemyHealth"]
