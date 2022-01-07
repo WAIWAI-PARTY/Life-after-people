@@ -5,7 +5,7 @@ onready var shoot_timer = $ShootTimer
 onready var rotater = $Rotater
 
 const rotate_speed = 100
-const shooter_timer_wait_time = 0.2
+const shooter_timer_wait_time = 0.5
 const spawn_point_count = 4
 const radius = 10
 
