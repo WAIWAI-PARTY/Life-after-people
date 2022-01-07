@@ -187,6 +187,7 @@ collision_layer = 0
 script = ExtResource( 3 )
 
 [node name="Stats" parent="." instance=ExtResource( 5 )]
+max_health = 700
 
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 34 )

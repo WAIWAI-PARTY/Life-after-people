@@ -1,10 +1,10 @@
 extends Node
-
-export(int) var max_health = 1000
-var health = max_health setget set_health
+export(int) var max_health
+onready var health = max_health setget set_health
 
 signal no_health
 func set_health(value):
 	health = value
+	print(health)
 	if health <= 0:
 		emit_signal("no_health")
