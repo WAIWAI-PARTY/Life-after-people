@@ -1,6 +1,7 @@
 
 extends Node2D
 
+export var fireCD = 0.5
 var can_fire = true
 var bullet = preload("res://Weapons/Bullets.tscn")
 
@@ -23,5 +24,5 @@ func _process(_delta):
 		get_parent().add_child(bullet_instance)
 		
 		can_fire = false
-		yield(get_tree().create_timer(0.2),"timeout")
+		yield(get_tree().create_timer(fireCD),"timeout")
 		can_fire = true
