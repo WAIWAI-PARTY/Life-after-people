@@ -6,7 +6,7 @@
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 12.5
-height = 5.0
+height = 0.0
 
 [node name="EnemyBullet" type="Node2D"]
 scale = Vector2( 0.4, 0.4 )
