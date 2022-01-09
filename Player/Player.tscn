@@ -13,7 +13,7 @@ shader_param/mix_weight = 1.0
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 3.0
-height = 2.0
+height = 9.99999
 
 [sub_resource type="Animation" id=4]
 resource_name = "Blink_start"
