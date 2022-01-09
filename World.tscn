@@ -605,8 +605,8 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 [node name="World" type="Node"]
 
 [node name="Skybg" type="Sprite" parent="."]
-position = Vector2( 198, -68 )
-scale = Vector2( 2, 1 )
+position = Vector2( 134, 103 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 9 )
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -620,6 +620,11 @@ position = Vector2( 134, 103 )
 current = true
 smoothing_enabled = true
 script = ExtResource( 7 )
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Camera2D"]
+remote_path = NodePath("../../Skybg")
+update_rotation = false
+update_scale = false
 
 [node name="YSort" type="YSort" parent="."]
 
