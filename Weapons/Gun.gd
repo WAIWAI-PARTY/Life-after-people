@@ -22,7 +22,6 @@ func _process(_delta):
 		bullet_instance.rotation = rotation
 		bullet_instance.global_position = $GunSprite/Position2D.global_position
 		get_parent().add_child(bullet_instance)
-		
 		can_fire = false
 		yield(get_tree().create_timer(fireCD),"timeout")
 		can_fire = true

@@ -65,6 +65,8 @@ position = Vector2( 323, 96 )
 position = Vector2( 239, 134 )
 spawn_point_count = 4
 
-[node name="HealthUI" parent="." instance=ExtResource( 8 )]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[editable path="HealthUI"]
+[node name="HealthUI" parent="CanvasLayer" instance=ExtResource( 8 )]
+
+[editable path="CanvasLayer/HealthUI"]
