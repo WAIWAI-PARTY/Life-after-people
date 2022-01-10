@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://imports/oldcharacter.png" type="Texture" id=2]
 [ext_resource path="res://hitandhurt/hurtbox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Player/Dash.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Effect/whiten_material.gdshader" type="Shader" id=5]
+[ext_resource path="res://Player/Bullet_Time.tscn" type="PackedScene" id=6]
 
 [sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 5 )
@@ -88,9 +89,6 @@ anims/RESET = SubResource( 6 )
 
 [node name="Dash" parent="." instance=ExtResource( 4 )]
 
-[node name="DustTrail" parent="Dash" index="2"]
-position = Vector2( 0, 5.3317 )
-
 [node name="hurtbox" parent="." instance=ExtResource( 3 )]
 collision_layer = 2
 collision_mask = 16
@@ -99,6 +97,8 @@ collision_mask = 16
 position = Vector2( 0, -4 )
 shape = SubResource( 2 )
 
+[node name="Bullet_Time" parent="." instance=ExtResource( 6 )]
+
 [connection signal="dash_end" from="Dash" to="." method="_on_Dash_dash_end"]
 [connection signal="dash_end" from="Dash" to="hurtbox" method="_on_Dash_dash_end"]
 [connection signal="dash_start" from="Dash" to="hurtbox" method="_on_Dash_dash_start"]
@@ -106,5 +106,4 @@ shape = SubResource( 2 )
 [connection signal="invin_ended" from="hurtbox" to="." method="_on_hurtbox_invin_ended"]
 [connection signal="invin_start" from="hurtbox" to="." method="_on_hurtbox_invin_start"]
 
-[editable path="Dash"]
 [editable path="hurtbox"]

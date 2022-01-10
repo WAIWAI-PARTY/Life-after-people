@@ -11,5 +11,5 @@ func _on_KillTimer_timeout():
 	queue_free()
 
 
-func _on_hitbox_area_entered(area):
+func _on_hitbox_area_entered(_area):
 	queue_free()
