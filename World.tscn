@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Weapons/Gun.tscn" type="PackedScene" id=1]
 [ext_resource path="res://imports/concretefloor.png" type="Texture" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://Camera2D.gd" type="Script" id=7]
 [ext_resource path="res://UI/HealthUI.tscn" type="PackedScene" id=8]
 [ext_resource path="res://imports/skybg.png" type="Texture" id=9]
+[ext_resource path="res://World.gd" type="Script" id=10]
+[ext_resource path="res://Enemy/Spawn.tscn" type="PackedScene" id=11]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -519,6 +521,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 36/z_index = 0
 
 [node name="World" type="Node"]
+script = ExtResource( 10 )
 
 [node name="Skybg" type="Sprite" parent="."]
 position = Vector2( 134, 103 )
@@ -536,11 +539,6 @@ position = Vector2( 134, 103 )
 current = true
 smoothing_enabled = true
 script = ExtResource( 7 )
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Camera2D"]
-remote_path = NodePath("../../Skybg")
-update_rotation = false
-update_scale = false
 
 [node name="YSort" type="YSort" parent="."]
 
@@ -586,5 +584,13 @@ spawn_point_count = 4
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HealthUI" parent="CanvasLayer" instance=ExtResource( 8 )]
+
+[node name="Spawn" parent="." instance=ExtResource( 11 )]
+position = Vector2( 185, 41 )
+
+[node name="SpawnTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
 
 [editable path="CanvasLayer/HealthUI"]
