@@ -37,7 +37,7 @@ var velocity = Vector2.ZERO
 func _ready():
 	var step = 2*PI / spawn_point_count
 	
-	for i  in range(spawn_point_count):
+	for i in range(spawn_point_count):
 		var spawn_point = Node2D.new()
 		var pos = Vector2(radius, 0).rotated(step * i)
 		spawn_point.position = pos

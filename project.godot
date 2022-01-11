@@ -22,8 +22,8 @@ PlayerStats="*res://Player/PlayerStats.tscn"
 
 window/size/width=480
 window/size/height=270
-window/size/test_width=1600
-window/size/test_height=900
+window/size/test_width=960
+window/size/test_height=540
 window/vsync/use_vsync=false
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
