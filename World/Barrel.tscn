@@ -5,9 +5,9 @@
 [ext_resource path="res://World/Barrel.gd" type="Script" id=3]
 [ext_resource path="res://hitandhurt/hitbox.tscn" type="PackedScene" id=4]
 
-[sub_resource type="CapsuleShape2D" id=2]
-radius = 7.14284
-height = 9.71429
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 15.7143
+height = 0.0
 
 [sub_resource type="Animation" id=4]
 length = 0.001
@@ -142,9 +142,9 @@ texture = ExtResource( 1 )
 hframes = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 9 )
-rotation = 1.5708
-shape = SubResource( 2 )
+position = Vector2( 2.84217e-14, 2.85714 )
+rotation = 3.14159
+shape = SubResource( 6 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 4 )
