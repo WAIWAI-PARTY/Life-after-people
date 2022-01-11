@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Weapons/Gun.tscn" type="PackedScene" id=1]
 [ext_resource path="res://imports/concretefloor.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://imports/skybg.png" type="Texture" id=9]
 [ext_resource path="res://World.gd" type="Script" id=10]
 [ext_resource path="res://Enemy/Spawn.tscn" type="PackedScene" id=11]
+[ext_resource path="res://SceneDesign/BrokenFurnitures.tscn" type="PackedScene" id=12]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -553,6 +554,7 @@ position = Vector2( 5, 1 )
 remote_path = NodePath("../../../Camera2D")
 
 [node name="slimes" type="YSort" parent="YSort"]
+visible = false
 
 [node name="Slime" parent="YSort/slimes" instance=ExtResource( 4 )]
 position = Vector2( 234.03, 97.8397 )
@@ -578,15 +580,20 @@ position = Vector2( 109, 93 )
 position = Vector2( 323, 96 )
 
 [node name="MrC" parent="YSort" instance=ExtResource( 6 )]
+visible = false
 position = Vector2( 239, 134 )
 spawn_point_count = 4
+radius = 500
+
+[node name="BrokenFurnitures" parent="YSort" instance=ExtResource( 12 )]
+position = Vector2( 154, 39 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HealthUI" parent="CanvasLayer" instance=ExtResource( 8 )]
 
 [node name="Spawn" parent="." instance=ExtResource( 11 )]
-position = Vector2( 185, 41 )
+position = Vector2( -30, 42 )
 
 [node name="SpawnTimer" type="Timer" parent="."]
 autostart = true
