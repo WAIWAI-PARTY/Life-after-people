@@ -596,7 +596,6 @@ position = Vector2( 323, 96 )
 [node name="MrC" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 239, 134 )
 spawn_point_count = 4
-radius = 100
 
 [node name="Furnitures" type="YSort" parent="YSort"]
 
