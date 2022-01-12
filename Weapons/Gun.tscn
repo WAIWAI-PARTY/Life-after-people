@@ -19,3 +19,9 @@ region_rect = Rect2( 32, 12, 19, 12 )
 [node name="Position2D" type="Position2D" parent="GunSprite"]
 position = Vector2( 15, -6.5 )
 scale = Vector2( 2, 2 )
+
+[node name="ShakeTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[connection signal="timeout" from="ShakeTimer" to="." method="_on_ShakeTimer_timeout"]

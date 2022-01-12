@@ -18,6 +18,10 @@ config/icon="res://icon.png"
 
 PlayerStats="*res://Player/PlayerStats.tscn"
 
+[debug]
+
+settings/fps/force_fps=144
+
 [display]
 
 window/size/width=480

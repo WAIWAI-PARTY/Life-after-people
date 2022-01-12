@@ -20,7 +20,6 @@ onready var blink = $Blink
 func _ready():
 	randomize()
 	stats.connect("no_health", self, "queue_free")
-	print(get_path())
 
 func _process(delta):
 	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")

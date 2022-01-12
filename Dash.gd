@@ -50,9 +50,7 @@ func end_dash():
 	ghost_timer.stop()
 	sprite.material.set_shader_param("whiten", false)
 	can_dash = false
-	
 	yield(get_tree().create_timer(dash_delay), "timeout")
-	print("dash_end")
 	can_dash = true
 
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=36 format=2]
 
-[ext_resource path="res://Weapons/Gun.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Weapons/shortgun.tscn" type="PackedScene" id=1]
 [ext_resource path="res://imports/concretefloor.png" type="Texture" id=2]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Enemy/Slime.tscn" type="PackedScene" id=4]
@@ -618,6 +618,8 @@ texture = ExtResource( 19 )
 position = Vector2( 134, 103 )
 current = true
 smoothing_enabled = true
+
+[node name="shake" type="Node" parent="Camera2D"]
 script = ExtResource( 7 )
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -633,11 +635,11 @@ tile_data = PoolIntArray( -65543, 0, 0, -65542, 1, 0, -65541, 2, 0, -65540, 2, 0
 position = Vector2( 134, 103 )
 maxSpeed = 125
 
-[node name="Gun" parent="YSort/Player" instance=ExtResource( 1 )]
-position = Vector2( 5, 1 )
-
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
 remote_path = NodePath("../../../Camera2D")
+
+[node name="shortgun" parent="YSort/Player" instance=ExtResource( 1 )]
+position = Vector2( 5, 1 )
 
 [node name="slimes" type="YSort" parent="YSort"]
 
@@ -650,6 +652,10 @@ position = Vector2( 130, 191 )
 [node name="Slime3" parent="YSort/slimes" instance=ExtResource( 4 )]
 position = Vector2( 291, 151 )
 
+[node name="MrC" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 239, 134 )
+spawn_point_count = 4
+
 [node name="barrels" type="YSort" parent="YSort"]
 
 [node name="barrel" parent="YSort/barrels" instance=ExtResource( 5 )]
@@ -659,14 +665,10 @@ position = Vector2( 330, 180 )
 position = Vector2( 108, 185 )
 
 [node name="barrel3" parent="YSort/barrels" instance=ExtResource( 5 )]
-position = Vector2( 109, 93 )
+position = Vector2( 60, 93 )
 
 [node name="barrel4" parent="YSort/barrels" instance=ExtResource( 5 )]
 position = Vector2( 323, 96 )
-
-[node name="MrC" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 239, 134 )
-spawn_point_count = 4
 
 [node name="Furnitures" type="YSort" parent="YSort"]
 
@@ -696,20 +698,21 @@ position = Vector2( 6, -2 )
 
 [node name="Pigeon" parent="YSort/Furnitures/Exteriors/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 92, 35 )
-frame = 0
+frame = 1
 
 [node name="Pigeon2" parent="YSort/Furnitures/Exteriors/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 76, 35 )
 animation = "Pigeon2"
+frame = 4
 
 [node name="Pigeon3" parent="YSort/Furnitures/Exteriors/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 60, 35 )
 animation = "Pigeon2"
-frame = 5
+frame = 4
 
 [node name="Pigeon4" parent="YSort/Furnitures/Exteriors/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 43, 35 )
-frame = 5
+frame = 0
 
 [node name="BrokenFurnitures" parent="YSort/Furnitures" instance=ExtResource( 12 )]
 position = Vector2( 154, 39 )
