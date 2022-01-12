@@ -651,11 +651,11 @@ position = Vector2( 360, -64 )
 [node name="StaticExteriors" type="Node2D" parent="YSort/Furnitures/Exteriors"]
 
 [node name="ModernExteriorsSingles143" type="Sprite" parent="YSort/Furnitures/Exteriors/StaticExteriors"]
-position = Vector2( -400, 1 )
+position = Vector2( -403, 4 )
 texture = ExtResource( 15 )
 
 [node name="ModernExteriorsSingles142" type="Sprite" parent="YSort/Furnitures/Exteriors/StaticExteriors"]
-position = Vector2( -418, 0 )
+position = Vector2( -418, 4 )
 texture = ExtResource( 14 )
 
 [node name="ModernExteriorsSingles144" type="Sprite" parent="YSort/Furnitures/Exteriors/StaticExteriors"]
@@ -663,7 +663,7 @@ position = Vector2( -441, 1 )
 texture = ExtResource( 16 )
 
 [node name="ModernExteriorsSingles145" type="Sprite" parent="YSort/Furnitures/Exteriors/StaticExteriors"]
-position = Vector2( -444, 24 )
+position = Vector2( -446, 24 )
 texture = ExtResource( 17 )
 
 [node name="AnimatedExteriors" type="Node2D" parent="YSort/Furnitures/Exteriors"]
@@ -671,19 +671,21 @@ position = Vector2( 6, -2 )
 
 [node name="Pigeon" parent="YSort/Furnitures/Exteriors/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 92, 35 )
+frame = 2
 
 [node name="Pigeon2" parent="YSort/Furnitures/Exteriors/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 76, 35 )
 animation = "Pigeon2"
+frame = 5
 
 [node name="Pigeon3" parent="YSort/Furnitures/Exteriors/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 60, 35 )
 animation = "Pigeon2"
-frame = 5
+frame = 1
 
 [node name="Pigeon4" parent="YSort/Furnitures/Exteriors/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 43, 35 )
-frame = 2
+frame = 1
 
 [node name="BrokenFurnitures" parent="YSort/Furnitures" instance=ExtResource( 12 )]
 position = Vector2( 154, 39 )
