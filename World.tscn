@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Weapons/Gun.tscn" type="PackedScene" id=1]
 [ext_resource path="res://imports/concretefloor.png" type="Texture" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://imports/Modern_Exteriors_v1.0/Modern_Exteriors_16x16/Modern_Exteriors_Singles_16x16/Modern_Exteriors_Singles_170.png" type="Texture" id=21]
 [ext_resource path="res://imports/Modern_Exteriors_v1.0/Modern_Exteriors_16x16/Modern_Exteriors_Singles_16x16/Modern_Exteriors_Singles_176.png" type="Texture" id=22]
 [ext_resource path="res://SceneDesign/SceneAnimatedSprite/Pigeons.tscn" type="PackedScene" id=23]
+[ext_resource path="res://imports/Modern_Exteriors_v1.0/Modern_Exteriors_16x16/Ready_To_Use_16x16/Modern_Exteriors_RTU_1_layer_1_16x16.png" type="Texture" id=24]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -550,13 +551,32 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 script = ExtResource( 10 )
 
 [node name="Skybg" type="Sprite" parent="."]
-position = Vector2( 160, 222.5 )
-scale = Vector2( 3.475, 3.66111 )
+position = Vector2( 208.5, -221 )
+scale = Vector2( 4.00938, 2.54722 )
 texture = ExtResource( 9 )
+
+[node name="ModernExteriorsRtu1Layer116X16" type="Sprite" parent="."]
+position = Vector2( -109, 358 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 24 )
+
+[node name="ModernExteriorsRtu1Layer116X17" type="Sprite" parent="."]
+position = Vector2( 517, 357 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 24 )
+flip_h = true
 
 [node name="Buildings" type="Node2D" parent="."]
 position = Vector2( -4, 354 )
 scale = Vector2( 2, 2 )
+
+[node name="ModernExteriorsSingles179" type="Sprite" parent="Buildings"]
+position = Vector2( 238, -157 )
+texture = ExtResource( 19 )
+
+[node name="ModernExteriorsSingles177" type="Sprite" parent="Buildings"]
+position = Vector2( -46, -155.5 )
+texture = ExtResource( 18 )
 
 [node name="ModernExteriorsSingles175" type="Sprite" parent="Buildings"]
 position = Vector2( 298.5, -81.5 )
@@ -571,6 +591,11 @@ texture = ExtResource( 22 )
 [node name="ModernExteriorsSingles170" type="Sprite" parent="Buildings"]
 position = Vector2( -108.75, -16 )
 scale = Vector2( 1.16146, 1 )
+texture = ExtResource( 21 )
+
+[node name="ModernExteriorsSingles178" type="Sprite" parent="Buildings"]
+position = Vector2( 97.5, -131 )
+scale = Vector2( 1.74219, 1 )
 texture = ExtResource( 21 )
 
 [node name="ModernExteriorsSingles174" type="Sprite" parent="Buildings"]
@@ -671,21 +696,20 @@ position = Vector2( 6, -2 )
 
 [node name="Pigeon" parent="YSort/Furnitures/Exteriors/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 92, 35 )
-frame = 2
+frame = 0
 
 [node name="Pigeon2" parent="YSort/Furnitures/Exteriors/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 76, 35 )
 animation = "Pigeon2"
-frame = 5
 
 [node name="Pigeon3" parent="YSort/Furnitures/Exteriors/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 60, 35 )
 animation = "Pigeon2"
-frame = 1
+frame = 5
 
 [node name="Pigeon4" parent="YSort/Furnitures/Exteriors/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 43, 35 )
-frame = 1
+frame = 5
 
 [node name="BrokenFurnitures" parent="YSort/Furnitures" instance=ExtResource( 12 )]
 position = Vector2( 154, 39 )
