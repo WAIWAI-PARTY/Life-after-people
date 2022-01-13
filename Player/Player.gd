@@ -5,10 +5,12 @@ export(int) var aclt = 800
 export(int) var frict = 1000
 export(float) var dash_duration = 0.2
 export(float) var b_time_duration = 0.5
+
 var stats = PlayerStats
 var velocity = Vector2.ZERO
 var speed_factor = 1
 var input_vector = Vector2.ZERO
+
 enum {WALK, DASH, B_TIME}
 var state = WALK
 onready var sprite = $Sprite
