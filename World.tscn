@@ -640,16 +640,25 @@ maxSpeed = 125
 remote_path = NodePath("../../../Camera2D")
 
 [node name="shortgun" parent="YSort/Player" instance=ExtResource( 1 )]
+show_behind_parent = true
 position = Vector2( -11, -7 )
 
 [node name="Gun" parent="YSort/Player" instance=ExtResource( 25 )]
-position = Vector2( 7, 4 )
+position = Vector2( 9, 3 )
 
 [node name="shortgun2" parent="YSort/Player" instance=ExtResource( 1 )]
+show_behind_parent = true
 position = Vector2( 9, -7 )
 
 [node name="Gun2" parent="YSort/Player" instance=ExtResource( 25 )]
-position = Vector2( -10, 4 )
+position = Vector2( -11, 3 )
+
+[node name="shortgun3" parent="YSort/Player" instance=ExtResource( 1 )]
+position = Vector2( -2, 9 )
+
+[node name="Gun3" parent="YSort/Player" instance=ExtResource( 25 )]
+show_behind_parent = true
+position = Vector2( -1, -14 )
 
 [node name="slimes" type="YSort" parent="YSort"]
 
@@ -675,7 +684,8 @@ position = Vector2( 330, 180 )
 position = Vector2( 108, 185 )
 
 [node name="barrel3" parent="YSort/barrels" instance=ExtResource( 5 )]
-position = Vector2( 60, 93 )
+show_behind_parent = true
+position = Vector2( 53, 93 )
 
 [node name="barrel4" parent="YSort/barrels" instance=ExtResource( 5 )]
 position = Vector2( 323, 96 )
@@ -708,21 +718,21 @@ position = Vector2( 6, -2 )
 
 [node name="Pigeon" parent="YSort/Furnitures/Exteriors/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 92, 35 )
-frame = 1
+frame = 3
 
 [node name="Pigeon2" parent="YSort/Furnitures/Exteriors/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 76, 35 )
 animation = "Pigeon2"
-frame = 2
+frame = 0
 
 [node name="Pigeon3" parent="YSort/Furnitures/Exteriors/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 60, 35 )
 animation = "Pigeon2"
-frame = 2
+frame = 0
 
 [node name="Pigeon4" parent="YSort/Furnitures/Exteriors/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 43, 35 )
-frame = 0
+frame = 2
 
 [node name="BrokenFurnitures" parent="YSort/Furnitures" instance=ExtResource( 12 )]
 position = Vector2( 154, 39 )
@@ -750,6 +760,7 @@ position = Vector2( 120, 32 )
 position = Vector2( -30, 42 )
 
 [node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 0.5
 autostart = true
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
