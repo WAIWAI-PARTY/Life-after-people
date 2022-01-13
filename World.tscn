@@ -639,6 +639,9 @@ maxSpeed = 125
 remote_path = NodePath("../../../Camera2D")
 
 [node name="shortgun" parent="YSort/Player" instance=ExtResource( 1 )]
+position = Vector2( -5, 1 )
+
+[node name="shortgun2" parent="YSort/Player" instance=ExtResource( 1 )]
 position = Vector2( 5, 1 )
 
 [node name="slimes" type="YSort" parent="YSort"]
@@ -698,6 +701,7 @@ position = Vector2( 6, -2 )
 
 [node name="Pigeon" parent="YSort/Furnitures/Exteriors/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 92, 35 )
+frame = 2
 
 [node name="Pigeon2" parent="YSort/Furnitures/Exteriors/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 76, 35 )
@@ -711,7 +715,7 @@ frame = 3
 
 [node name="Pigeon4" parent="YSort/Furnitures/Exteriors/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 43, 35 )
-frame = 4
+frame = 1
 
 [node name="BrokenFurnitures" parent="YSort/Furnitures" instance=ExtResource( 12 )]
 position = Vector2( 154, 39 )
