@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
-[ext_resource path="res://imports/oldcharacter.png" type="Texture" id=2]
+[ext_resource path="res://imports/Vcharacter.png" type="Texture" id=2]
 [ext_resource path="res://hitandhurt/hurtbox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Player/Dash.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Effect/whiten_material.gdshader" type="Shader" id=5]
@@ -65,7 +65,7 @@ tracks/0/keys = {
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 5.0
-height = 6.0
+height = 14.0
 
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 32
@@ -75,10 +75,9 @@ script = ExtResource( 1 )
 material = SubResource( 3 )
 position = Vector2( 1, -5 )
 texture = ExtResource( 2 )
-flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 3 )
+position = Vector2( -2, 12 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
@@ -95,7 +94,7 @@ collision_layer = 2
 collision_mask = 16
 
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
-position = Vector2( 0, 3 )
+position = Vector2( -1, 5 )
 shape = SubResource( 2 )
 
 [node name="Bullet_Time" parent="." instance=ExtResource( 6 )]
