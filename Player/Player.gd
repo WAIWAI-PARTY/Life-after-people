@@ -19,7 +19,7 @@ onready var blink = $Blink
 
 func _ready():
 	randomize()
-	stats.connect("no_health", self, "queue_free")
+	stats.connect("no_health", self, "player_death_reset")
 
 func _process(delta):
 	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
@@ -70,3 +70,7 @@ func _on_hurtbox_invin_ended():
 
 func _on_hurtbox_invin_start():
 	blink.play("Blink_start")
+
+func player_death_reset():
+	Engine.time_scale = 1
+	queue_free()

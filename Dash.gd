@@ -35,7 +35,7 @@ func instance_ghost():
 	var ghost: Sprite = ghost_scene.instance()
 	get_parent().get_parent().add_child(ghost)
 	
-	ghost.global_position = Vector2(global_position.x+1, global_position.y-5)
+	ghost.global_position = Vector2(global_position.x, global_position.y-14)
 	ghost.texture = sprite.texture
 	ghost.vframes = sprite.vframes
 	ghost.hframes = sprite.hframes
