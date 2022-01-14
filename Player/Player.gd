@@ -41,6 +41,7 @@ func _process(delta):
 func walk_state(delta):
 	if input_vector != Vector2.ZERO:
 		velocity = velocity.move_toward(input_vector*maxSpeed, aclt*delta*speed_factor)
+		$Sprite.flip_h = velocity.x<0
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, frict*delta)
 	if Input.is_action_just_pressed("dash") && dash.can_dash && !dash.is_dashing():
@@ -59,7 +60,7 @@ func b_time_state():
 func _on_hurtbox_area_entered(area):
 	if dash.is_dashing(): return
 	stats.health -= area.damage
-	hurtbox.start_invin(0.5)
+	hurtbox.start_invin(0.001)
 
 func _on_Dash_dash_end():
 	velocity = Vector2.ZERO

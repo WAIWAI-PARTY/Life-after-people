@@ -80,8 +80,8 @@ radius = 183.044
 scale = Vector2( 1.5, 1.5 )
 collision_layer = 0
 script = ExtResource( 1 )
-rotate_speed = 50
 shooter_timer_wait_time = 0.2
+spawn_point_count = 6
 
 [node name="Blink" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 3 )

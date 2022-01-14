@@ -5,9 +5,9 @@ onready var shoot_timer = $ShootTimer
 onready var rotater = $Rotater
 
 export var rotate_speed = 200
-export var  shooter_timer_wait_time = 0.1
-export var  spawn_point_count = 2
-export var  radius = 10
+export var shooter_timer_wait_time = 0.1
+export(int) var spawn_point_count = 1
+export var radius = 10
 
 
 onready var stats = $Stats
@@ -17,7 +17,7 @@ onready var soft_coll = $SoftCollision
 onready var blink = $Blink
 onready var hurtbox = $hurtbox
 onready var wand_con = $WanderController
-
+onready var _player = get_node("/root/World/YSort/Player")
 export(int) var aclt = 300
 export(int) var max_speed = 50
 export(int) var frict = 200
@@ -36,7 +36,9 @@ var velocity = Vector2.ZERO
 
 func _ready():
 	var step = 2*PI / spawn_point_count
-	
+	print(step)
+	print(2*PI)
+	print(spawn_point_count)
 	for i in range(spawn_point_count):
 		var spawn_point = Node2D.new()
 		var pos = Vector2(radius, 0).rotated(step * i)
@@ -82,7 +84,7 @@ func _on_ShootTimer_timeout():
 		var bullet = bullet_scene.instance()
 		get_tree().root.add_child(bullet)
 		bullet.position = s.global_position
-		bullet.rotation = s.global_rotation
+		bullet.look_at(_player.global_position)
 		
 
 func move(pos,delta):
