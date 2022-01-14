@@ -17,7 +17,7 @@ onready var soft_coll = $SoftCollision
 onready var blink = $Blink
 onready var hurtbox = $hurtbox
 onready var wand_con = $WanderController
-onready var _player = get_node("/root/World/YSort/Player")
+onready var _player = get_node("/root/World/YSort/Player").global_position
 export(int) var aclt = 300
 export(int) var max_speed = 50
 export(int) var frict = 200
@@ -52,6 +52,8 @@ func _ready():
 
 func _process(delta):
 	rotate_shoot_point(delta)
+	if pdz.player!=null:
+		_player = get_node("/root/World/YSort/Player").global_position
 	match state:
 		idle:
 			velocity = velocity.move_toward(Vector2.ZERO, frict*delta)
@@ -84,7 +86,7 @@ func _on_ShootTimer_timeout():
 		var bullet = bullet_scene.instance()
 		get_tree().root.add_child(bullet)
 		bullet.position = s.global_position
-		bullet.look_at(_player.global_position)
+		bullet.look_at(_player)
 		
 
 func move(pos,delta):

@@ -24,7 +24,7 @@ func _process(_delta):
 		bullet_instance.global_position = $GunSprite/Position2D.global_position
 		get_parent().add_child(bullet_instance)
 		if !cam_shake.is_shaking:
-			cam.offset = lerp(cam.offset, (Vector2.RIGHT*5).rotated(rotation), 0.5)
+			cam.offset = lerp(cam.offset, (Vector2.RIGHT*3).rotated(rotation), 0.5)
 			shaketimer.start()
 		can_fire = false
 		yield(get_tree().create_timer(fireCD),"timeout")

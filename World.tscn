@@ -1,6 +1,5 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=36 format=2]
 
-[ext_resource path="res://Weapons/shortgun.tscn" type="PackedScene" id=1]
 [ext_resource path="res://imports/concretefloor.png" type="Texture" id=2]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Enemy/Slime.tscn" type="PackedScene" id=4]
@@ -639,21 +638,11 @@ maxSpeed = 125
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
 remote_path = NodePath("../../../Camera2D")
 
-[node name="shortgun" parent="YSort/Player" instance=ExtResource( 1 )]
-show_behind_parent = true
-position = Vector2( -8, -12 )
-
 [node name="Gun" parent="YSort/Player" instance=ExtResource( 25 )]
 position = Vector2( 6, 5 )
 
-[node name="shortgun2" parent="YSort/Player" instance=ExtResource( 1 )]
-position = Vector2( 12, -4 )
-
 [node name="Gun2" parent="YSort/Player" instance=ExtResource( 25 )]
 position = Vector2( -13, -4 )
-
-[node name="shortgun3" parent="YSort/Player" instance=ExtResource( 1 )]
-position = Vector2( -8, 5 )
 
 [node name="Gun3" parent="YSort/Player" instance=ExtResource( 25 )]
 show_behind_parent = true
@@ -716,19 +705,20 @@ position = Vector2( 6, -2 )
 
 [node name="Pigeon" parent="YSort/Furnitures/Exteriors/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 92, 35 )
-frame = 2
 
 [node name="Pigeon2" parent="YSort/Furnitures/Exteriors/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 76, 35 )
 animation = "Pigeon2"
+frame = 4
 
 [node name="Pigeon3" parent="YSort/Furnitures/Exteriors/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 60, 35 )
 animation = "Pigeon2"
+frame = 4
 
 [node name="Pigeon4" parent="YSort/Furnitures/Exteriors/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 43, 35 )
-frame = 1
+frame = 4
 
 [node name="BrokenFurnitures" parent="YSort/Furnitures" instance=ExtResource( 12 )]
 position = Vector2( 154, 39 )

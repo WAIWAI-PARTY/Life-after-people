@@ -28,6 +28,7 @@ func _process(delta):
 	maxSpeed = 450 if dash.is_dashing() else 100*speed_factor
 	aclt = 10000*speed_factor if dash.is_dashing() else 800*speed_factor
 	frict = 1000*speed_factor
+	$Sprite.flip_h = global_position>get_global_mouse_position()
 	match state:
 		WALK:
 			walk_state(delta)
@@ -41,7 +42,6 @@ func _process(delta):
 func walk_state(delta):
 	if input_vector != Vector2.ZERO:
 		velocity = velocity.move_toward(input_vector*maxSpeed, aclt*delta*speed_factor)
-		$Sprite.flip_h = velocity.x<0
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, frict*delta)
 	if Input.is_action_just_pressed("dash") && dash.can_dash && !dash.is_dashing():
