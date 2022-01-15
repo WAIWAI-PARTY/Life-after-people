@@ -19,6 +19,7 @@ onready var dash = $Dash
 onready var bullet_time = $Bullet_Time
 onready var blink = $Blink
 onready var anim_tree = $AnimationTree
+onready var AnimState = anim_tree.get("parameters/playback")
 onready var anim_player = $AnimationPlayer
 
 
@@ -34,7 +35,8 @@ func _process(delta):
 	aclt = 10000*speed_factor if dash.is_dashing() else 800*speed_factor
 	frict = 1000*speed_factor
 	anim_tree["parameters/idle/TimeScale/scale"] = speed_factor
-	$Sprite.flip_h = global_position>get_global_mouse_position()
+	anim_tree["parameters/walk/TimeScale/scale"] = speed_factor
+	
 	match state:
 		IDLE:
 			idle()
@@ -48,6 +50,8 @@ func _process(delta):
 	velocity = move_and_slide(velocity)
 
 func walk_state(delta):
+	AnimState.travel("walk")
+	$Sprite.flip_h = velocity.x<0
 	if input_vector != Vector2.ZERO:
 		velocity = velocity.move_toward(input_vector*maxSpeed, aclt*delta*speed_factor)
 	else:
@@ -63,6 +67,9 @@ func dash_state():
 	dash.start_dash(sprite, dash_duration, input_vector)
 	state = WALK
 func idle():
+	
+	AnimState.travel("idle")
+	$Sprite.flip_h = global_position>get_global_mouse_position()
 	if Input.is_action_just_pressed("dash") && dash.can_dash && !dash.is_dashing():
 		state = DASH
 	elif Input.is_action_just_pressed("bullet_time") and bullet_time.can_bullet and !bullet_time.is_bulleting():
