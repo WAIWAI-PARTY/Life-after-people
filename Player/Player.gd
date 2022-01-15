@@ -75,17 +75,11 @@ func b_time_state():
 
 func _on_hurtbox_area_entered(area):
 	if dash.is_dashing(): return
+	blink.play("Blink_start")
 	stats.health -= area.damage
-	hurtbox.start_invin(0.5)
 
 func _on_Dash_dash_end():
 	velocity = Vector2.ZERO
-
-func _on_hurtbox_invin_ended():
-	blink.play("Blink_stop")
-
-func _on_hurtbox_invin_start():
-	blink.play("Blink_start")
 
 func player_death_reset():
 	Engine.time_scale = 1

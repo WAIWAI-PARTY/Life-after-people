@@ -70,8 +70,8 @@ func pick_state(state_list = [idle,wander]):
 	return state_list.pop_front()
 
 func _on_hurtbox_area_entered(area):
+	blink.play("blink_start")
 	stats.health -= area.damage
-	hurtbox.start_invin(0.1)
 
 func _on_Stats_no_health():
 	queue_free()
@@ -79,11 +79,6 @@ func _on_Stats_no_health():
 	get_parent().add_child(edf)
 	edf.global_position = global_position
 
-func _on_hitbox_area_entered(_area):
+func _on_AttackRange_area_entered(area):
+	print("enter")
 	AnimState.travel("attack")
-
-func _on_hurtbox_invin_start():
-	blink.play("blink_start")
-
-func _on_hurtbox_invin_ended():
-	blink.play("blink_end")

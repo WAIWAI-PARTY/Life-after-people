@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://imports/slime.png" type="Texture" id=1]
 [ext_resource path="res://hitandhurt/hurtbox.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Effect/whiten_material.gdshader" type="Shader" id=8]
 [ext_resource path="res://Enemy/WanderController.tscn" type="PackedScene" id=9]
 [ext_resource path="res://UI/EnemyHealth.tscn" type="PackedScene" id=10]
+[ext_resource path="res://hitandhurt/AttackRange.tscn" type="PackedScene" id=11]
 
 [sub_resource type="ShaderMaterial" id=34]
 resource_local_to_scene = true
@@ -36,25 +37,10 @@ tracks/0/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=36]
-resource_name = "blink_end"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:material:shader_param/whiten")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-
 [sub_resource type="Animation" id=37]
 resource_name = "blink_start"
-length = 0.1
+length = 0.02
+step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:material:shader_param/whiten")
 tracks/0/interp = 1
@@ -62,7 +48,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
+"times": PoolRealArray( 0, 0.02 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
@@ -82,6 +68,30 @@ tracks/0/keys = {
 "update": 0,
 "values": [ 0 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("hitbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AttackRange:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=19]
 resource_name = "attack"
@@ -97,6 +107,30 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 11, 10, 9, 8 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("hitbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AttackRange:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
 }
 
 [sub_resource type="Animation" id=20]
@@ -183,6 +217,10 @@ height = 11.0
 [sub_resource type="CircleShape2D" id=13]
 radius = 60.6667
 
+[sub_resource type="CapsuleShape2D" id=38]
+radius = 9.0
+height = 11.0
+
 [node name="Slime" type="KinematicBody2D"]
 collision_layer = 0
 script = ExtResource( 3 )
@@ -198,7 +236,6 @@ material = SubResource( 34 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -3 )
 hframes = 12
-frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -209,7 +246,6 @@ shape = SubResource( 1 )
 [node name="Blink" type="AnimationPlayer" parent="."]
 reset_on_save = false
 anims/RESET = SubResource( 35 )
-anims/blink_end = SubResource( 36 )
 anims/blink_start = SubResource( 37 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -224,6 +260,8 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 32 )
 
+[node name="WanderController" parent="." instance=ExtResource( 9 )]
+
 [node name="SoftCollision" parent="." instance=ExtResource( 6 )]
 visible = false
 
@@ -236,7 +274,7 @@ shape = SubResource( 33 )
 visible = false
 position = Vector2( 2, -1 )
 collision_layer = 8
-collision_mask = 4
+collision_mask = 0
 
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
 position = Vector2( -2, 0 )
@@ -246,31 +284,40 @@ shape = SubResource( 2 )
 [node name="hitbox" parent="." instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 0, -1 )
-collision_layer = 16
+collision_layer = 0
 collision_mask = 2
-damage = 30
+damage = 10
 
 [node name="CollisionShape2D" parent="hitbox" index="0"]
 position = Vector2( 0, -2 )
 rotation = 1.5708
 shape = SubResource( 3 )
+disabled = true
 
 [node name="PlayerDetectionZone" parent="." instance=ExtResource( 7 )]
+visible = false
 scale = Vector2( 3, 3 )
 
 [node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
 visible = false
 shape = SubResource( 13 )
 
-[node name="WanderController" parent="." instance=ExtResource( 9 )]
+[node name="AttackRange" parent="." instance=ExtResource( 11 )]
+position = Vector2( 0, -1 )
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" parent="AttackRange" index="0"]
+position = Vector2( 0, -2 )
+rotation = 1.5708
+shape = SubResource( 38 )
 
 [connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
-[connection signal="invin_ended" from="hurtbox" to="." method="_on_hurtbox_invin_ended"]
-[connection signal="invin_start" from="hurtbox" to="." method="_on_hurtbox_invin_start"]
-[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="area_entered" from="AttackRange" to="." method="_on_AttackRange_area_entered"]
 
 [editable path="SoftCollision"]
 [editable path="hurtbox"]
 [editable path="hitbox"]
 [editable path="PlayerDetectionZone"]
+[editable path="AttackRange"]

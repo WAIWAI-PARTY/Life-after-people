@@ -93,14 +93,6 @@ func move(pos,delta):
 	var direction = global_position.direction_to(pos)
 	velocity = velocity.move_toward(direction*max_speed, aclt*delta)
 
-func _on_hurtbox_invin_start():
-	blink.play("blink_start")
-
-
-func _on_hurtbox_invin_ended():
-	blink.play("blink_end")
-
-
 func _on_Stats_no_health():
 	queue_free()
 	var edf = deathEffect.instance()
@@ -126,4 +118,4 @@ func pick_and_start():
 
 func _on_hurtbox_area_entered(area):
 	stats.health-=area.damage
-	hurtbox.start_invin(0.1)
+	blink.play("blink_start")

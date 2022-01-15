@@ -707,12 +707,12 @@ frame = 4
 [node name="Pigeon2" parent="YSort/Furnitures/Exteriors/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 76, 35 )
 animation = "Pigeon2"
-frame = 3
+frame = 2
 
 [node name="Pigeon3" parent="YSort/Furnitures/Exteriors/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 60, 35 )
 animation = "Pigeon2"
-frame = 3
+frame = 2
 
 [node name="Pigeon4" parent="YSort/Furnitures/Exteriors/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 43, 35 )
