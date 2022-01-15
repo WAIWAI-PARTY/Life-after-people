@@ -28,6 +28,7 @@ func _ready():
 	stats.connect("no_health", self, "player_death_reset")
 
 func _process(delta):
+	$Sprite.flip_h = global_position>get_global_mouse_position()
 	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	input_vector = input_vector.normalized()
@@ -51,7 +52,6 @@ func _process(delta):
 
 func walk_state(delta):
 	AnimState.travel("walk")
-	$Sprite.flip_h = velocity.x<0
 	if input_vector != Vector2.ZERO:
 		velocity = velocity.move_toward(input_vector*maxSpeed, aclt*delta*speed_factor)
 	else:
@@ -69,7 +69,6 @@ func dash_state():
 func idle():
 	
 	AnimState.travel("idle")
-	$Sprite.flip_h = global_position>get_global_mouse_position()
 	if Input.is_action_just_pressed("dash") && dash.can_dash && !dash.is_dashing():
 		state = DASH
 	elif Input.is_action_just_pressed("bullet_time") and bullet_time.can_bullet and !bullet_time.is_bulleting():
