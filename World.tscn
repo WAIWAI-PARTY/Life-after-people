@@ -214,7 +214,6 @@ position = Vector2( 428, -23 )
 
 [node name="Pigeon" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 23, -8 )
-frame = 3
 
 [node name="Pigeon2" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 7, -8 )
@@ -226,7 +225,7 @@ animation = "Pigeon2"
 
 [node name="Pigeon4" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( -25, -8 )
-frame = 2
+frame = 4
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
