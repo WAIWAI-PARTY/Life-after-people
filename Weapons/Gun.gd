@@ -20,7 +20,7 @@ func _input(event):
 func _process(_delta):
 	if Input.is_action_pressed("shoot") and can_fire:
 		var bullet_instance = bullet.instance()
-		bullet_instance.rotation = rotation+rand_range(-0.1,0.1)
+		bullet_instance.rotation = rotation#+rand_range(-0.1,0.1)
 		bullet_instance.global_position = $GunSprite/Position2D.global_position
 		get_parent().add_child(bullet_instance)
 		if !cam_shake.is_shaking:
