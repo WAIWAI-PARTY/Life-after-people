@@ -24,10 +24,10 @@ settings/fps/force_fps=144
 
 [display]
 
-window/size/width=320
-window/size/height=180
-window/size/test_width=960
-window/size/test_height=540
+window/size/width=640
+window/size/height=360
+window/size/test_width=1920
+window/size/test_height=1080
 window/vsync/use_vsync=false
 mouse_cursor/custom_image="res://UI/crosshair.png"
 mouse_cursor/tooltip_position_offset=Vector2( 8, 8 )
