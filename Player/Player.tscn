@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://imports/Vcharacter_anim.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Player/Dash.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Effect/whiten_material.gdshader" type="Shader" id=5]
 [ext_resource path="res://Player/Bullet_Time.tscn" type="PackedScene" id=6]
+[ext_resource path="res://imports/MediumShadow.png" type="Texture" id=7]
 
 [sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 5 )
@@ -149,6 +150,11 @@ material = SubResource( 3 )
 position = Vector2( 0, -18 )
 texture = ExtResource( 2 )
 hframes = 10
+
+[node name="MediumShadow" type="Sprite" parent="Sprite"]
+show_behind_parent = true
+position = Vector2( 0, 24 )
+texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 3 )
