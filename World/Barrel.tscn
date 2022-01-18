@@ -7,7 +7,7 @@
 [ext_resource path="res://imports/MediumShadow.png" type="Texture" id=5]
 
 [sub_resource type="CapsuleShape2D" id=6]
-radius = 7.14286
+radius = 7.14283
 height = 11.4286
 
 [sub_resource type="Animation" id=4]
@@ -127,7 +127,7 @@ tracks/4/keys = {
 }
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 17.1429
+radius = 14.2857
 height = 2.85714
 
 [sub_resource type="CircleShape2D" id=3]
@@ -151,7 +151,7 @@ scale = Vector2( 1.25893, 1 )
 texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 7.14286 )
+position = Vector2( 0.681, 7.143 )
 rotation = 1.5708
 shape = SubResource( 6 )
 
@@ -163,7 +163,7 @@ anims/anim = SubResource( 5 )
 collision_mask = 0
 
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
-position = Vector2( 0, -1.5 )
+position = Vector2( 0.713, -1.429 )
 shape = SubResource( 1 )
 
 [node name="hitbox" parent="." instance=ExtResource( 4 )]
