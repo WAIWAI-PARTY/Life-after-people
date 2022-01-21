@@ -16,7 +16,6 @@ var state = IDLE
 onready var sprite = $Sprite
 onready var hurtbox = $hurtbox
 onready var dash = $Dash
-onready var bullet_time = $Bullet_Time
 onready var blink = $Blink
 onready var anim_tree = $AnimationTree
 onready var AnimState = anim_tree.get("parameters/playback")
@@ -45,9 +44,7 @@ func _process(delta):
 			walk_state(delta)
 		DASH:
 			dash_state()
-		B_TIME:
-			b_time_state()
-				
+
 	velocity = move_and_slide(velocity)
 
 func walk_state(delta):
@@ -58,8 +55,6 @@ func walk_state(delta):
 		velocity = velocity.move_toward(Vector2.ZERO, frict*delta)
 	if Input.is_action_just_pressed("dash") && dash.can_dash && !dash.is_dashing():
 		state = DASH
-	elif Input.is_action_just_pressed("bullet_time") and bullet_time.can_bullet and !bullet_time.is_bulleting():
-		state = B_TIME
 	elif velocity == Vector2.ZERO:
 		state = IDLE
 
@@ -67,17 +62,11 @@ func dash_state():
 	dash.start_dash(sprite, dash_duration, input_vector)
 	state = WALK
 func idle():
-	
 	AnimState.travel("idle")
 	if Input.is_action_just_pressed("dash") && dash.can_dash && !dash.is_dashing():
 		state = DASH
-	elif Input.is_action_just_pressed("bullet_time") and bullet_time.can_bullet and !bullet_time.is_bulleting():
-		state = B_TIME
 	elif input_vector != Vector2.ZERO:
 		state = WALK
-func b_time_state():
-	bullet_time.start_bullet_time(sprite, b_time_duration)
-	state = WALK
 
 func _on_hurtbox_area_entered(area):
 	if dash.is_dashing(): return

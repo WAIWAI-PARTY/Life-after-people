@@ -5,7 +5,12 @@ onready var ghost_timer = $GhostTimer
 var ghost_scene = preload("res://Player/DashGhost.tscn")
 var sprite
 var can_bullet = true
+
 onready var dash = $"../Dash"
+func _process(delta):
+	if Input.is_action_just_pressed("bullet_time") and can_bullet and !is_bulleting():
+		start_bullet_time(get_parent().sprite, get_parent().b_time_duration)
+		get_parent().state = get_parent().WALK
 func ghost_instance():
 	var ghost: Sprite = ghost_scene.instance()
 	get_parent().get_parent().add_child(ghost)

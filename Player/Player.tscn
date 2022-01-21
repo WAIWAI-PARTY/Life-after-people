@@ -1,11 +1,10 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://imports/Vcharacter_anim.png" type="Texture" id=2]
 [ext_resource path="res://hitandhurt/hurtbox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Player/Dash.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Effect/whiten_material.gdshader" type="Shader" id=5]
-[ext_resource path="res://Player/Bullet_Time.tscn" type="PackedScene" id=6]
 [ext_resource path="res://imports/MediumShadow.png" type="Texture" id=7]
 
 [sub_resource type="ShaderMaterial" id=3]
@@ -178,8 +177,6 @@ anims/Blink_start = SubResource( 4 )
 anims/RESET = SubResource( 6 )
 
 [node name="Dash" parent="." instance=ExtResource( 4 )]
-
-[node name="Bullet_Time" parent="." instance=ExtResource( 6 )]
 
 [node name="hurtbox" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, -6 )
