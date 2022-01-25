@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://imports/crosshair.png" type="Texture" id=1]
 [ext_resource path="res://imports/concretefloor_tile.tres" type="TileSet" id=2]
@@ -24,6 +24,21 @@
 [ext_resource path="res://SceneDesign/SceneAnimatedSprite/Pigeons.tscn" type="PackedScene" id=23]
 [ext_resource path="res://imports/Modern_Exteriors_v1.0/Modern_Exteriors_16x16/Ready_To_Use_16x16/Modern_Exteriors_RTU_1_layer_1_16x16.png" type="Texture" id=24]
 [ext_resource path="res://Spawner.gd" type="Script" id=25]
+
+[sub_resource type="Environment" id=1]
+background_mode = 4
+tonemap_mode = 3
+glow_enabled = true
+glow_levels/1 = true
+glow_levels/2 = true
+glow_levels/3 = false
+glow_intensity = 0.3
+glow_strength = 2.0
+glow_blend_mode = 0
+glow_hdr_threshold = 1.5
+glow_hdr_luminance_cap = 2.0
+glow_bicubic_upscale = true
+glow_high_quality = true
 
 [node name="World" type="Node2D"]
 
@@ -231,21 +246,21 @@ position = Vector2( 428, -23 )
 
 [node name="Pigeon" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 23, -8 )
-frame = 3
+frame = 2
 
 [node name="Pigeon2" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 7, -8 )
 animation = "Pigeon2"
-frame = 4
+frame = 2
 
 [node name="Pigeon3" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( -9, -8 )
 animation = "Pigeon2"
-frame = 4
+frame = 2
 
 [node name="Pigeon4" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( -25, -8 )
-frame = 2
+frame = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -266,6 +281,9 @@ position = Vector2( -30, 42 )
 
 [node name="SpawnTimer" type="Timer" parent="Spawner"]
 autostart = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
 
 [connection signal="timeout" from="Spawner/SpawnTimer" to="Spawner" method="_on_SpawnTimer_timeout"]
 
