@@ -28,17 +28,15 @@
 [sub_resource type="Environment" id=1]
 background_mode = 4
 background_color = Color( 1, 1, 1, 1 )
-background_energy = 16.0
 ambient_light_color = Color( 1, 0, 0, 1 )
 ambient_light_energy = 16.0
-glow_enabled = true
 glow_levels/3 = false
 glow_levels/4 = true
-glow_bloom = 0.21
+glow_strength = 1.35
 glow_blend_mode = 1
 glow_high_quality = true
 adjustment_enabled = true
-adjustment_saturation = 8.0
+adjustment_saturation = 1.18
 
 [node name="World" type="Node2D"]
 
@@ -246,20 +244,20 @@ position = Vector2( 428, -23 )
 
 [node name="Pigeon" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 23, -8 )
+frame = 0
 
 [node name="Pigeon2" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 7, -8 )
 animation = "Pigeon2"
-frame = 2
+frame = 1
 
 [node name="Pigeon3" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( -9, -8 )
 animation = "Pigeon2"
-frame = 2
+frame = 1
 
 [node name="Pigeon4" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( -25, -8 )
-frame = 4
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
