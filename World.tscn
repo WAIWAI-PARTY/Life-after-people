@@ -9,6 +9,7 @@
 [ext_resource path="res://Camera2D.gd" type="Script" id=7]
 [ext_resource path="res://UI/HealthUI.tscn" type="PackedScene" id=8]
 [ext_resource path="res://imports/skybg.png" type="Texture" id=9]
+[ext_resource path="res://imports/brokenbuilding.png" type="Texture" id=10]
 [ext_resource path="res://Enemy/Spawn.tscn" type="PackedScene" id=11]
 [ext_resource path="res://SceneDesign/Scenestaticsprite/BrokenFurnitures.tscn" type="PackedScene" id=12]
 [ext_resource path="res://SceneDesign/Scenestaticsprite/Locker.tscn" type="PackedScene" id=13]
@@ -17,7 +18,6 @@
 [ext_resource path="res://imports/Modern_Exteriors_v1.0/Modern_Exteriors_16x16/Modern_Exteriors_Singles_16x16/Modern_Exteriors_Singles_144.png" type="Texture" id=16]
 [ext_resource path="res://imports/Modern_Exteriors_v1.0/Modern_Exteriors_16x16/Modern_Exteriors_Singles_16x16/Modern_Exteriors_Singles_145.png" type="Texture" id=17]
 [ext_resource path="res://imports/overgrownbuilding2.png" type="Texture" id=18]
-[ext_resource path="res://imports/Modern_Exteriors_v1.0/Modern_Exteriors_16x16/Modern_Exteriors_Singles_16x16/Modern_Exteriors_Singles_172.png" type="Texture" id=19]
 [ext_resource path="res://imports/overgrownbuilding1.png" type="Texture" id=20]
 [ext_resource path="res://Cursor.gd" type="Script" id=21]
 [ext_resource path="res://Weapons/shortgun.tscn" type="PackedScene" id=22]
@@ -56,16 +56,21 @@ scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 24 )
 flip_h = true
 
+[node name="Brokenbuilding" type="Sprite" parent="."]
+position = Vector2( 166, 364 )
+scale = Vector2( 1.44792, 1.30833 )
+texture = ExtResource( 10 )
+
 [node name="Buildings" type="Node2D" parent="."]
 position = Vector2( -4, 354 )
 scale = Vector2( 2, 2 )
 
 [node name="ModernExteriorsSingles179" type="Sprite" parent="Buildings"]
-position = Vector2( 246, -229 )
+position = Vector2( 246, -205 )
 texture = ExtResource( 18 )
 
 [node name="ModernExteriorsSingles182" type="Sprite" parent="Buildings"]
-position = Vector2( 342, -229 )
+position = Vector2( 342, -205 )
 texture = ExtResource( 18 )
 
 [node name="ModernExteriorsSingles183" type="Sprite" parent="Buildings"]
@@ -97,31 +102,15 @@ scale = Vector2( 1.16146, 1 )
 texture = ExtResource( 20 )
 
 [node name="ModernExteriorsSingles178" type="Sprite" parent="Buildings"]
-position = Vector2( 53.5, -229 )
+position = Vector2( 54, -189 )
 texture = ExtResource( 18 )
 
 [node name="ModernExteriorsSingles180" type="Sprite" parent="Buildings"]
-position = Vector2( 149.5, -217 )
-texture = ExtResource( 20 )
-
-[node name="ModernExteriorsSingles174" type="Sprite" parent="Buildings"]
-position = Vector2( 196, 6 )
-texture = ExtResource( 20 )
-
-[node name="ModernExteriorsSingles171" type="Sprite" parent="Buildings"]
-position = Vector2( 102.5, -4 )
-texture = ExtResource( 18 )
-
-[node name="ModernExteriorsSingles172" type="Sprite" parent="Buildings"]
-position = Vector2( 0.5, -6.5 )
-texture = ExtResource( 19 )
-
-[node name="Overgrownbuilding1" type="Sprite" parent="Buildings/ModernExteriorsSingles172"]
-position = Vector2( 2.5, 12 )
+position = Vector2( 150, -173 )
 texture = ExtResource( 20 )
 
 [node name="ModernExteriorsSingles173" type="Sprite" parent="Buildings"]
-position = Vector2( 301, -7.5 )
+position = Vector2( 294, -9 )
 scale = Vector2( 1.21875, 1 )
 texture = ExtResource( 18 )
 
@@ -133,7 +122,7 @@ smoothing_enabled = true
 [node name="shake" type="Node" parent="Camera2D"]
 script = ExtResource( 7 )
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="concretefloor" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 show_collision = true
@@ -244,21 +233,21 @@ position = Vector2( 428, -23 )
 
 [node name="Pigeon" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 23, -8 )
-frame = 4
+frame = 2
 
 [node name="Pigeon2" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 7, -8 )
 animation = "Pigeon2"
-frame = 2
+frame = 4
 
 [node name="Pigeon3" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( -9, -8 )
 animation = "Pigeon2"
-frame = 2
+frame = 4
 
 [node name="Pigeon4" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( -25, -8 )
-frame = 3
+frame = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
