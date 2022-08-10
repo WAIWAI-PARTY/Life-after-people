@@ -79,6 +79,5 @@ func _on_Stats_no_health():
 	get_parent().add_child(edf)
 	edf.global_position = global_position
 
-func _on_AttackRange_area_entered(area):
-	print("enter")
+func _on_AttackRange_area_entered(_area):
 	AnimState.travel("attack")
