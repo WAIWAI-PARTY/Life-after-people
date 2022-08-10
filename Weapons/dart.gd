@@ -1,7 +1,8 @@
 extends Area2D
 onready var coll = $hitbox/CollisionShape2D
-export var noise = 20
-export var speed = 1200
+export var noise = 30
+export var speed = 800
+export var stay_time = 0.5
 onready var tar_pos
 onready var coming_back = false
 onready var shooting = false
@@ -9,7 +10,7 @@ enum{firing, idle}
 var state = idle
  
 func _process(delta):
-	if Input.is_action_just_pressed("shoot") and not(shooting):
+	if Input.is_action_pressed("shoot") and not(shooting):
 		shooting = true
 		tar_pos = get_global_mouse_position()+Vector2(rand_range(-noise,noise), rand_range(-noise,noise))
 		state = firing
@@ -20,12 +21,14 @@ func _process(delta):
 			firing(delta)
 
 func idle():
-	pass
+	$hitbox.damage = 7
 	
 func firing(delta):
+	$hitbox.damage = 20
 	if not(coming_back):
 		global_position = global_position.move_toward(tar_pos, speed*delta)
 		if global_position.distance_to(tar_pos) < 1:
+			yield(get_tree().create_timer(stay_time),"timeout")
 			coming_back = true
 	else:
 		global_position = global_position.move_toward(get_node("../").global_position, speed*delta)
