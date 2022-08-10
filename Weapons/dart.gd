@@ -1,7 +1,7 @@
 extends Area2D
 onready var coll = $hitbox/CollisionShape2D
 export var noise = 30
-export var speed = 800
+export var speed = 1200
 export var stay_time = 0.5
 onready var tar_pos
 onready var coming_back = false
