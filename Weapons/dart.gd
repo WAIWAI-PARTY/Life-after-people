@@ -6,18 +6,18 @@ export var stay_time = 0.5
 onready var tar_pos
 onready var coming_back = false
 onready var shooting = false
-enum{firing, idle}
-var state = idle
+enum{FIRE, IDLE}
+var state = IDLE
  
 func _process(delta):
 	if Input.is_action_pressed("shoot") and not(shooting):
 		shooting = true
 		tar_pos = get_global_mouse_position()+Vector2(rand_range(-noise,noise), rand_range(-noise,noise))
-		state = firing
+		state = FIRE
 	match state:
-		idle:
+		IDLE:
 			idle()
-		firing:
+		FIRE:
 			firing(delta)
 
 func idle():
@@ -35,7 +35,7 @@ func firing(delta):
 		if global_position.distance_to(get_node("../").global_position) < 1:
 			coming_back = false
 			shooting = false
-			state = idle
+			state = IDLE
 	
 func _on_Timer_timeout():
 	coll.set_deferred("disabled", true)

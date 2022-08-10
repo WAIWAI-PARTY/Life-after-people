@@ -12,7 +12,7 @@ animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "default",
-"speed": 48.0
+"speed": 36.0
 } ]
 
 [sub_resource type="CircleShape2D" id=2]
@@ -23,6 +23,7 @@ script = ExtResource( 6 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
+frame = 3
 playing = true
 
 [node name="hitbox" parent="." instance=ExtResource( 5 )]
