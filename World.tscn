@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://imports/crosshair.png" type="Texture" id=1]
 [ext_resource path="res://imports/concretefloor_tile.tres" type="TileSet" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://Weapons/dart.tscn" type="PackedScene" id=19]
 [ext_resource path="res://imports/overgrownbuilding1.png" type="Texture" id=20]
 [ext_resource path="res://Cursor.gd" type="Script" id=21]
+[ext_resource path="res://Weapons/shortgun.tscn" type="PackedScene" id=22]
 [ext_resource path="res://SceneDesign/SceneAnimatedSprite/Pigeons.tscn" type="PackedScene" id=23]
 [ext_resource path="res://imports/Modern_Exteriors_v1.0/Modern_Exteriors_16x16/Ready_To_Use_16x16/Modern_Exteriors_RTU_1_layer_1_16x16.png" type="Texture" id=24]
 [ext_resource path="res://Spawner.gd" type="Script" id=25]
@@ -145,6 +146,9 @@ position = Vector2( 239, 134 )
 [node name="Player" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 133, 104 )
 maxSpeed = 125
+
+[node name="shortgun" parent="YSort/Player" instance=ExtResource( 22 )]
+position = Vector2( 0, -26 )
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
 remote_path = NodePath("../../../Camera2D")
