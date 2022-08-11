@@ -12,6 +12,7 @@ onready var cam_shake = get_node("/root/World/Camera2D/shake")
 onready var cam = get_node("/root/World/Camera2D")
 onready var shootCount = 1
 func _ready():
+	stats.bullet_count = magazineVol - shootCount + 1
 	for i in range(bulletCount):
 		bullet.append(preload("res://Weapons/Bullets.tscn"))
 func _input(event):

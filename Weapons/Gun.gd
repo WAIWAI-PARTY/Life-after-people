@@ -10,6 +10,9 @@ var bullet = preload("res://Weapons/Bullets.tscn")
 onready var shaketimer = $ShakeTimer
 onready var cam_shake = get_node("/root/World/Camera2D/shake")
 onready var cam = get_node("/root/World/Camera2D")
+
+func _ready():
+	stats.bullet_count = magazineVol - shootCount + 1
 func _input(event):
 	if event is InputEventMouseMotion:
 		look_at(get_global_mouse_position())

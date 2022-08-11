@@ -2,4 +2,4 @@ extends Control
 
 onready var label = $Label
 func _process(_delta):
-	label.text = "HP = " + str(PlayerStats.health)
+	label.text = "HP = " + str(PlayerStats.health) + "Bullet =" + str(PlayerStats.bullet_count)
