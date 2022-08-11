@@ -1,6 +1,6 @@
 
 extends Node2D
-
+var stats = PlayerStats
 export var fireCD = 0.5
 export var reloadCD = 2
 export var bulletCount = 6
@@ -39,9 +39,11 @@ func _process(_delta):
 		yield(get_tree().create_timer(fireCD),"timeout")
 		if shootCount < magazineVol:
 			shootCount+=1
+			stats.bullet_count = magazineVol - shootCount + 1
 		else:
-			shootCount = 1
 			yield(get_tree().create_timer(reloadCD),"timeout")
+			shootCount = 1
+			stats.bullet_count = magazineVol - shootCount + 1
 		can_fire = true
 		
 
