@@ -1,7 +1,10 @@
 
 extends Node2D
 
-export var fireCD = 0.5
+export var fireCD = 0.3
+export var magazineVol = 30
+export var reloadCD = 1.5
+onready var shootCount = 1
 var can_fire = true
 var bullet = preload("res://Weapons/Bullets.tscn")
 onready var shaketimer = $ShakeTimer
@@ -19,6 +22,7 @@ func _input(event):
 			
 func _process(_delta):
 	if Input.is_action_pressed("shoot") and can_fire:
+		can_fire = false
 		var bullet_instance = bullet.instance()
 		bullet_instance.rotation = rotation+rand_range(-0.07,0.07)
 		bullet_instance.global_position = $GunSprite/Position2D.global_position
@@ -26,7 +30,11 @@ func _process(_delta):
 		if !cam_shake.is_shaking:
 			cam.offset = lerp(cam.offset, (Vector2.RIGHT*3).rotated(rotation), 0.5)
 			shaketimer.start()
-		can_fire = false
+		if shootCount < magazineVol:
+			shootCount+=1
+		else:
+			shootCount = 1
+			yield(get_tree().create_timer(reloadCD),"timeout")
 		yield(get_tree().create_timer(fireCD),"timeout")
 		can_fire = true
 

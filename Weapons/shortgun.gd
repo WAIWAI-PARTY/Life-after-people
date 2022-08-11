@@ -2,11 +2,15 @@
 extends Node2D
 
 export var fireCD = 0.5
+export var reloadCD = 2
+export var bulletCount = 6
+export var magazineVol = 2
 var can_fire = true
 var bullet = []
 onready var shaketimer = $ShakeTimer
 onready var cam_shake = get_node("/root/World/Camera2D/shake")
 onready var cam = get_node("/root/World/Camera2D")
+onready var shootCount = 1
 func _ready():
 	for i in range(9):
 		bullet.append(preload("res://Weapons/Bullets.tscn"))
@@ -22,17 +26,24 @@ func _input(event):
 			
 func _process(_delta):
 	if Input.is_action_pressed("shoot") and can_fire:
-		for i in range(9):
+		can_fire = false
+		for i in range(bulletCount):
 			var bullet_instance = bullet[i].instance()
-			bullet_instance.rotation = rotation+rand_range(-0.3,0.3)
-			bullet_instance.global_position = $GunSprite/Position2D.global_position
+			bullet_instance.rotation = rotation+rand_range(-0.1,0.1)
+			
+			bullet_instance.global_position = $GunSprite/Position2D.global_position+Vector2(rand_range(-10,10),rand_range(-10,10))
 			get_parent().add_child(bullet_instance)
 		if !cam_shake.is_shaking:
 			cam.offset = lerp(cam.offset, (Vector2.RIGHT*3).rotated(rotation), 0.5)
 			shaketimer.start()
-		can_fire = false
 		yield(get_tree().create_timer(fireCD),"timeout")
+		if shootCount < magazineVol:
+			shootCount+=1
+		else:
+			shootCount = 1
+			yield(get_tree().create_timer(reloadCD),"timeout")
 		can_fire = true
+		
 
 
 func _on_ShakeTimer_timeout():

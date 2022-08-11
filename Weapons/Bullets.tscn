@@ -13,7 +13,7 @@ scale = Vector2( 2.5, 2.5 )
 collision_layer = 0
 collision_mask = 0
 script = ExtResource( 2 )
-speed = 300
+speed = 500
 
 [node name="BulletSprite" type="Sprite" parent="."]
 rotation = 1.5708

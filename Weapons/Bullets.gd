@@ -1,6 +1,6 @@
 extends Area2D
 
-export var speed = 150
+export var speed = 200
 
 onready var flying_timer = $FlyingTimer
 func _ready():
