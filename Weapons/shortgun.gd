@@ -5,14 +5,15 @@ export var fireCD = 0.5
 export var reloadCD = 2
 export var bulletCount = 6
 export var magazineVol = 2
+onready var shootCount = 0
 var can_fire = true
 var bullet = []
 onready var shaketimer = $ShakeTimer
 onready var cam_shake = get_node("/root/World/Camera2D/shake")
 onready var cam = get_node("/root/World/Camera2D")
-onready var shootCount = 1
+
 func _ready():
-	stats.bullet_count = magazineVol - shootCount + 1
+	stats.bullet_count = magazineVol - shootCount
 	for i in range(bulletCount):
 		bullet.append(preload("res://Weapons/Bullets.tscn"))
 func _input(event):
@@ -38,13 +39,16 @@ func _process(_delta):
 			cam.offset = lerp(cam.offset, (Vector2.RIGHT*3).rotated(rotation), 0.5)
 			shaketimer.start()
 		yield(get_tree().create_timer(fireCD),"timeout")
-		if shootCount < magazineVol:
-			shootCount+=1
-			stats.bullet_count = magazineVol - shootCount + 1
-		else:
+		if shootCount == magazineVol-1:
+			stats.bullet_count = 0
 			yield(get_tree().create_timer(reloadCD),"timeout")
-			shootCount = 1
-			stats.bullet_count = magazineVol - shootCount + 1
+			shootCount = 0
+			stats.bullet_count = magazineVol - shootCount
+			
+		else:
+			shootCount+=1
+			stats.bullet_count = magazineVol - shootCount
+
 		can_fire = true
 		
 

@@ -4,7 +4,7 @@ var stats = PlayerStats
 export var fireCD = 0.3
 export var magazineVol = 30
 export var reloadCD = 1.5
-onready var shootCount = 1
+onready var shootCount = 0
 var can_fire = true
 var bullet = preload("res://Weapons/Bullets.tscn")
 onready var shaketimer = $ShakeTimer
@@ -12,7 +12,7 @@ onready var cam_shake = get_node("/root/World/Camera2D/shake")
 onready var cam = get_node("/root/World/Camera2D")
 
 func _ready():
-	stats.bullet_count = magazineVol - shootCount + 1
+	stats.bullet_count = magazineVol - shootCount
 func _input(event):
 	if event is InputEventMouseMotion:
 		look_at(get_global_mouse_position())
@@ -32,13 +32,15 @@ func _process(_delta):
 		if !cam_shake.is_shaking:
 			cam.offset = lerp(cam.offset, (Vector2.RIGHT*3).rotated(rotation), 0.5)
 			shaketimer.start()
-		if shootCount < magazineVol:
-			shootCount+=1
-			stats.bullet_count = magazineVol - shootCount + 1
-		else:
+		if shootCount == magazineVol-1:
+			stats.bullet_count = 0
 			yield(get_tree().create_timer(reloadCD),"timeout")
-			shootCount = 1
-			stats.bullet_count = magazineVol - shootCount + 1
+			shootCount = 0
+			stats.bullet_count = magazineVol - shootCount
+		else:
+			shootCount+=1
+			stats.bullet_count = magazineVol - shootCount
+
 		yield(get_tree().create_timer(fireCD),"timeout")
 		can_fire = true
 
