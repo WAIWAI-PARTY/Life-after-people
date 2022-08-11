@@ -200,10 +200,10 @@ position = Vector2( 291, 151 )
 [node name="barrels" type="YSort" parent="YSort"]
 
 [node name="barrel" parent="YSort/barrels" instance=ExtResource( 5 )]
-position = Vector2( 38, 93 )
+position = Vector2( 55, 88 )
 
 [node name="barrel2" parent="YSort/barrels" instance=ExtResource( 5 )]
-position = Vector2( 73, 93 )
+position = Vector2( 55, 172 )
 
 [node name="barrel3" parent="YSort/barrels" instance=ExtResource( 5 )]
 position = Vector2( 56, 131 )
