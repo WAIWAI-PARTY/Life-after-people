@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://imports/crosshair.png" type="Texture" id=1]
 [ext_resource path="res://imports/concretefloor_tile.tres" type="TileSet" id=2]
@@ -18,13 +18,11 @@
 [ext_resource path="res://imports/Modern_Exteriors_v1.0/Modern_Exteriors_16x16/Modern_Exteriors_Singles_16x16/Modern_Exteriors_Singles_144.png" type="Texture" id=16]
 [ext_resource path="res://imports/Modern_Exteriors_v1.0/Modern_Exteriors_16x16/Modern_Exteriors_Singles_16x16/Modern_Exteriors_Singles_145.png" type="Texture" id=17]
 [ext_resource path="res://imports/overgrownbuilding2.png" type="Texture" id=18]
-[ext_resource path="res://Weapons/dart.tscn" type="PackedScene" id=19]
 [ext_resource path="res://imports/overgrownbuilding1.png" type="Texture" id=20]
 [ext_resource path="res://Cursor.gd" type="Script" id=21]
 [ext_resource path="res://SceneDesign/SceneAnimatedSprite/Pigeons.tscn" type="PackedScene" id=23]
 [ext_resource path="res://imports/Modern_Exteriors_v1.0/Modern_Exteriors_16x16/Ready_To_Use_16x16/Modern_Exteriors_RTU_1_layer_1_16x16.png" type="Texture" id=24]
 [ext_resource path="res://Spawner.gd" type="Script" id=25]
-[ext_resource path="res://Weapons/Gun.tscn" type="PackedScene" id=26]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -147,44 +145,29 @@ position = Vector2( 239, 134 )
 position = Vector2( 141, 96 )
 maxSpeed = 125
 
-[node name="Gun" parent="YSort/Player" instance=ExtResource( 26 )]
-position = Vector2( 22, -23 )
-
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
 remote_path = NodePath("../../../Camera2D")
 
-[node name="slot1" type="Position2D" parent="YSort/Player"]
+[node name="slot1" type="Position2D" parent="YSort/Player" groups=["weaponSlot"]]
 show_behind_parent = true
 position = Vector2( 7, -9 )
 
-[node name="dart" parent="YSort/Player/slot1" instance=ExtResource( 19 )]
-
-[node name="slot2" type="Position2D" parent="YSort/Player"]
+[node name="slot2" type="Position2D" parent="YSort/Player" groups=["weaponSlot"]]
 show_behind_parent = true
 position = Vector2( -12, -6 )
 
-[node name="dart2" parent="YSort/Player/slot2" instance=ExtResource( 19 )]
-
-[node name="slot3" type="Position2D" parent="YSort/Player"]
+[node name="slot3" type="Position2D" parent="YSort/Player" groups=["weaponSlot"]]
 show_behind_parent = true
 position = Vector2( 17, -6 )
 
-[node name="dart3" parent="YSort/Player/slot3" instance=ExtResource( 19 )]
-
-[node name="slot4" type="Position2D" parent="YSort/Player"]
+[node name="slot4" type="Position2D" parent="YSort/Player" groups=["weaponSlot"]]
 position = Vector2( -1, 5 )
 
-[node name="dart" parent="YSort/Player/slot4" instance=ExtResource( 19 )]
-
-[node name="slot5" type="Position2D" parent="YSort/Player"]
+[node name="slot5" type="Position2D" parent="YSort/Player" groups=["weaponSlot"]]
 position = Vector2( 11, 3 )
 
-[node name="dart" parent="YSort/Player/slot5" instance=ExtResource( 19 )]
-
-[node name="slot6" type="Position2D" parent="YSort/Player"]
+[node name="slot6" type="Position2D" parent="YSort/Player" groups=["weaponSlot"]]
 position = Vector2( -18, 0 )
-
-[node name="dart" parent="YSort/Player/slot6" instance=ExtResource( 19 )]
 
 [node name="slimes" type="YSort" parent="YSort"]
 
@@ -267,20 +250,19 @@ position = Vector2( 428, -23 )
 
 [node name="Pigeon" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 23, -8 )
+frame = 3
 
 [node name="Pigeon2" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 7, -8 )
 animation = "Pigeon2"
-frame = 0
 
 [node name="Pigeon3" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( -9, -8 )
 animation = "Pigeon2"
-frame = 0
 
 [node name="Pigeon4" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( -25, -8 )
-frame = 4
+frame = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

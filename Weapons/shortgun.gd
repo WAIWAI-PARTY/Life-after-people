@@ -12,7 +12,7 @@ onready var cam_shake = get_node("/root/World/Camera2D/shake")
 onready var cam = get_node("/root/World/Camera2D")
 onready var shootCount = 1
 func _ready():
-	for i in range(9):
+	for i in range(bulletCount):
 		bullet.append(preload("res://Weapons/Bullets.tscn"))
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -32,7 +32,7 @@ func _process(_delta):
 			bullet_instance.rotation = rotation+rand_range(-0.1,0.1)
 			
 			bullet_instance.global_position = $GunSprite/Position2D.global_position+Vector2(rand_range(-10,10),rand_range(-10,10))
-			get_parent().add_child(bullet_instance)
+			get_node("/root").add_child(bullet_instance)
 		if !cam_shake.is_shaking:
 			cam.offset = lerp(cam.offset, (Vector2.RIGHT*3).rotated(rotation), 0.5)
 			shaketimer.start()

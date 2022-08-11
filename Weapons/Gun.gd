@@ -13,7 +13,6 @@ onready var cam = get_node("/root/World/Camera2D")
 func _input(event):
 	if event is InputEventMouseMotion:
 		look_at(get_global_mouse_position())
-		# keep rotation_degrees between 0 and 360
 		rotation_degrees = fposmod(rotation_degrees, 360.0)
 		if rotation_degrees > 90 && rotation_degrees < 270:
 			$GunSprite.set_scale(Vector2(0.5,-0.5))
@@ -26,7 +25,7 @@ func _process(_delta):
 		var bullet_instance = bullet.instance()
 		bullet_instance.rotation = rotation+rand_range(-0.07,0.07)
 		bullet_instance.global_position = $GunSprite/Position2D.global_position
-		get_parent().add_child(bullet_instance)
+		get_node("/root").add_child(bullet_instance)
 		if !cam_shake.is_shaking:
 			cam.offset = lerp(cam.offset, (Vector2.RIGHT*3).rotated(rotation), 0.5)
 			shaketimer.start()
