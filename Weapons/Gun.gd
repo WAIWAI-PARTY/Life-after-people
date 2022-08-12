@@ -7,6 +7,7 @@ export var reloadCD = 1.5
 onready var shootCount = 0
 var can_fire = true
 var bullet = preload("res://Weapons/Bullets.tscn")
+var reloading = false
 onready var shaketimer = $ShakeTimer
 onready var cam_shake = get_node("/root/World/Camera2D/shake")
 onready var cam = get_node("/root/World/Camera2D")
@@ -23,7 +24,8 @@ func _input(event):
 			$GunSprite.set_scale(Vector2(0.5,0.5))
 			
 func _process(_delta):
-	if Input.is_action_pressed("shoot") and can_fire:
+	
+	if Input.is_action_pressed("shoot") and can_fire and not(reloading):
 		can_fire = false
 		var bullet_instance = bullet.instance()
 		bullet_instance.rotation = rotation+rand_range(-0.07,0.07)
@@ -43,7 +45,11 @@ func _process(_delta):
 
 		yield(get_tree().create_timer(fireCD),"timeout")
 		can_fire = true
-
-
+	if Input.is_action_just_pressed("reload"):
+		reloading = true
+		yield(get_tree().create_timer(reloadCD),"timeout")
+		shootCount = 0
+		stats.bullet_count = magazineVol - shootCount
+		reloading = false
 func _on_ShakeTimer_timeout():
 	cam.offset = lerp(cam.offset,Vector2.ZERO, 0.5)
