@@ -29,6 +29,7 @@ one_shot = true
 one_shot = true
 
 [node name="readyTimer" type="Timer" parent="."]
+wait_time = 0.001
 one_shot = true
 
 [connection signal="timeout" from="ShakeTimer" to="." method="_on_ShakeTimer_timeout"]

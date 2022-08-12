@@ -42,6 +42,7 @@ autostart = true
 one_shot = true
 
 [node name="readyTImer" type="Timer" parent="."]
+wait_time = 0.001
 one_shot = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
