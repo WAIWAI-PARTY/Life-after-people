@@ -28,7 +28,7 @@ func firing(delta):
 	if not(coming_back):
 		global_position = global_position.move_toward(tar_pos, speed*delta)
 		if global_position.distance_to(tar_pos) < 1:
-			yield(get_tree().create_timer(stay_time),"timeout")
+			yield(get_node("/root").get_tree().create_timer(stay_time),"timeout")
 			coming_back = true
 	else:
 		global_position = global_position.move_toward(get_node("../").global_position, speed*delta)

@@ -13,15 +13,11 @@ onready var cam_shake = get_node("/root/World/Camera2D/shake")
 onready var cam = get_node("/root/World/Camera2D")
 
 func _ready():
+	followMouse()
 	stats.bullet_count = magazineVol - shootCount
 func _input(event):
 	if event is InputEventMouseMotion:
-		look_at(get_global_mouse_position())
-		rotation_degrees = fposmod(rotation_degrees, 360.0)
-		if rotation_degrees > 90 && rotation_degrees < 270:
-			$GunSprite.set_scale(Vector2(0.5,-0.5))
-		else:
-			$GunSprite.set_scale(Vector2(0.5,0.5))
+		followMouse()
 			
 func _process(_delta):
 	
@@ -36,20 +32,29 @@ func _process(_delta):
 			shaketimer.start()
 		if shootCount == magazineVol-1:
 			stats.bullet_count = 0
-			yield(get_tree().create_timer(reloadCD),"timeout")
+			yield(get_node("/root").get_tree().create_timer(reloadCD),"timeout")
 			shootCount = 0
 			stats.bullet_count = magazineVol - shootCount
 		else:
 			shootCount+=1
 			stats.bullet_count = magazineVol - shootCount
+			yield(get_node("/root").get_tree().create_timer(fireCD),"timeout")
 
-		yield(get_tree().create_timer(fireCD),"timeout")
 		can_fire = true
 	if Input.is_action_just_pressed("reload"):
 		reloading = true
-		yield(get_tree().create_timer(reloadCD),"timeout")
+		yield(get_node("/root").get_tree().create_timer(reloadCD),"timeout")
 		shootCount = 0
 		stats.bullet_count = magazineVol - shootCount
 		reloading = false
 func _on_ShakeTimer_timeout():
 	cam.offset = lerp(cam.offset,Vector2.ZERO, 0.5)
+
+func followMouse():
+	look_at(get_global_mouse_position())
+	# keep rotation_degrees between 0 and 360
+	rotation_degrees = fposmod(rotation_degrees, 360.0)
+	if rotation_degrees > 90 && rotation_degrees < 270:
+		$GunSprite.set_scale(Vector2(0.5,-0.5))
+	else:
+		$GunSprite.set_scale(Vector2(0.5,0.5))
