@@ -18,11 +18,12 @@ animations = [ {
 [sub_resource type="CircleShape2D" id=2]
 radius = 9.0
 
-[node name="dart" type="Area2D"]
+[node name="dart" type="Node2D"]
 script = ExtResource( 6 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
+frame = 1
 playing = true
 
 [node name="hitbox" parent="." instance=ExtResource( 5 )]
@@ -37,6 +38,14 @@ shape = SubResource( 2 )
 wait_time = 0.2
 autostart = true
 
+[node name="stay_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="readyTImer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="stay_timer" to="." method="_on_stay_timer_timeout"]
+[connection signal="timeout" from="readyTImer" to="." method="_on_readyTImer_timeout"]
 
 [editable path="hitbox"]

@@ -18,4 +18,16 @@ position = Vector2( 16, 0 )
 [node name="ShakeTimer" type="Timer" parent="."]
 wait_time = 0.07
 
+[node name="fireCD" type="Timer" parent="."]
+one_shot = true
+
+[node name="reloadCD" type="Timer" parent="."]
+one_shot = true
+
+[node name="readyTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="timeout" from="ShakeTimer" to="." method="_on_ShakeTimer_timeout"]
+[connection signal="timeout" from="fireCD" to="." method="_on_fireCD_timeout"]
+[connection signal="timeout" from="reloadCD" to="." method="_on_reloadCD_timeout"]
+[connection signal="timeout" from="readyTimer" to="." method="_on_readyTimer_timeout"]

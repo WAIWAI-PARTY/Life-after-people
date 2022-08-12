@@ -71,7 +71,7 @@ func idle():
 func _on_hurtbox_area_entered(area):
 	if dash.is_dashing(): return
 	blink.play("Blink_start")
-	stats.health -= area.damage
+	stats.playerStats["health"] -= area.damage
 
 func _on_Dash_dash_end():
 	velocity = Vector2.ZERO
