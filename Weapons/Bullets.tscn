@@ -28,11 +28,9 @@ damage = 14
 [node name="CollisionShape2D" parent="hitbox" index="0"]
 position = Vector2( 2.38322e-08, -2.67029e-06 )
 rotation = 1.5708
-scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 
 [node name="FlyingTimer" type="Timer" parent="."]
-wait_time = 0.5
 one_shot = true
 autostart = true
 

@@ -4,8 +4,8 @@ var stats = PlayerStats
 export var weapon_name = "pistol"
 export var fireCD = 0.3
 export var magazineVol = 30
-export var reloadCD = 1.5
-export var readyCD = 0.5
+export var reloadCD = 1
+export var readyCD = 0.3
 onready var shootCount = 0
 var can_fire = false
 var notReloading = true
@@ -17,7 +17,7 @@ onready var cam = get_node("/root/World/Camera2D")
 func _ready():
 	stats.playerStats["current_weapon"] = weapon_name
 	followMouse()
-	shootCount = stats.get_bullet_count()
+	shootCount = stats.get_bullet_count(get_parent().name)
 	if shootCount >= magazineVol:
 		checkReload()
 	else:

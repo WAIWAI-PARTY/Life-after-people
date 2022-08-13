@@ -250,25 +250,34 @@ position = Vector2( 428, -23 )
 
 [node name="Pigeon" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 23, -8 )
-frame = 1
+frame = 3
 
 [node name="Pigeon2" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 7, -8 )
 animation = "Pigeon2"
-frame = 0
+frame = 3
 
 [node name="Pigeon3" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( -9, -8 )
 animation = "Pigeon2"
-frame = 0
+frame = 3
 
 [node name="Pigeon4" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( -25, -8 )
-frame = 0
+frame = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HealthUI" parent="CanvasLayer" instance=ExtResource( 8 )]
+
+[node name="Label" parent="CanvasLayer/HealthUI" index="0"]
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = ""
 
 [node name="Cursor" type="Node2D" parent="."]
 script = ExtResource( 21 )

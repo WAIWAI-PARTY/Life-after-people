@@ -5,11 +5,3 @@
 
 [node name="PlayerStats" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-playerStats = {
-"current_weapon": "dart",
-"dart": "infinite",
-"health": 100,
-"max_health": 1500,
-"pistol": 0,
-"shotgun": 0
-}

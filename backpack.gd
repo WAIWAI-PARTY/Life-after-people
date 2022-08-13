@@ -33,7 +33,8 @@ func addWeapon(value):
 	weapon_id = value
 	for slots in get_tree().get_nodes_in_group("weaponSlot"):
 		for n in slots.get_children():
-			slots.call_deferred("remove_child", n)
+			if n:
+				slots.call_deferred("remove_child", n)
 	if weapon[value]:
 		for slots in get_tree().get_nodes_in_group("weaponSlot"):
 			slots.add_child(weapon[value].instance())
