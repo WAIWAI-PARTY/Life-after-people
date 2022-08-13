@@ -1,7 +1,7 @@
 extends Area2D
 
 export var speed = 200
-export var health = 200
+export var health = 2
 onready var flying_timer = $FlyingTimer
 func _ready():
 	set_as_toplevel(true)
@@ -11,7 +11,7 @@ func _process(delta):
 
 func _on_hitbox_area_entered(_area):
 	if health > 0:
-		health-=25
+		health-=1
 	else:
 		queue_free()
 	
