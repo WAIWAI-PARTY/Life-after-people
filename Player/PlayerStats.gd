@@ -3,16 +3,18 @@ extends Node
 onready var playerStats = {
 	"max_health": 1500,
 	"health": 100,
-	"current_weapon": "dart",
+	"current_weapon": "",
 	"dart": {
-		"slot1":"ready",
-		"slot2":"ready",
-		"slot3":"ready",
-		"slot4":"ready",
-		"slot5":"ready",
-		"slot6":"ready"
+		"mag_vol":1,
+		"slot1":0,
+		"slot2":0,
+		"slot3":0,
+		"slot4":0,
+		"slot5":0,
+		"slot6":0
 	},
 	"pistol": {
+		"mag_vol":12,
 		"slot1":0,
 		"slot2":0,
 		"slot3":0,
@@ -21,6 +23,7 @@ onready var playerStats = {
 		"slot6":0
 	},
 	"shotgun": {
+		"mag_vol":2,
 		"slot1":0,
 		"slot2":0,
 		"slot3":0,
@@ -45,4 +48,14 @@ func bullet_count(weapon_name, slot, value):
 	playerStats[weapon_name][slot] = value
 
 func get_bullet_count(slot):
-	return playerStats[playerStats.current_weapon][slot]
+	if playerStats["current_weapon"]:
+		return playerStats[playerStats["current_weapon"]][slot]
+	
+func get_weapon_state(slot):
+	if playerStats["current_weapon"]:
+		if playerStats[playerStats["current_weapon"]][slot]<playerStats[playerStats["current_weapon"]]["mag_vol"]:
+			return str(playerStats[playerStats["current_weapon"]]["mag_vol"]-playerStats[playerStats["current_weapon"]][slot])
+		else:
+			return "reload"
+	else:
+		return "no weapon"

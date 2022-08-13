@@ -3,7 +3,7 @@ extends Node2D
 var stats = PlayerStats
 export var weapon_name = "pistol"
 export var fireCD = 0.3
-export var magazineVol = 30
+export var magazineVol = 12
 export var reloadCD = 1
 export var readyCD = 0.3
 onready var shootCount = 0

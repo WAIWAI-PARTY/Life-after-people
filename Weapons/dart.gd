@@ -32,11 +32,11 @@ func _process(delta):
 			firing(delta)
 
 func idle():
-	stats.bullet_count(weapon_name, get_parent().name, "ready")
+	stats.bullet_count(weapon_name, get_parent().name, 0)
 	$hitbox.damage = 7
 	
 func firing(delta):
-	stats.bullet_count(weapon_name, get_parent().name, "fired")
+	stats.bullet_count(weapon_name, get_parent().name, 1)
 	$hitbox.damage = 20
 	if not(coming_back):
 		global_position = global_position.move_toward(tar_pos, speed*delta)

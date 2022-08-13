@@ -8,7 +8,6 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_horizontal_guides_": [ -3.31124 ]
 }
-fireCD = 0.1
 
 [node name="GunSprite" type="Sprite" parent="."]
 position = Vector2( 2, -2 )
@@ -29,7 +28,6 @@ one_shot = true
 one_shot = true
 
 [node name="readyTimer" type="Timer" parent="."]
-wait_time = 0.001
 one_shot = true
 
 [connection signal="timeout" from="ShakeTimer" to="." method="_on_ShakeTimer_timeout"]
