@@ -1,9 +1,9 @@
 extends Node2D
 
 onready var weapon = [
-	preload("res://Weapons/Gun.tscn"),
+	preload("res://Weapons/scar.tscn"),
 	preload("res://Weapons/shotgun.tscn"),
-	preload("res://Weapons/dart.tscn")
+	preload("res://Weapons/pistol.tscn")
 	]
 onready var weapon_id = 0 setget addWeapon, get_weapon_id
 func _ready():

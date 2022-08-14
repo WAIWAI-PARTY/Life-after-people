@@ -149,25 +149,7 @@ maxSpeed = 125
 remote_path = NodePath("../../../Camera2D")
 
 [node name="slot1" type="Position2D" parent="YSort/Player" groups=["weaponSlot"]]
-show_behind_parent = true
-position = Vector2( 0, -9 )
-
-[node name="slot2" type="Position2D" parent="YSort/Player" groups=["weaponSlot"]]
-show_behind_parent = true
-position = Vector2( -8, -7 )
-
-[node name="slot3" type="Position2D" parent="YSort/Player" groups=["weaponSlot"]]
-show_behind_parent = true
-position = Vector2( 10, -6 )
-
-[node name="slot4" type="Position2D" parent="YSort/Player" groups=["weaponSlot"]]
-position = Vector2( -1, 2 )
-
-[node name="slot5" type="Position2D" parent="YSort/Player" groups=["weaponSlot"]]
-position = Vector2( 8, -1 )
-
-[node name="slot6" type="Position2D" parent="YSort/Player" groups=["weaponSlot"]]
-position = Vector2( -12, -3 )
+position = Vector2( 8, -4 )
 
 [node name="slimes" type="YSort" parent="YSort"]
 
@@ -250,21 +232,20 @@ position = Vector2( 428, -23 )
 
 [node name="Pigeon" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 23, -8 )
-frame = 4
+frame = 0
 
 [node name="Pigeon2" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 7, -8 )
 animation = "Pigeon2"
-frame = 4
+frame = 1
 
 [node name="Pigeon3" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( -9, -8 )
 animation = "Pigeon2"
-frame = 4
+frame = 1
 
 [node name="Pigeon4" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( -25, -8 )
-frame = 3
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
