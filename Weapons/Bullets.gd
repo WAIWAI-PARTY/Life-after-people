@@ -1,7 +1,7 @@
 extends Area2D
 
-export var speed = 200
-export var health = 3
+export(int) var speed
+export(int) var health
 onready var flying_timer = $FlyingTimer
 func _ready():
 	set_as_toplevel(true)
