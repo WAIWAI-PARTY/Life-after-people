@@ -7,6 +7,9 @@
 [node name="shortgun" type="Node2D"]
 script = ExtResource( 2 )
 fireCD = 0.15
+damage = 20
+bullet_speed = 300
+bullet_health = 2
 
 [node name="GunSprite" type="Sprite" parent="."]
 position = Vector2( 3, -1 )

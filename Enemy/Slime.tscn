@@ -230,7 +230,7 @@ max_speed = 75
 [node name="EnemyHealth" parent="." instance=ExtResource( 10 )]
 
 [node name="Stats" parent="." instance=ExtResource( 5 )]
-max_health = 700
+max_health = 50
 
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 34 )

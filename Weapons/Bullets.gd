@@ -2,10 +2,14 @@ extends Area2D
 
 export(int) var speed
 export(int) var health
+export(int) var damage
 onready var flying_timer = $FlyingTimer
+onready var hitbox = $hitbox
 func _ready():
 	set_as_toplevel(true)
+	hitbox.damage = damage
 	flying_timer.start()
+
 func _process(delta):
 	position += (Vector2.RIGHT*speed).rotated(rotation) * delta
 

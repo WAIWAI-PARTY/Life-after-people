@@ -8,6 +8,9 @@ export var bulletCount = 6
 export var magazineVol = 2
 export var readyCD = 0.7
 onready var shootCount = 0
+export(int) var damage
+export(int) var bullet_speed
+export(int) var bullet_health
 var can_fire = false
 var bullet = []
 var notReloading = true
@@ -42,6 +45,9 @@ func _process(_delta):
 			sound_player.play()
 			for i in range(bulletCount):
 				var bullet_instance = bullet[i].instance()
+				bullet_instance.damage = damage
+				bullet_instance.speed = bullet_speed
+				bullet_instance.health = bullet_health
 				bullet_instance.rotation = rotation+rand_range(-0.1,0.1)
 				bullet_instance.global_position = $GunSprite/Position2D.global_position+Vector2(rand_range(-10,10),rand_range(-10,10))
 				get_node("/root").add_child(bullet_instance)

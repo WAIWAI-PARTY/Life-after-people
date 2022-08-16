@@ -6,10 +6,14 @@
 script = ExtResource( 1 )
 
 [node name="DurationTimer" type="Timer" parent="."]
+wait_time = 2.0
 one_shot = true
 
 [node name="GhostTimer" type="Timer" parent="."]
-wait_time = 0.03
+wait_time = 0.04
+
+[node name="CD" type="Timer" parent="."]
 
 [connection signal="timeout" from="DurationTimer" to="." method="_on_DurationTimer_timeout"]
 [connection signal="timeout" from="GhostTimer" to="." method="_on_GhostTimer_timeout"]
+[connection signal="timeout" from="CD" to="." method="_on_CD_timeout"]

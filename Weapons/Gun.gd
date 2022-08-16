@@ -6,6 +6,9 @@ export(float) var fireCD
 export(int) var magazineVol
 export(float) var reloadCD
 export(float) var readyCD
+export(int) var damage
+export(int) var bullet_speed
+export(int) var bullet_health
 export(float) var recoil
 onready var shootCount = 0
 var can_fire = false
@@ -37,9 +40,15 @@ func _process(_delta):
 		if shootCount >= magazineVol:
 			checkReload()
 		else:
+			if !cam_shake.is_shaking:
+				cam.offset = lerp(cam.offset, (Vector2.RIGHT*3).rotated(rotation), 0.5)
+				shaketimer.start()
 			can_fire = false
 			sound_player.play()
 			var bullet_instance = bullet.instance()
+			bullet_instance.damage = damage
+			bullet_instance.speed = bullet_speed
+			bullet_instance.health = bullet_health
 			bullet_instance.rotation = rotation+rand_range(-recoil,recoil)
 			bullet_instance.global_position = $GunSprite/Position2D.global_position
 			get_node("/root").add_child(bullet_instance)

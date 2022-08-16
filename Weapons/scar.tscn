@@ -13,6 +13,9 @@ weapon_name = "scar"
 fireCD = 0.1
 magazineVol = 30
 readyCD = 0.4
+damage = 33
+bullet_speed = 500
+bullet_health = 3
 recoil = 0.05
 
 [node name="GunSprite" type="Sprite" parent="."]

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Weapons/Gun.gd" type="Script" id=1]
 [ext_resource path="res://imports/sniper.png" type="Texture" id=2]
-[ext_resource path="res://imports/sound/scar.wav" type="AudioStream" id=3]
+[ext_resource path="res://imports/sound/sniper.wav" type="AudioStream" id=3]
 
 [node name="sniper" type="Node2D"]
 script = ExtResource( 1 )
@@ -14,6 +14,9 @@ fireCD = 1.3
 magazineVol = 10
 reloadCD = 1.6
 readyCD = 1.0
+damage = 105
+bullet_speed = 800
+bullet_health = 5
 recoil = 0.01
 
 [node name="GunSprite" type="Sprite" parent="."]
@@ -43,4 +46,4 @@ stream = ExtResource( 3 )
 [connection signal="timeout" from="ShakeTimer" to="." method="_on_ShakeTimer_timeout"]
 [connection signal="timeout" from="fireCD" to="." method="_on_fireCD_timeout"]
 [connection signal="timeout" from="reloadCD" to="." method="_on_reloadCD_timeout"]
-[connection signal="timeout" from="readyTimer" to="." method="_on_readyTImer_timeout"]
+[connection signal="timeout" from="readyTimer" to="." method="_on_readyTimer_timeout"]
