@@ -78,5 +78,5 @@ func _on_reloadCD_timeout():
 func _on_fireCD_timeout():
 	can_fire = true
 
-func _on_readyTImer_timeout():
+func _on_readyTimer_timeout():
 	can_fire = true

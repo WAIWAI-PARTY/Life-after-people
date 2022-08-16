@@ -42,4 +42,4 @@ stream = ExtResource( 3 )
 [connection signal="timeout" from="ShakeTimer" to="." method="_on_ShakeTimer_timeout"]
 [connection signal="timeout" from="fireCD" to="." method="_on_fireCD_timeout"]
 [connection signal="timeout" from="reloadCD" to="." method="_on_reloadCD_timeout"]
-[connection signal="timeout" from="readyTimer" to="." method="_on_readyTImer_timeout"]
+[connection signal="timeout" from="readyTimer" to="." method="_on_readyTimer_timeout"]
