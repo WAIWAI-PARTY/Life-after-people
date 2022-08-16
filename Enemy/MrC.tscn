@@ -66,15 +66,16 @@ radius = 183.044
 scale = Vector2( 1.5, 1.5 )
 collision_layer = 0
 script = ExtResource( 1 )
-shooter_timer_wait_time = 0.2
-spawn_point_count = 6
+rotate_speed = 400
+shooter_timer_wait_time = 0.4
+spawn_point_count = 7
 
 [node name="Blink" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 3 )
 anims/blink_start = SubResource( 5 )
 
 [node name="Stats" parent="." instance=ExtResource( 3 )]
-max_health = 2000
+max_health = 1000
 
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 6 )
