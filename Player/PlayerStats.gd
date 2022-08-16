@@ -19,6 +19,10 @@ onready var playerStats = {
 	"scar": {
 		"mag_vol":30,
 		"slot1":0,
+	},
+	"sniper": {
+		"mag_vol":10,
+		"slot1":0,
 	}
 }
 onready var health = playerStats["max_health"]  setget set_health, get_health

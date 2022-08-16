@@ -7,7 +7,6 @@ export(int) var magazineVol
 export(float) var reloadCD
 export(float) var readyCD
 export(float) var recoil
-export(String) var gun_sound
 onready var shootCount = 0
 var can_fire = false
 var notReloading = true
