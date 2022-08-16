@@ -176,6 +176,27 @@ position = Vector2( 127, 146 )
 [node name="barrel10" parent="YSort/barrels" instance=ExtResource( 5 )]
 position = Vector2( 206, 182 )
 
+[node name="barrel28" parent="YSort/barrels" instance=ExtResource( 5 )]
+position = Vector2( 225, 237 )
+
+[node name="barrel29" parent="YSort/barrels" instance=ExtResource( 5 )]
+position = Vector2( 254, 252 )
+
+[node name="barrel30" parent="YSort/barrels" instance=ExtResource( 5 )]
+position = Vector2( 194, 220 )
+
+[node name="barrel31" parent="YSort/barrels" instance=ExtResource( 5 )]
+position = Vector2( 176, 187 )
+
+[node name="barrel32" parent="YSort/barrels" instance=ExtResource( 5 )]
+position = Vector2( 166, 152 )
+
+[node name="barrel33" parent="YSort/barrels" instance=ExtResource( 5 )]
+position = Vector2( 142, 127 )
+
+[node name="barrel34" parent="YSort/barrels" instance=ExtResource( 5 )]
+position = Vector2( 160, 110 )
+
 [node name="barrel11" parent="YSort/barrels" instance=ExtResource( 5 )]
 position = Vector2( 325, 183 )
 
@@ -289,21 +310,21 @@ position = Vector2( 428, -23 )
 
 [node name="Pigeon" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 23, -8 )
-frame = 2
+frame = 1
 
 [node name="Pigeon2" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 7, -8 )
 animation = "Pigeon2"
-frame = 3
+frame = 2
 
 [node name="Pigeon3" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( -9, -8 )
 animation = "Pigeon2"
-frame = 3
+frame = 2
 
 [node name="Pigeon4" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( -25, -8 )
-frame = 1
+frame = 0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
