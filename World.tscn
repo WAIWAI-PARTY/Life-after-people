@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://imports/crosshair.png" type="Texture" id=1]
 [ext_resource path="res://imports/concretefloor_tile.tres" type="TileSet" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://bullet shift/lasershooter.tscn" type="PackedScene" id=19]
 [ext_resource path="res://imports/overgrownbuilding1.png" type="Texture" id=20]
 [ext_resource path="res://Cursor.gd" type="Script" id=21]
+[ext_resource path="res://bullet shift/bulletrefractor.tscn" type="PackedScene" id=22]
 [ext_resource path="res://SceneDesign/SceneAnimatedSprite/Pigeons.tscn" type="PackedScene" id=23]
 [ext_resource path="res://imports/Modern_Exteriors_v1.0/Modern_Exteriors_16x16/Ready_To_Use_16x16/Modern_Exteriors_RTU_1_layer_1_16x16.png" type="Texture" id=24]
 [ext_resource path="res://Spawner.gd" type="Script" id=25]
@@ -311,23 +312,24 @@ position = Vector2( 428, -23 )
 
 [node name="Pigeon" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 23, -8 )
-frame = 0
+frame = 4
 
 [node name="Pigeon2" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 7, -8 )
 animation = "Pigeon2"
-frame = 1
+frame = 0
 
 [node name="Pigeon3" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( -9, -8 )
 animation = "Pigeon2"
-frame = 1
+frame = 0
 
 [node name="Pigeon4" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( -25, -8 )
+frame = 3
 
 [node name="lasershooter" parent="YSort" instance=ExtResource( 19 )]
-position = Vector2( 29, 198 )
+position = Vector2( 135, 157 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -360,6 +362,24 @@ autostart = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
+
+[node name="bulletrefractor" parent="." instance=ExtResource( 22 )]
+position = Vector2( 124, 103 )
+
+[node name="bulletrefractor2" parent="." instance=ExtResource( 22 )]
+position = Vector2( 181, 110 )
+
+[node name="bulletrefractor3" parent="." instance=ExtResource( 22 )]
+position = Vector2( 204, 162 )
+
+[node name="bulletrefractor4" parent="." instance=ExtResource( 22 )]
+position = Vector2( 162, 209 )
+
+[node name="bulletrefractor5" parent="." instance=ExtResource( 22 )]
+position = Vector2( 105, 206 )
+
+[node name="bulletrefractor6" parent="." instance=ExtResource( 22 )]
+position = Vector2( 78, 168 )
 
 [connection signal="timeout" from="Spawner/SpawnTimer" to="Spawner" method="_on_SpawnTimer_timeout"]
 
