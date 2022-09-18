@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Laser.gd" type="Script" id=1]
+[ext_resource path="res://hitandhurt/hitbox.tscn" type="PackedScene" id=2]
+[ext_resource path="res://imports/New Folder/laser.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 256, 31 )
+
+[node name="Laser" type="Area2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource( 1 )
+sustain = 10
+
+[node name="LaserSP" type="Sprite" parent="."]
+position = Vector2( 256, 1 )
+texture = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.07
+autostart = true
+
+[node name="hitbox" parent="." instance=ExtResource( 2 )]
+collision_layer = 0
+collision_mask = 9
+damage = 10
+
+[node name="CollisionShape2D" parent="hitbox" index="0"]
+position = Vector2( 256, 1 )
+shape = SubResource( 1 )
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+[editable path="hitbox"]

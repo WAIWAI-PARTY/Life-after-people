@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://imports/crosshair.png" type="Texture" id=1]
 [ext_resource path="res://imports/concretefloor_tile.tres" type="TileSet" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://imports/Modern_Exteriors_v1.0/Modern_Exteriors_16x16/Modern_Exteriors_Singles_16x16/Modern_Exteriors_Singles_144.png" type="Texture" id=16]
 [ext_resource path="res://imports/Modern_Exteriors_v1.0/Modern_Exteriors_16x16/Modern_Exteriors_Singles_16x16/Modern_Exteriors_Singles_145.png" type="Texture" id=17]
 [ext_resource path="res://imports/overgrownbuilding2.png" type="Texture" id=18]
+[ext_resource path="res://bullet shift/lasershooter.tscn" type="PackedScene" id=19]
 [ext_resource path="res://imports/overgrownbuilding1.png" type="Texture" id=20]
 [ext_resource path="res://Cursor.gd" type="Script" id=21]
 [ext_resource path="res://SceneDesign/SceneAnimatedSprite/Pigeons.tscn" type="PackedScene" id=23]
@@ -310,21 +311,23 @@ position = Vector2( 428, -23 )
 
 [node name="Pigeon" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 23, -8 )
-frame = 1
+frame = 0
 
 [node name="Pigeon2" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 7, -8 )
 animation = "Pigeon2"
-frame = 2
+frame = 1
 
 [node name="Pigeon3" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( -9, -8 )
 animation = "Pigeon2"
-frame = 2
+frame = 1
 
 [node name="Pigeon4" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( -25, -8 )
-frame = 0
+
+[node name="lasershooter" parent="YSort" instance=ExtResource( 19 )]
+position = Vector2( 29, 198 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
