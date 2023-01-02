@@ -1,5 +1,7 @@
 extends Node2D
 onready var coll = $hitbox/CollisionShape2D
+onready var itself = load("res://Weapons/dart.tscn")
+
 var stats = PlayerStats
 var timerStop = true
 var can_fire = false
@@ -12,8 +14,7 @@ onready var stay_timer = $stay_timer
 onready var tar_pos
 onready var coming_back = false
 onready var shooting = false
-
-enum{FIRE, IDLE}
+enum{FIRE, IDLE, SPECIAL}
 var state = IDLE
 
 func _ready():
@@ -25,11 +26,15 @@ func _process(delta):
 		shooting = true
 		tar_pos = get_global_mouse_position()+Vector2(rand_range(-noise,noise), rand_range(-noise,noise))
 		state = FIRE
+	elif Input.is_action_just_pressed("special") and not(shooting):
+		state = SPECIAL
 	match state:
 		IDLE:
 			idle()
 		FIRE:
 			firing(delta)
+		SPECIAL:
+			special()
 
 func idle():
 	stats.bullet_count(weapon_name, get_parent().name, 0)
@@ -49,7 +54,14 @@ func firing(delta):
 			coming_back = false
 			shooting = false
 			state = IDLE
-
+func special():
+	for i in 10:
+		var it_ins = itself.instance()
+		it_ins.state = FIRE
+		it_ins.tar_pos = get_global_mouse_position()+Vector2(rand_range(-100,100), rand_range(-100,100))
+		$special.add_child(it_ins)
+	state = IDLE
+		
 func _on_Timer_timeout():
 	coll.set_deferred("disabled", true)
 	coll.set_deferred("disabled", false)
