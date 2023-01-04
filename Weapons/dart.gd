@@ -26,7 +26,7 @@ func _ready():
 func _process(delta):
 	if Input.is_action_pressed("shoot") and not(shooting) and can_fire:
 		shooting = true
-		tar_pos = get_global_mouse_position()
+		tar_pos = get_global_mouse_position()+Vector2(rand_range(0,30), rand_range(0,30))
 		state = FIRE
 	elif Input.is_action_just_pressed("special") and not(shooting):
 		state = SPECIAL
@@ -60,15 +60,13 @@ func firing(delta):
 			shooting = false
 			state = IDLE
 func special():
-	var node = Node2D.new()
-	get_parent().add_child(node)
-	for i in 100:
+	for i in 50:
 		var it_ins = itself.instance()
 		it_ins.state = FIRE
 		it_ins.is_temp = true
 		it_ins.stay_time = 3
-		it_ins.tar_pos = Vector2(rand_range(100, 300) * cos(rand_range(0,359)), rand_range(100, 300) * sin(rand_range(0,359)))+global_position
-		add_child(it_ins)
+		it_ins.tar_pos = Vector2((i*5+100) * cos(rand_range(0,359)), (i*5+100) * sin(rand_range(0,359)))+global_position
+		get_parent().add_child(it_ins)
 	state = IDLE
 		
 func _on_Timer_timeout():

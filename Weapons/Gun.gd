@@ -33,7 +33,6 @@ func _input(event):
 func _process(_delta):
 	
 	if Input.is_action_pressed("shoot") and can_fire:
-		
 		if !cam_shake.is_shaking:
 			cam.offset = lerp(cam.offset, (Vector2.RIGHT*3).rotated(rotation), 0.5)
 			shaketimer.start()

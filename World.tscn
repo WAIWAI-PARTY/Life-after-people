@@ -116,7 +116,7 @@ scale = Vector2( 1.21875, 1 )
 texture = ExtResource( 18 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 141, 96 )
+position = Vector2( 143, 95 )
 current = true
 smoothing_enabled = true
 
@@ -144,14 +144,11 @@ tile_data = PoolIntArray( 1245177, 7, 0, 1245178, 8, 0, 1245179, 8, 0, 1245180, 
 position = Vector2( 239, 134 )
 
 [node name="Player" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 141, 96 )
+position = Vector2( 143, 95 )
 maxSpeed = 125
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
 remote_path = NodePath("../../../Camera2D")
-
-[node name="slot1" type="Position2D" parent="YSort/Player" groups=["weaponSlot"]]
-position = Vector2( 8, -4 )
 
 [node name="slimes" type="YSort" parent="YSort"]
 
@@ -227,12 +224,12 @@ frame = 0
 [node name="Pigeon2" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 7, -8 )
 animation = "Pigeon2"
-frame = 0
+frame = 4
 
 [node name="Pigeon3" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( -9, -8 )
 animation = "Pigeon2"
-frame = 0
+frame = 4
 
 [node name="Pigeon4" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( -25, -8 )

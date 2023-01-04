@@ -7,22 +7,37 @@ onready var playerStats = {
 	"dart": {
 		"mag_vol":1,
 		"slot1":0,
+		"slot2":0,
+		"slot3":0,
+		"slot4":0
 	},
 	"pistol": {
 		"mag_vol":7,
 		"slot1":0,
+		"slot2":0,
+		"slot3":0,
+		"slot4":0
 	},
 	"shotgun": {
 		"mag_vol":2,
 		"slot1":0,
+		"slot2":0,
+		"slot3":0,
+		"slot4":0
 	},
 	"scar": {
 		"mag_vol":30,
 		"slot1":0,
+		"slot2":0,
+		"slot3":0,
+		"slot4":0
 	},
 	"sniper": {
 		"mag_vol":10,
 		"slot1":0,
+		"slot2":0,
+		"slot3":0,
+		"slot4":0
 	}
 }
 onready var health = playerStats["max_health"]  setget set_health, get_health
