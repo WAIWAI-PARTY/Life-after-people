@@ -5,8 +5,10 @@ onready var itself = load("res://Weapons/dart.tscn")
 var stats = PlayerStats
 var timerStop = true
 var can_fire = false
+var is_temp = false
+
 export var weapon_name = "dart"
-export var noise = 30
+export var noise = 0.001
 export var speed = 1200
 export var stay_time = 0.5
 export var readyCD = 0.5
@@ -24,7 +26,7 @@ func _ready():
 func _process(delta):
 	if Input.is_action_pressed("shoot") and not(shooting) and can_fire:
 		shooting = true
-		tar_pos = get_global_mouse_position()+Vector2(rand_range(-noise,noise), rand_range(-noise,noise))
+		tar_pos = get_global_mouse_position()
 		state = FIRE
 	elif Input.is_action_just_pressed("special") and not(shooting):
 		state = SPECIAL
@@ -51,26 +53,31 @@ func firing(delta):
 	else:
 		global_position = global_position.move_toward(get_parent().global_position, speed*delta)
 		if global_position.distance_to(get_parent().global_position) < 0.1:
+			if is_temp:
+				queue_free()
+			position = Vector2.ZERO
 			coming_back = false
 			shooting = false
 			state = IDLE
 func special():
-	for i in 10:
+	var node = Node2D.new()
+	get_parent().add_child(node)
+	for i in 100:
 		var it_ins = itself.instance()
 		it_ins.state = FIRE
-		it_ins.tar_pos = get_global_mouse_position()+Vector2(rand_range(-100,100), rand_range(-100,100))
-		$special.add_child(it_ins)
+		it_ins.is_temp = true
+		it_ins.stay_time = 3
+		it_ins.tar_pos = Vector2(rand_range(100, 300) * cos(rand_range(0,359)), rand_range(100, 300) * sin(rand_range(0,359)))+global_position
+		add_child(it_ins)
 	state = IDLE
 		
 func _on_Timer_timeout():
 	coll.set_deferred("disabled", true)
 	coll.set_deferred("disabled", false)
 
-
 func _on_stay_timer_timeout():
 	coming_back = true
 	timerStop = true
-
 
 func _on_readyTImer_timeout():
 	can_fire = true
