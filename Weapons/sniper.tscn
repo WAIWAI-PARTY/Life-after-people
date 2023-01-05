@@ -14,9 +14,9 @@ fireCD = 1.3
 magazineVol = 10
 reloadCD = 1.6
 readyCD = 1.0
-damage = 105
+damage = 1
 bullet_speed = 800
-bullet_health = 5
+bullet_health = 1000
 recoil = 0.01
 
 [node name="GunSprite" type="Sprite" parent="."]

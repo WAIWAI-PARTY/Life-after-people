@@ -13,7 +13,8 @@ export(float) var recoil
 onready var shootCount = 0
 var can_fire = false
 var notReloading = true
-var bullet = preload("res://Weapons/Bullets.tscn")
+var bullet = [preload("res://Weapons/Bullets.tscn"),preload("res://Weapons/sniper_bullet.tscn")]
+var current_bullet = 0
 onready var shaketimer = $ShakeTimer
 onready var cam_shake = get_node("/root/World/Camera2D/shake")
 onready var cam = get_node("/root/World/Camera2D")
@@ -44,7 +45,7 @@ func _process(_delta):
 				shaketimer.start()
 			can_fire = false
 			sound_player.play()
-			var bullet_instance = bullet.instance()
+			var bullet_instance = bullet[current_bullet].instance()
 			bullet_instance.damage = damage
 			bullet_instance.speed = bullet_speed
 			bullet_instance.health = bullet_health
@@ -56,6 +57,13 @@ func _process(_delta):
 			$fireCD.start(fireCD)
 
 	if Input.is_action_just_pressed("reload"):
+		can_fire = false
+		$reloadCD.start(reloadCD)
+	if Input.is_action_just_pressed("special"):
+		if current_bullet == 0:
+			current_bullet = 1
+		else:
+			current_bullet = 0
 		can_fire = false
 		$reloadCD.start(reloadCD)
 
