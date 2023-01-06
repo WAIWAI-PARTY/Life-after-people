@@ -14,6 +14,3 @@ margin_right = 45.0
 margin_bottom = 16.0
 rect_scale = Vector2( 0.956217, 0.929412 )
 text = "Health"
-__meta__ = {
-"_edit_use_anchors_": false
-}
