@@ -62,7 +62,7 @@ shape = SubResource( 3 )
 position = Vector2( 1.16825e-05, 3.2 )
 
 [node name="left2" type="Position2D" parent="."]
-position = Vector2( -2.28882e-05, -6.4 )
+position = Vector2( -1.16825e-05, -3.2 )
 
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="FlyingTimer" to="." method="_on_FlyingTimer_timeout"]
