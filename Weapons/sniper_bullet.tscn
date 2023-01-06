@@ -1,12 +1,19 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://imports/bullet.png" type="Texture" id=1]
 [ext_resource path="res://Weapons/sniper_bullet.gd" type="Script" id=2]
 [ext_resource path="res://hitandhurt/hitbox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Weapons/push_right.gd" type="Script" id=4]
+[ext_resource path="res://Weapons/push_left.gd" type="Script" id=5]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 0.799997
-height = 1.60013
+[sub_resource type="CircleShape2D" id=1]
+radius = 6.01332
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 2.39999, 7.8 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 2.4, 7.8 )
 
 [node name="sniper_bullet" type="KinematicBody2D"]
 rotation = 1.5708
@@ -31,11 +38,29 @@ shape = SubResource( 1 )
 one_shot = true
 autostart = true
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-build_mode = 1
-polygon = PoolVector2Array( -3.19998, 6.40001, -2.39999, 3.20001, -1.2, 1.2, 1.2, -4.34399e-06, -1.2, -1.2, -2.40001, -3.19999, -3.20002, -6.39999 )
+[node name="right" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 64
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="right"]
+position = Vector2( -1.19999, 8.2 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 2 )
+
+[node name="left" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 64
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="left"]
+position = Vector2( -1.20002, -8.2 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 3 )
 
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="FlyingTimer" to="." method="_on_FlyingTimer_timeout"]
+[connection signal="area_entered" from="right" to="right" method="_on_right_area_entered"]
+[connection signal="area_entered" from="left" to="left" method="_on_left_area_entered"]
 
 [editable path="hitbox"]
