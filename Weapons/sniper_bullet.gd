@@ -23,6 +23,3 @@ func _on_hitbox_area_entered(_area):
 func _on_FlyingTimer_timeout():
 	queue_free()
 
-
-func _on_left_area_entered(area):
-	pass # Replace with function body.
