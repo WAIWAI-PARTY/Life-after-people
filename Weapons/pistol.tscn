@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://imports/gun.png" type="Texture" id=1]
-[ext_resource path="res://Weapons/Gun.gd" type="Script" id=2]
+[ext_resource path="res://Weapons/pistol.gd" type="Script" id=2]
 [ext_resource path="res://imports/sound/pistol.wav" type="AudioStream" id=3]
 
 [node name="pistol" type="Node2D"]
@@ -10,13 +10,13 @@ __meta__ = {
 "_edit_horizontal_guides_": [ -3.31124 ]
 }
 weapon_name = "pistol"
-fireCD = 0.2
+fireCD = 0.4
 magazineVol = 7
-reloadCD = 0.7
+reloadCD = 1.0
 readyCD = 0.3
-damage = 50
+damage = 25
 bullet_speed = 400
-bullet_health = 2
+bullet_health = 5
 recoil = 0.07
 
 [node name="GunSprite" type="Sprite" parent="."]

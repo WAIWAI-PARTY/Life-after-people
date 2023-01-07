@@ -25,7 +25,7 @@ stay_time = 0.2
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-frame = 3
+frame = 2
 playing = true
 
 [node name="hitbox" parent="." instance=ExtResource( 5 )]
@@ -47,13 +47,8 @@ one_shot = true
 wait_time = 0.002
 one_shot = true
 
-[node name="special_stepper" type="Timer" parent="."]
-wait_time = 0.05
-autostart = true
-
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="stay_timer" to="." method="_on_stay_timer_timeout"]
 [connection signal="timeout" from="readyTimer" to="." method="_on_readyTimer_timeout"]
-[connection signal="timeout" from="special_stepper" to="." method="_on_special_stepper_timeout"]
 
 [editable path="hitbox"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Weapons/Gun.gd" type="Script" id=1]
+[ext_resource path="res://Weapons/scar.gd" type="Script" id=1]
 [ext_resource path="res://imports/scar.png" type="Texture" id=2]
 [ext_resource path="res://imports/sound/scar.wav" type="AudioStream" id=3]
 
@@ -10,13 +10,14 @@ __meta__ = {
 "_edit_horizontal_guides_": [ -3.31124 ]
 }
 weapon_name = "scar"
-fireCD = 0.1
+fireCD = 0.2
 magazineVol = 30
-readyCD = 0.4
-damage = 33
+reloadCD = 2.0
+readyCD = 0.5
+damage = 17
 bullet_speed = 500
-bullet_health = 3
-recoil = 0.05
+bullet_health = 4
+recoil = 0.1
 
 [node name="GunSprite" type="Sprite" parent="."]
 position = Vector2( 2, -1 )

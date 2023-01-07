@@ -1,4 +1,3 @@
-
 extends Node2D
 var stats = PlayerStats
 export(String) var weapon_name
@@ -13,8 +12,7 @@ export(float) var recoil
 onready var shootCount = 0
 var can_fire = false
 var notReloading = true
-var bullet = [preload("res://Weapons/Bullets.tscn"),preload("res://Weapons/sniper_bullet.tscn")]
-var current_bullet = 0
+var bullet = preload("res://Weapons/Bullets.tscn")
 onready var shaketimer = $ShakeTimer
 onready var cam_shake = get_node("/root/World/Camera2D/shake")
 onready var cam = get_node("/root/World/Camera2D")
@@ -32,7 +30,9 @@ func _input(event):
 		followMouse()
 			
 func _process(_delta):
+	
 	if Input.is_action_pressed("shoot") and can_fire:
+		
 		if !cam_shake.is_shaking:
 			cam.offset = lerp(cam.offset, (Vector2.RIGHT*3).rotated(rotation), 0.5)
 			shaketimer.start()
@@ -44,7 +44,7 @@ func _process(_delta):
 				shaketimer.start()
 			can_fire = false
 			sound_player.play()
-			var bullet_instance = bullet[current_bullet].instance()
+			var bullet_instance = bullet.instance()
 			bullet_instance.damage = damage
 			bullet_instance.speed = bullet_speed
 			bullet_instance.health = bullet_health
@@ -56,13 +56,6 @@ func _process(_delta):
 			$fireCD.start(fireCD)
 
 	if Input.is_action_just_pressed("reload"):
-		can_fire = false
-		$reloadCD.start(reloadCD)
-	if Input.is_action_just_pressed("special"):
-		if current_bullet == 0:
-			current_bullet = 1
-		else:
-			current_bullet = 0
 		can_fire = false
 		$reloadCD.start(reloadCD)
 
