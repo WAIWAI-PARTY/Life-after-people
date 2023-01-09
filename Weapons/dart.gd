@@ -6,7 +6,7 @@ var stats = PlayerStats
 var can_fire = false
 var is_temp = false
 var angle  = 0
-var spawn_id = 4
+var level = 4
 var is_first_time = true
 
 export var weapon_name = "dart"
@@ -28,9 +28,8 @@ func _ready():
 
 func _process(delta):
 	if Input.is_action_pressed("shoot") and not(shooting) and can_fire:
-		shooting = true
-		tar_pos = get_global_mouse_position()+Vector2(rand_range(0,30), rand_range(0,30))
 		state = FIRE
+		tar_pos = get_global_mouse_position()+Vector2(rand_range(0,30), rand_range(0,30))
 	elif Input.is_action_just_pressed("special") and not(shooting):
 		state = SPECIAL
 	match state:
@@ -39,13 +38,14 @@ func _process(delta):
 		FIRE:
 			firing(delta)
 		SPECIAL:
-			special(delta, spawn_id)
+			special(delta, level)
 
 func idle():
 	stats.bullet_count(weapon_name, get_parent().name, 0)
 	$hitbox.damage = 7
 	
 func firing(delta):
+	shooting = true
 	stats.bullet_count(weapon_name, get_parent().name, 1)
 	$hitbox.damage = 20
 	if not(coming_back):
@@ -63,18 +63,19 @@ func firing(delta):
 			state = IDLE
 
 func special(delta, i):
+	shooting = true
 	if i > 1 and is_first_time:
 		is_first_time = false
 		var it = itself.instance()
-		it.spawn_id = i-1
+		it.level = i-1
 		it.state = SPECIAL
 		it.is_temp = true
 		get_parent().add_child(it)
-	angle+=speed*delta*i/1.5
+	angle+=speed*delta*i
 	if angle >= 360:
 		angle = 0
-	var x = 60 * sin(PI * 2 * angle / 360);
-	var y = 60 * cos(PI * 2 * angle / 360);
+	var x = 60*i * sin(PI * 2 * angle / 360);
+	var y = 60*i * cos(PI * 2 * angle / 360);
 	tar_pos = Vector2(x,y)+get_parent().get_parent().global_position
 	$hitbox.damage = 20
 
