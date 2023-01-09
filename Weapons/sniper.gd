@@ -29,7 +29,7 @@ func _ready():
 func _input(event):
 	if event is InputEventMouseMotion:
 		followMouse()
-			
+
 func _process(_delta):
 	if Input.is_action_pressed("shoot") and can_fire:
 		if !cam_shake.is_shaking:

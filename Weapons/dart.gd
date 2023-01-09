@@ -6,12 +6,14 @@ var stats = PlayerStats
 var can_fire = false
 var is_temp = false
 var angle  = 0
+var spawn_id = 4
+var is_first_time = true
 
 export var weapon_name = "dart"
 export var noise = 0.001
 export var speed = 1200
 export var stay_time = 0.5
-export var special_stay_time = 5
+export var special_stay_time = 8
 export var readyCD = 0.5
 onready var stay_timer = $stay_timer
 onready var tar_pos
@@ -37,7 +39,7 @@ func _process(delta):
 		FIRE:
 			firing(delta)
 		SPECIAL:
-			special(delta)
+			special(delta, spawn_id)
 
 func idle():
 	stats.bullet_count(weapon_name, get_parent().name, 0)
@@ -60,14 +62,22 @@ func firing(delta):
 			shooting = false
 			state = IDLE
 
-func special(delta):
-	angle+=speed*delta
+func special(delta, i):
+	if i > 1 and is_first_time:
+		is_first_time = false
+		var it = itself.instance()
+		it.spawn_id = i-1
+		it.state = SPECIAL
+		it.is_temp = true
+		get_parent().add_child(it)
+	angle+=speed*delta*i/1.5
 	if angle >= 360:
 		angle = 0
 	var x = 60 * sin(PI * 2 * angle / 360);
 	var y = 60 * cos(PI * 2 * angle / 360);
 	tar_pos = Vector2(x,y)+get_parent().get_parent().global_position
 	$hitbox.damage = 20
+
 	if not(coming_back):
 		global_position = global_position.move_toward(tar_pos, speed*delta)
 		if stay_timer.is_stopped():
@@ -80,6 +90,7 @@ func special(delta):
 			position = Vector2.ZERO
 			coming_back = false
 			shooting = false
+			is_first_time = true
 			state = IDLE
 
 func _on_Timer_timeout():

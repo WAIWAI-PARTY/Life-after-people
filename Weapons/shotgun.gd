@@ -1,23 +1,28 @@
-
 extends Node2D
+
 var stats = PlayerStats
+var can_fire = false
+var bullet = []
+var notReloading = true
+
 export var weapon_name = "shotgun"
 export var fireCD = 0.5
 export var reloadCD = 1.5
 export var bulletCount = 6
 export var magazineVol = 2
 export var readyCD = 0.7
+export var recoil_shake = 10
+
+export(int) var damage = 20
+export(int) var bullet_speed = 200
+export(int) var bullet_health = 2
+
 onready var shootCount = 0
-export(int) var damage
-export(int) var bullet_speed
-export(int) var bullet_health
-var can_fire = false
-var bullet = []
-var notReloading = true
 onready var shaketimer = $ShakeTimer
 onready var cam_shake = get_node("/root/World/Camera2D/shake")
 onready var cam = get_node("/root/World/Camera2D")
 onready var sound_player = $AudioStreamPlayer2D
+
 func _ready():
 	stats.playerStats["current_weapon"] = weapon_name
 	followMouse()
@@ -37,10 +42,9 @@ func _process(_delta):
 		if shootCount >= magazineVol:
 			checkReload()
 		else:
-			
 			can_fire = false
 			if !cam_shake.is_shaking:
-				cam.offset = lerp(cam.offset, (Vector2.RIGHT*3).rotated(rotation), 0.5)
+				cam.offset = lerp(cam.offset, (Vector2.RIGHT*recoil_shake).rotated(rotation), 0.5)
 				shaketimer.start()
 			sound_player.play()
 			for i in range(bulletCount):
@@ -63,7 +67,6 @@ func _on_ShakeTimer_timeout():
 
 func followMouse():
 	look_at(get_global_mouse_position())
-	# keep rotation_degrees between 0 and 360
 	rotation_degrees = fposmod(rotation_degrees, 360.0)
 	if rotation_degrees > 90 && rotation_degrees < 270:
 		$GunSprite.set_scale(Vector2(0.5,-0.5))
@@ -84,7 +87,6 @@ func _on_reloadCD_timeout():
 	stats.bullet_count(weapon_name, get_parent().name, shootCount)
 	can_fire = true
 	notReloading = true
-
 
 func _on_readyTimer_timeout():
 	can_fire = true

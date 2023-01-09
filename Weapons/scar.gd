@@ -1,14 +1,15 @@
 extends Node2D
 var stats = PlayerStats
-export(String) var weapon_name
-export(float) var fireCD
-export(int) var magazineVol
-export(float) var reloadCD
-export(float) var readyCD
-export(int) var damage
-export(int) var bullet_speed
-export(int) var bullet_health
-export(float) var recoil
+export(String) var weapon_name = "scar"
+export(float) var fireCD = 0.17
+export(int) var magazineVol = 30
+export(float) var reloadCD = 2
+export(float) var readyCD = 0.7
+export(int) var damage = 17
+export(int) var bullet_speed = 300
+export(int) var bullet_health = 4
+export(float) var recoil = 0.07
+export(int) var recoil_shake = 5
 onready var shootCount = 0
 var can_fire = false
 var notReloading = true
@@ -40,7 +41,7 @@ func _process(_delta):
 			checkReload()
 		else:
 			if !cam_shake.is_shaking:
-				cam.offset = lerp(cam.offset, (Vector2.RIGHT*3).rotated(rotation), 0.5)
+				cam.offset = lerp(cam.offset, (Vector2.RIGHT*recoil_shake).rotated(rotation), 0.5)
 				shaketimer.start()
 			can_fire = false
 			sound_player.play()
@@ -64,7 +65,6 @@ func _on_ShakeTimer_timeout():
 
 func followMouse():
 	look_at(get_global_mouse_position())
-	# keep rotation_degrees between 0 and 360
 	rotation_degrees = fposmod(rotation_degrees, 360.0)
 	if rotation_degrees > 90 && rotation_degrees < 270:
 		$GunSprite.set_scale(Vector2(0.5,-0.5))

@@ -9,15 +9,6 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_horizontal_guides_": [ -3.31124 ]
 }
-weapon_name = "scar"
-fireCD = 0.2
-magazineVol = 30
-reloadCD = 2.0
-readyCD = 0.5
-damage = 17
-bullet_speed = 500
-bullet_health = 4
-recoil = 0.1
 
 [node name="GunSprite" type="Sprite" parent="."]
 position = Vector2( 2, -1 )
