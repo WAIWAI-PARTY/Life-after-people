@@ -24,14 +24,15 @@ settings/fps/force_fps=144
 
 [display]
 
-window/size/width=427
-window/size/height=240
+window/size/width=640
+window/size/height=360
+window/size/resizable=false
 window/size/test_width=1280
 window/size/test_height=720
 window/dpi/allow_hidpi=true
 window/vsync/use_vsync=false
-window/stretch/mode="2d"
-window/stretch/aspect="keep"
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 
 [importer_defaults]
 

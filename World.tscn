@@ -245,6 +245,7 @@ position = Vector2( 428, -23 )
 
 [node name="Pigeon" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 23, -8 )
+frame = 2
 
 [node name="Pigeon2" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( 7, -8 )
@@ -258,7 +259,7 @@ frame = 4
 
 [node name="Pigeon4" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
 position = Vector2( -25, -8 )
-frame = 4
+frame = 1
 
 [node name="lasershooter" parent="YSort" instance=ExtResource( 19 )]
 position = Vector2( 332, 124 )
