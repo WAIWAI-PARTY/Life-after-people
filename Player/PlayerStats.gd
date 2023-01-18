@@ -75,7 +75,9 @@ func get_weapon_state(slot):
 			return "reload"
 	else:
 		return "no weapon"
-		
+
+func get_weapon_name(slot):
+	return str(playerStats["current_weapon"])
 
 		
 
