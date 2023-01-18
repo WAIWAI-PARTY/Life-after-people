@@ -59,9 +59,11 @@ func _process(_delta):
 		$reloadCD.start(reloadCD)
 	if Input.is_action_just_pressed("special"):
 		if current_bullet == 0:
-			current_bullet = 1
+			current_bullet = 1	
+			PlayerStats.set_bulletType(1)
 		else:
 			current_bullet = 0
+			PlayerStats.set_bulletType(0)
 		can_fire = false
 		$reloadCD.start(reloadCD)
 

@@ -40,6 +40,14 @@ onready var playerStats = {
 		"slot4":0
 	}
 }
+var currentBullet = 0 setget set_bulletType , get_bulletType
+
+func set_bulletType(value):
+	currentBullet = value
+	
+func get_bulletType():
+	return currentBullet
+	
 onready var health = playerStats["max_health"]  setget set_health, get_health
 signal no_health
 func _ready():
@@ -67,3 +75,7 @@ func get_weapon_state(slot):
 			return "reload"
 	else:
 		return "no weapon"
+		
+
+		
+
