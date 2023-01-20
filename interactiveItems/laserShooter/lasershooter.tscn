@@ -1,14 +1,32 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://imports/New Folder/testing shit.png" type="Texture" id=1]
-[ext_resource path="res://bullet shift/lasershooter.gd" type="Script" id=2]
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Area2D
+
+onready var laser = preload(\"res://interactiveItems/laserShooter/Laser.tscn\")
+var cooldown = true
+
+func _on_lasershooter_area_entered(area):
+	if cooldown:
+		cooldown = false
+		var laserIns = laser.instance()
+		laserIns.rotation_degrees = area.get_parent().rotation_degrees
+		laserIns.position = global_position
+		get_node(\"/root\").call_deferred(\"add_child\", laserIns)
+		$Timer.start()
+
+func _on_Timer_timeout():
+	cooldown = true
+"
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 16 )
 
 [node name="lasershooter" type="Area2D"]
 collision_mask = 0
-script = ExtResource( 2 )
+script = SubResource( 2 )
 
 [node name="TestingShit" type="Sprite" parent="."]
 texture = ExtResource( 1 )

@@ -1,6 +1,6 @@
 extends Area2D
 
-onready var laser = preload("res://bullet shift/Laser.tscn")
+onready var laser = preload("res://interactiveItems/laserShooter/Laser.gd")
 var cooldown = true
 
 func _on_lasershooter_area_entered(area):

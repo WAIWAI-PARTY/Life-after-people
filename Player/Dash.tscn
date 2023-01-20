@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Dash.gd" type="Script" id=1]
+[ext_resource path="res://Player/Dash.gd" type="Script" id=1]
 [ext_resource path="res://imports/dust.png" type="Texture" id=2]
 
 [sub_resource type="CanvasItemMaterial" id=1]

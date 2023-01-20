@@ -1,9 +1,9 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Enemy/MrC.tscn" type="PackedScene" id=1]
 [ext_resource path="res://SceneDesign/Scenestaticsprite/BrokenFurnitures.tscn" type="PackedScene" id=2]
 [ext_resource path="res://SceneDesign/SceneAnimatedSprite/Pigeons.tscn" type="PackedScene" id=3]
-[ext_resource path="res://bullet shift/lasershooter.tscn" type="PackedScene" id=4]
+[ext_resource path="res://interactiveItems/laserShooter/lasershooter.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Enemy/Slime.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://World/Barrel.tscn" type="PackedScene" id=7]
@@ -24,6 +24,7 @@
 [ext_resource path="res://imports/Modern_Exteriors_v1.0/Modern_Exteriors_16x16/Modern_Exteriors_Singles_16x16/Modern_Exteriors_Singles_145.png" type="Texture" id=22]
 [ext_resource path="res://imports/overgrownbuilding2.png" type="Texture" id=23]
 [ext_resource path="res://imports/Modern_Exteriors_v1.0/Modern_Exteriors_16x16/Ready_To_Use_16x16/Modern_Exteriors_RTU_1_layer_1_16x16.png" type="Texture" id=24]
+[ext_resource path="res://interactiveItems/bullet shift/bulletrefractor.tscn" type="PackedScene" id=25]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -245,21 +246,21 @@ position = Vector2( 428, -23 )
 
 [node name="Pigeon" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( 23, -8 )
-frame = 1
+frame = 2
 
 [node name="Pigeon2" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( 7, -8 )
 animation = "Pigeon2"
-frame = 4
+frame = 3
 
 [node name="Pigeon3" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( -9, -8 )
 animation = "Pigeon2"
-frame = 4
+frame = 3
 
 [node name="Pigeon4" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( -25, -8 )
-frame = 0
+frame = 1
 
 [node name="lasershooter" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 332, 124 )
@@ -295,6 +296,9 @@ wait_time = 0.1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
+
+[node name="bulletrefractor" parent="." instance=ExtResource( 25 )]
+position = Vector2( -13, 118 )
 
 [connection signal="timeout" from="Spawner/SpawnTimer" to="Spawner" method="_on_SpawnTimer_timeout"]
 

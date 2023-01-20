@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Laser.gd" type="Script" id=1]
+[ext_resource path="res://interactiveItems/laserShooter/Laser.gd" type="Script" id=1]
 [ext_resource path="res://hitandhurt/hitbox.tscn" type="PackedScene" id=2]
 [ext_resource path="res://imports/New Folder/laser.png" type="Texture" id=3]
 
