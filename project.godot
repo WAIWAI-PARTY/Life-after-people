@@ -10,7 +10,7 @@ config_version=4
 
 [application]
 
-config/name="Effect and Cause"
+config/name="Life after people"
 run/main_scene="res://SavedWorld/normalWorld.tscn"
 config/icon="res://icon.png"
 
