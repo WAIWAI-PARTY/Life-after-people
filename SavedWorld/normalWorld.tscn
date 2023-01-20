@@ -1,29 +1,29 @@
 [gd_scene load_steps=26 format=2]
 
-[ext_resource path="res://imports/crosshair.png" type="Texture" id=1]
-[ext_resource path="res://imports/concretefloor_tile.tres" type="TileSet" id=2]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Enemy/Slime.tscn" type="PackedScene" id=4]
-[ext_resource path="res://World/Barrel.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Enemy/MrC.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Camera2D.gd" type="Script" id=7]
-[ext_resource path="res://UI/HealthUI.tscn" type="PackedScene" id=8]
-[ext_resource path="res://imports/skybg.png" type="Texture" id=9]
-[ext_resource path="res://imports/brokenbuilding.png" type="Texture" id=10]
-[ext_resource path="res://Enemy/Spawn.tscn" type="PackedScene" id=11]
-[ext_resource path="res://SceneDesign/Scenestaticsprite/BrokenFurnitures.tscn" type="PackedScene" id=12]
-[ext_resource path="res://SceneDesign/Scenestaticsprite/Locker.tscn" type="PackedScene" id=13]
-[ext_resource path="res://imports/Modern_Exteriors_v1.0/Modern_Exteriors_16x16/Modern_Exteriors_Singles_16x16/Modern_Exteriors_Singles_142.png" type="Texture" id=14]
-[ext_resource path="res://imports/Modern_Exteriors_v1.0/Modern_Exteriors_16x16/Modern_Exteriors_Singles_16x16/Modern_Exteriors_Singles_143.png" type="Texture" id=15]
-[ext_resource path="res://imports/Modern_Exteriors_v1.0/Modern_Exteriors_16x16/Modern_Exteriors_Singles_16x16/Modern_Exteriors_Singles_144.png" type="Texture" id=16]
-[ext_resource path="res://imports/Modern_Exteriors_v1.0/Modern_Exteriors_16x16/Modern_Exteriors_Singles_16x16/Modern_Exteriors_Singles_145.png" type="Texture" id=17]
-[ext_resource path="res://imports/overgrownbuilding2.png" type="Texture" id=18]
-[ext_resource path="res://bullet shift/lasershooter.tscn" type="PackedScene" id=19]
-[ext_resource path="res://imports/overgrownbuilding1.png" type="Texture" id=20]
-[ext_resource path="res://Cursor.gd" type="Script" id=21]
-[ext_resource path="res://SceneDesign/SceneAnimatedSprite/Pigeons.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Enemy/MrC.tscn" type="PackedScene" id=1]
+[ext_resource path="res://SceneDesign/Scenestaticsprite/BrokenFurnitures.tscn" type="PackedScene" id=2]
+[ext_resource path="res://SceneDesign/SceneAnimatedSprite/Pigeons.tscn" type="PackedScene" id=3]
+[ext_resource path="res://bullet shift/lasershooter.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Enemy/Slime.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://World/Barrel.tscn" type="PackedScene" id=7]
+[ext_resource path="res://SceneDesign/Scenestaticsprite/Locker.tscn" type="PackedScene" id=8]
+[ext_resource path="res://UI/HealthUI.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Enemy/Spawn.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Spawner.gd" type="Script" id=11]
+[ext_resource path="res://imports/concretefloor_tile.tres" type="TileSet" id=12]
+[ext_resource path="res://imports/crosshair.png" type="Texture" id=13]
+[ext_resource path="res://Cursor.gd" type="Script" id=14]
+[ext_resource path="res://Camera2D.gd" type="Script" id=15]
+[ext_resource path="res://imports/Modern_Exteriors_v1.0/Modern_Exteriors_16x16/Modern_Exteriors_Singles_16x16/Modern_Exteriors_Singles_142.png" type="Texture" id=16]
+[ext_resource path="res://imports/overgrownbuilding1.png" type="Texture" id=17]
+[ext_resource path="res://imports/skybg.png" type="Texture" id=18]
+[ext_resource path="res://imports/Modern_Exteriors_v1.0/Modern_Exteriors_16x16/Modern_Exteriors_Singles_16x16/Modern_Exteriors_Singles_143.png" type="Texture" id=19]
+[ext_resource path="res://imports/Modern_Exteriors_v1.0/Modern_Exteriors_16x16/Modern_Exteriors_Singles_16x16/Modern_Exteriors_Singles_144.png" type="Texture" id=20]
+[ext_resource path="res://imports/brokenbuilding.png" type="Texture" id=21]
+[ext_resource path="res://imports/Modern_Exteriors_v1.0/Modern_Exteriors_16x16/Modern_Exteriors_Singles_16x16/Modern_Exteriors_Singles_145.png" type="Texture" id=22]
+[ext_resource path="res://imports/overgrownbuilding2.png" type="Texture" id=23]
 [ext_resource path="res://imports/Modern_Exteriors_v1.0/Modern_Exteriors_16x16/Ready_To_Use_16x16/Modern_Exteriors_RTU_1_layer_1_16x16.png" type="Texture" id=24]
-[ext_resource path="res://Spawner.gd" type="Script" id=25]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -43,7 +43,7 @@ adjustment_saturation = 1.18
 [node name="Skybg" type="Sprite" parent="."]
 position = Vector2( 225, -135 )
 scale = Vector2( 4.00938, 2.54722 )
-texture = ExtResource( 9 )
+texture = ExtResource( 18 )
 
 [node name="ModernExteriorsRtu1Layer116X16" type="Sprite" parent="."]
 position = Vector2( -109, 358 )
@@ -59,7 +59,7 @@ flip_h = true
 [node name="Brokenbuilding" type="Sprite" parent="."]
 position = Vector2( 166, 364 )
 scale = Vector2( 1.44792, 1.30833 )
-texture = ExtResource( 10 )
+texture = ExtResource( 21 )
 
 [node name="Buildings" type="Node2D" parent="."]
 position = Vector2( -4, 354 )
@@ -67,52 +67,52 @@ scale = Vector2( 2, 2 )
 
 [node name="ModernExteriorsSingles179" type="Sprite" parent="Buildings"]
 position = Vector2( 246, -205 )
-texture = ExtResource( 18 )
+texture = ExtResource( 23 )
 
 [node name="ModernExteriorsSingles182" type="Sprite" parent="Buildings"]
 position = Vector2( 342, -205 )
-texture = ExtResource( 18 )
+texture = ExtResource( 23 )
 
 [node name="ModernExteriorsSingles183" type="Sprite" parent="Buildings"]
 position = Vector2( 438, -229 )
-texture = ExtResource( 18 )
+texture = ExtResource( 23 )
 
 [node name="ModernExteriorsSingles177" type="Sprite" parent="Buildings"]
 position = Vector2( -46, -237 )
-texture = ExtResource( 20 )
+texture = ExtResource( 17 )
 
 [node name="ModernExteriorsSingles181" type="Sprite" parent="Buildings"]
 position = Vector2( -160, -193 )
 scale = Vector2( 1.28125, 1 )
-texture = ExtResource( 20 )
+texture = ExtResource( 17 )
 
 [node name="ModernExteriorsSingles175" type="Sprite" parent="Buildings"]
 position = Vector2( 298.5, -81.5 )
 scale = Vector2( 1.20833, 1 )
-texture = ExtResource( 20 )
+texture = ExtResource( 17 )
 
 [node name="ModernExteriorsSingles176" type="Sprite" parent="Buildings"]
 position = Vector2( -109.25, -128 )
 scale = Vector2( 1.16146, 1 )
-texture = ExtResource( 18 )
+texture = ExtResource( 23 )
 
 [node name="ModernExteriorsSingles170" type="Sprite" parent="Buildings"]
 position = Vector2( -108.75, -16 )
 scale = Vector2( 1.16146, 1 )
-texture = ExtResource( 20 )
+texture = ExtResource( 17 )
 
 [node name="ModernExteriorsSingles178" type="Sprite" parent="Buildings"]
 position = Vector2( 54, -191.5 )
-texture = ExtResource( 18 )
+texture = ExtResource( 23 )
 
 [node name="ModernExteriorsSingles180" type="Sprite" parent="Buildings"]
 position = Vector2( 150, -173 )
-texture = ExtResource( 20 )
+texture = ExtResource( 17 )
 
 [node name="ModernExteriorsSingles173" type="Sprite" parent="Buildings"]
 position = Vector2( 294, -9 )
 scale = Vector2( 1.21875, 1 )
-texture = ExtResource( 18 )
+texture = ExtResource( 23 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 143, 95 )
@@ -120,10 +120,10 @@ current = true
 smoothing_enabled = true
 
 [node name="shake" type="Node" parent="Camera2D"]
-script = ExtResource( 7 )
+script = ExtResource( 15 )
 
 [node name="concretefloor" type="TileMap" parent="."]
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 12 )
 cell_size = Vector2( 16, 16 )
 show_collision = true
 format = 1
@@ -132,17 +132,17 @@ tile_data = PoolIntArray( -65543, 0, 0, -65542, 1, 0, -65541, 2, 0, -65540, 2, 0
 [node name="YSort" type="YSort" parent="."]
 
 [node name="TileMap" type="TileMap" parent="YSort"]
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 12 )
 cell_size = Vector2( 16, 16 )
 cell_y_sort = true
 show_collision = true
 format = 1
 tile_data = PoolIntArray( 1245177, 7, 0, 1245178, 8, 0, 1245179, 8, 0, 1245180, 8, 0, 1245181, 8, 0, 1245182, 8, 0, 1245183, 8, 0, 1179648, 8, 0, 1179649, 8, 0, 1179650, 8, 0, 1179651, 8, 0, 1179652, 8, 0, 1179653, 8, 0, 1179654, 8, 0, 1179655, 8, 0, 1179656, 8, 0, 1179657, 8, 0, 1179658, 8, 0, 1179659, 8, 0, 1179660, 8, 0, 1179661, 8, 0, 1179662, 8, 0, 1179663, 8, 0, 1179664, 8, 0, 1179665, 8, 0, 1179666, 8, 0, 1179667, 8, 0, 1179668, 8, 0, 1179669, 8, 0, 1179670, 8, 0, 1179671, 8, 0, 1179672, 8, 0, 1179673, 8, 0, 1179674, 8, 0, 1179675, 8, 0, 1179676, 8, 0, 1179677, 9, 0 )
 
-[node name="MrC" parent="YSort" instance=ExtResource( 6 )]
+[node name="MrC" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( 239, 134 )
 
-[node name="Player" parent="YSort" instance=ExtResource( 3 )]
+[node name="Player" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 143, 95 )
 maxSpeed = 125
 
@@ -151,74 +151,74 @@ remote_path = NodePath("../../../Camera2D")
 
 [node name="slimes" type="YSort" parent="YSort"]
 
-[node name="Slime" parent="YSort/slimes" instance=ExtResource( 4 )]
+[node name="Slime" parent="YSort/slimes" instance=ExtResource( 5 )]
 position = Vector2( 234.03, 97.8397 )
 
-[node name="Slime2" parent="YSort/slimes" instance=ExtResource( 4 )]
+[node name="Slime2" parent="YSort/slimes" instance=ExtResource( 5 )]
 position = Vector2( 130, 191 )
 
-[node name="Slime3" parent="YSort/slimes" instance=ExtResource( 4 )]
+[node name="Slime3" parent="YSort/slimes" instance=ExtResource( 5 )]
 position = Vector2( 291, 151 )
 
 [node name="barrels" type="YSort" parent="YSort"]
 
-[node name="barrel" parent="YSort/barrels" instance=ExtResource( 5 )]
+[node name="barrel" parent="YSort/barrels" instance=ExtResource( 7 )]
 position = Vector2( 55, 88 )
 
-[node name="barrel2" parent="YSort/barrels" instance=ExtResource( 5 )]
+[node name="barrel2" parent="YSort/barrels" instance=ExtResource( 7 )]
 position = Vector2( 55, 172 )
 
-[node name="barrel9" parent="YSort/barrels" instance=ExtResource( 5 )]
+[node name="barrel9" parent="YSort/barrels" instance=ExtResource( 7 )]
 position = Vector2( 127, 146 )
 
-[node name="barrel11" parent="YSort/barrels" instance=ExtResource( 5 )]
+[node name="barrel11" parent="YSort/barrels" instance=ExtResource( 7 )]
 position = Vector2( 216, 142 )
 
-[node name="barrel12" parent="YSort/barrels" instance=ExtResource( 5 )]
+[node name="barrel12" parent="YSort/barrels" instance=ExtResource( 7 )]
 position = Vector2( 170, 130 )
 
-[node name="barrel13" parent="YSort/barrels" instance=ExtResource( 5 )]
+[node name="barrel13" parent="YSort/barrels" instance=ExtResource( 7 )]
 position = Vector2( 78, 119 )
 
-[node name="barrel14" parent="YSort/barrels" instance=ExtResource( 5 )]
+[node name="barrel14" parent="YSort/barrels" instance=ExtResource( 7 )]
 position = Vector2( 166, 181 )
 
-[node name="barrel15" parent="YSort/barrels" instance=ExtResource( 5 )]
+[node name="barrel15" parent="YSort/barrels" instance=ExtResource( 7 )]
 position = Vector2( 90, 212 )
 
-[node name="barrel16" parent="YSort/barrels" instance=ExtResource( 5 )]
+[node name="barrel16" parent="YSort/barrels" instance=ExtResource( 7 )]
 position = Vector2( 100, 172 )
 
-[node name="barrel17" parent="YSort/barrels" instance=ExtResource( 5 )]
+[node name="barrel17" parent="YSort/barrels" instance=ExtResource( 7 )]
 position = Vector2( 222, 237 )
 
-[node name="barrel18" parent="YSort/barrels" instance=ExtResource( 5 )]
+[node name="barrel18" parent="YSort/barrels" instance=ExtResource( 7 )]
 position = Vector2( 218, 79 )
 
-[node name="barrel19" parent="YSort/barrels" instance=ExtResource( 5 )]
+[node name="barrel19" parent="YSort/barrels" instance=ExtResource( 7 )]
 position = Vector2( 108, 60 )
 
-[node name="barrel10" parent="YSort/barrels" instance=ExtResource( 5 )]
+[node name="barrel10" parent="YSort/barrels" instance=ExtResource( 7 )]
 position = Vector2( 206, 182 )
 
 [node name="Furnitures" type="YSort" parent="YSort"]
 
-[node name="BrokenFurnitures" parent="YSort/Furnitures" instance=ExtResource( 12 )]
+[node name="BrokenFurnitures" parent="YSort/Furnitures" instance=ExtResource( 2 )]
 position = Vector2( 154, 39 )
 
 [node name="Lockers" type="YSort" parent="YSort/Furnitures"]
 position = Vector2( -88, -48 )
 
-[node name="Locker" parent="YSort/Furnitures/Lockers" instance=ExtResource( 13 )]
+[node name="Locker" parent="YSort/Furnitures/Lockers" instance=ExtResource( 8 )]
 position = Vector2( 72, 32 )
 
-[node name="Locker2" parent="YSort/Furnitures/Lockers" instance=ExtResource( 13 )]
+[node name="Locker2" parent="YSort/Furnitures/Lockers" instance=ExtResource( 8 )]
 position = Vector2( 88, 32 )
 
-[node name="Locker3" parent="YSort/Furnitures/Lockers" instance=ExtResource( 13 )]
+[node name="Locker3" parent="YSort/Furnitures/Lockers" instance=ExtResource( 8 )]
 position = Vector2( 104, 32 )
 
-[node name="Locker4" parent="YSort/Furnitures/Lockers" instance=ExtResource( 13 )]
+[node name="Locker4" parent="YSort/Furnitures/Lockers" instance=ExtResource( 8 )]
 position = Vector2( 120, 32 )
 
 [node name="StaticExteriors" type="Node2D" parent="YSort/Furnitures"]
@@ -226,47 +226,47 @@ position = Vector2( -87, -26 )
 
 [node name="ModernExteriorsSingles143" type="Sprite" parent="YSort/Furnitures/StaticExteriors"]
 position = Vector2( 47, -36 )
-texture = ExtResource( 15 )
+texture = ExtResource( 19 )
 
 [node name="ModernExteriorsSingles142" type="Sprite" parent="YSort/Furnitures/StaticExteriors"]
 position = Vector2( 32, -36 )
-texture = ExtResource( 14 )
+texture = ExtResource( 16 )
 
 [node name="ModernExteriorsSingles144" type="Sprite" parent="YSort/Furnitures/StaticExteriors"]
 position = Vector2( 9, -39 )
-texture = ExtResource( 16 )
+texture = ExtResource( 20 )
 
 [node name="ModernExteriorsSingles145" type="Sprite" parent="YSort/Furnitures/StaticExteriors"]
 position = Vector2( 4, -16 )
-texture = ExtResource( 17 )
+texture = ExtResource( 22 )
 
 [node name="AnimatedExteriors" type="Node2D" parent="YSort/Furnitures"]
 position = Vector2( 428, -23 )
 
-[node name="Pigeon" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
+[node name="Pigeon" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( 23, -8 )
-frame = 2
-
-[node name="Pigeon2" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
-position = Vector2( 7, -8 )
-animation = "Pigeon2"
-frame = 3
-
-[node name="Pigeon3" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
-position = Vector2( -9, -8 )
-animation = "Pigeon2"
-frame = 3
-
-[node name="Pigeon4" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 23 )]
-position = Vector2( -25, -8 )
 frame = 1
 
-[node name="lasershooter" parent="YSort" instance=ExtResource( 19 )]
+[node name="Pigeon2" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
+position = Vector2( 7, -8 )
+animation = "Pigeon2"
+frame = 4
+
+[node name="Pigeon3" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
+position = Vector2( -9, -8 )
+animation = "Pigeon2"
+frame = 4
+
+[node name="Pigeon4" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
+position = Vector2( -25, -8 )
+frame = 0
+
+[node name="lasershooter" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 332, 124 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="HealthUI" parent="CanvasLayer" instance=ExtResource( 8 )]
+[node name="HealthUI" parent="CanvasLayer" instance=ExtResource( 9 )]
 
 [node name="Label" parent="CanvasLayer/HealthUI" index="0"]
 margin_left = 0.0
@@ -278,16 +278,16 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = ""
 
 [node name="Cursor" type="Node2D" parent="."]
-script = ExtResource( 21 )
+script = ExtResource( 14 )
 
 [node name="Crosshair" type="Sprite" parent="Cursor"]
 position = Vector2( -792, -334 )
-texture = ExtResource( 1 )
+texture = ExtResource( 13 )
 
 [node name="Spawner" type="Node2D" parent="."]
-script = ExtResource( 25 )
+script = ExtResource( 11 )
 
-[node name="Spawn" parent="Spawner" instance=ExtResource( 11 )]
+[node name="Spawn" parent="Spawner" instance=ExtResource( 10 )]
 position = Vector2( -30, 42 )
 
 [node name="SpawnTimer" type="Timer" parent="Spawner"]
