@@ -12,7 +12,7 @@
 [ext_resource path="res://Enemy/Spawn.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Spawner.gd" type="Script" id=11]
 [ext_resource path="res://imports/concretefloor_tile.tres" type="TileSet" id=12]
-[ext_resource path="res://imports/crosshair.png" type="Texture" id=13]
+[ext_resource path="res://UI/crosshair.png" type="Texture" id=13]
 [ext_resource path="res://Cursor.gd" type="Script" id=14]
 [ext_resource path="res://Camera2D.gd" type="Script" id=15]
 [ext_resource path="res://imports/Modern_Exteriors_v1.0/Modern_Exteriors_16x16/Modern_Exteriors_Singles_16x16/Modern_Exteriors_Singles_142.png" type="Texture" id=16]
@@ -246,21 +246,20 @@ position = Vector2( 428, -23 )
 
 [node name="Pigeon" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( 23, -8 )
-frame = 2
+frame = 0
 
 [node name="Pigeon2" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( 7, -8 )
 animation = "Pigeon2"
-frame = 3
+frame = 1
 
 [node name="Pigeon3" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( -9, -8 )
 animation = "Pigeon2"
-frame = 3
+frame = 1
 
 [node name="Pigeon4" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( -25, -8 )
-frame = 1
 
 [node name="lasershooter" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 332, 124 )
