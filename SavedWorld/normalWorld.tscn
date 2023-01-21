@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Enemy/MrC.tscn" type="PackedScene" id=1]
 [ext_resource path="res://SceneDesign/Scenestaticsprite/BrokenFurnitures.tscn" type="PackedScene" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://imports/overgrownbuilding2.png" type="Texture" id=23]
 [ext_resource path="res://imports/Modern_Exteriors_v1.0/Modern_Exteriors_16x16/Ready_To_Use_16x16/Modern_Exteriors_RTU_1_layer_1_16x16.png" type="Texture" id=24]
 [ext_resource path="res://interactiveItems/bullet shift/bulletrefractor.tscn" type="PackedScene" id=25]
+[ext_resource path="res://SavedWorld/sceneController.gd" type="Script" id=26]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -246,21 +247,21 @@ position = Vector2( 428, -23 )
 
 [node name="Pigeon" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( 23, -8 )
-frame = 2
+frame = 4
 
 [node name="Pigeon2" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( 7, -8 )
 animation = "Pigeon2"
-frame = 4
+frame = 3
 
 [node name="Pigeon3" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( -9, -8 )
 animation = "Pigeon2"
-frame = 4
+frame = 3
 
 [node name="Pigeon4" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( -25, -8 )
-frame = 1
+frame = 3
 
 [node name="lasershooter" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 332, 124 )
@@ -299,6 +300,9 @@ environment = SubResource( 1 )
 
 [node name="bulletrefractor" parent="." instance=ExtResource( 25 )]
 position = Vector2( -13, 118 )
+
+[node name="sceneController" type="Node2D" parent="."]
+script = ExtResource( 26 )
 
 [connection signal="timeout" from="Spawner/SpawnTimer" to="Spawner" method="_on_SpawnTimer_timeout"]
 
