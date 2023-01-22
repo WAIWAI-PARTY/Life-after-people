@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://imports/Vcharacter_anim.png" type="Texture" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://Effect/whiten_material.gdshader" type="Shader" id=5]
 [ext_resource path="res://Player/Bullet_Time.tscn" type="PackedScene" id=6]
 [ext_resource path="res://imports/MediumShadow.png" type="Texture" id=7]
-[ext_resource path="res://Player/backpack.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 5 )
@@ -190,8 +189,6 @@ collision_mask = 0
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
 position = Vector2( 0, -4 )
 shape = SubResource( 2 )
-
-[node name="backpack" parent="." instance=ExtResource( 8 )]
 
 [node name="slot1" type="Position2D" parent="." groups=["weaponSlot"]]
 position = Vector2( 2, -4 )

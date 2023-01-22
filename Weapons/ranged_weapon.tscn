@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://ranged_weapon.gd" type="Script" id=1]
+
+[node name="ranged_weapon" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="ReloadTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ShootTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="shaketimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="shaketimer" to="." method="_on_shaketimer_timeout"]

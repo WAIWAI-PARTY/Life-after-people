@@ -22,4 +22,3 @@ func _on_hitbox_area_entered(_area):
 	
 func _on_FlyingTimer_timeout():
 	queue_free()
-

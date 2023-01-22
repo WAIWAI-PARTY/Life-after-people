@@ -6,7 +6,6 @@ export(int) var frict = 1000
 export(float) var dash_duration = 0.2
 export(float) var b_time_duration = 0.4
 
-var stats = PlayerStats
 var velocity = Vector2.ZERO
 var speed_factor = 1
 var input_vector = Vector2.ZERO
@@ -24,7 +23,7 @@ onready var anim_player = $AnimationPlayer
 
 func _ready():
 	randomize()
-	stats.connect("no_health", self, "player_death_reset")
+	PlayerStats.connect("no_health", self, "player_death_reset")
 
 func _process(delta):
 	$Sprite.flip_h = global_position>get_global_mouse_position()
@@ -71,7 +70,7 @@ func idle():
 func _on_hurtbox_area_entered(area):
 	if dash.is_dashing(): return
 	blink.play("Blink_start")
-	stats.playerStats["health"] -= area.damage
+	PlayerStats.health -= area.damage
 
 func _on_Dash_dash_end():
 	velocity = Vector2.ZERO

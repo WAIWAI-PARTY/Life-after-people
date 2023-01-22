@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Enemy/MrC.tscn" type="PackedScene" id=1]
 [ext_resource path="res://SceneDesign/Scenestaticsprite/BrokenFurnitures.tscn" type="PackedScene" id=2]
@@ -14,7 +14,7 @@
 [ext_resource path="res://imports/concretefloor_tile.tres" type="TileSet" id=12]
 [ext_resource path="res://UI/crosshair.png" type="Texture" id=13]
 [ext_resource path="res://Cursor.gd" type="Script" id=14]
-[ext_resource path="res://Camera2D.gd" type="Script" id=15]
+[ext_resource path="res://custom_camera.tscn" type="PackedScene" id=15]
 [ext_resource path="res://imports/Modern_Exteriors_v1.0/Modern_Exteriors_16x16/Modern_Exteriors_Singles_16x16/Modern_Exteriors_Singles_142.png" type="Texture" id=16]
 [ext_resource path="res://imports/overgrownbuilding1.png" type="Texture" id=17]
 [ext_resource path="res://imports/skybg.png" type="Texture" id=18]
@@ -26,6 +26,7 @@
 [ext_resource path="res://imports/Modern_Exteriors_v1.0/Modern_Exteriors_16x16/Ready_To_Use_16x16/Modern_Exteriors_RTU_1_layer_1_16x16.png" type="Texture" id=24]
 [ext_resource path="res://interactiveItems/bullet shift/bulletrefractor.tscn" type="PackedScene" id=25]
 [ext_resource path="res://SavedWorld/sceneController.gd" type="Script" id=26]
+[ext_resource path="res://Weapons/scar.tscn" type="PackedScene" id=27]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -116,14 +117,6 @@ position = Vector2( 294, -9 )
 scale = Vector2( 1.21875, 1 )
 texture = ExtResource( 23 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 143, 95 )
-current = true
-smoothing_enabled = true
-
-[node name="shake" type="Node" parent="Camera2D"]
-script = ExtResource( 15 )
-
 [node name="concretefloor" type="TileMap" parent="."]
 tile_set = ExtResource( 12 )
 cell_size = Vector2( 16, 16 )
@@ -150,6 +143,8 @@ maxSpeed = 125
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
 remote_path = NodePath("../../../Camera2D")
+
+[node name="scar" parent="YSort/Player" instance=ExtResource( 27 )]
 
 [node name="slimes" type="YSort" parent="YSort"]
 
@@ -247,21 +242,19 @@ position = Vector2( 428, -23 )
 
 [node name="Pigeon" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( 23, -8 )
-frame = 4
+frame = 2
 
 [node name="Pigeon2" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( 7, -8 )
 animation = "Pigeon2"
-frame = 3
 
 [node name="Pigeon3" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( -9, -8 )
 animation = "Pigeon2"
-frame = 3
 
 [node name="Pigeon4" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( -25, -8 )
-frame = 3
+frame = 1
 
 [node name="lasershooter" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 332, 124 )
@@ -303,6 +296,11 @@ position = Vector2( -13, 118 )
 
 [node name="sceneController" type="Node2D" parent="."]
 script = ExtResource( 26 )
+
+[node name="Camera2D" parent="." instance=ExtResource( 15 )]
+position = Vector2( 143, 95 )
+rotating = true
+current = true
 
 [connection signal="timeout" from="Spawner/SpawnTimer" to="Spawner" method="_on_SpawnTimer_timeout"]
 
