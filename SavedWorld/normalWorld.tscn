@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Enemy/MrC.tscn" type="PackedScene" id=1]
 [ext_resource path="res://SceneDesign/Scenestaticsprite/BrokenFurnitures.tscn" type="PackedScene" id=2]
@@ -27,6 +27,7 @@
 [ext_resource path="res://interactiveItems/bullet shift/bulletrefractor.tscn" type="PackedScene" id=25]
 [ext_resource path="res://SavedWorld/sceneController.gd" type="Script" id=26]
 [ext_resource path="res://Weapons/scar.tscn" type="PackedScene" id=27]
+[ext_resource path="res://SavedWorld/parallelWorld.tscn" type="PackedScene" id=28]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -139,7 +140,6 @@ tile_data = PoolIntArray( 1245177, 7, 0, 1245178, 8, 0, 1245179, 8, 0, 1245180, 
 position = Vector2( 239, 134 )
 
 [node name="Player" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 143, 95 )
 maxSpeed = 125
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
@@ -244,21 +244,21 @@ position = Vector2( 428, -23 )
 
 [node name="Pigeon" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( 23, -8 )
-frame = 4
+frame = 2
 
 [node name="Pigeon2" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( 7, -8 )
 animation = "Pigeon2"
-frame = 2
+frame = 0
 
 [node name="Pigeon3" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( -9, -8 )
 animation = "Pigeon2"
-frame = 2
+frame = 0
 
 [node name="Pigeon4" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( -25, -8 )
-frame = 3
+frame = 1
 
 [node name="lasershooter" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 332, 124 )
@@ -299,9 +299,11 @@ environment = SubResource( 1 )
 position = Vector2( -13, 118 )
 
 [node name="Camera2D" parent="." instance=ExtResource( 15 )]
-position = Vector2( 143, 95 )
 rotating = true
 current = true
+
+[node name="parallelWorld" parent="." instance=ExtResource( 28 )]
+position = Vector2( 2000, 0 )
 
 [connection signal="timeout" from="Spawner/SpawnTimer" to="Spawner" method="_on_SpawnTimer_timeout"]
 
