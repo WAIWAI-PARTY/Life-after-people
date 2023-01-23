@@ -16,6 +16,8 @@ max_ammo = 30
 reserve_ammo = 1000
 
 [node name="muzzle" parent="ranged_weapon" index="3"]
-position = Vector2( 20, 0 )
+position = Vector2( 19, 0 )
+
+[connection signal="fire" from="ranged_weapon" to="." method="_on_ranged_weapon_fire"]
 
 [editable path="ranged_weapon"]

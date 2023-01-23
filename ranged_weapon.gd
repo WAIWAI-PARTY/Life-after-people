@@ -19,6 +19,8 @@ onready var _shoot_timer := $ShootTimer
 onready var bullets = [preload("res://Weapons/Bullets.tscn"), preload("res://Weapons/push_off_bullet.tscn")]
 onready var BulletScene = bullets[bullet_type]
 
+signal fire
+
 func _ready() -> void:
 	_reload_timer.connect("timeout", self, "refill_ammo")
 
@@ -47,6 +49,7 @@ func shoot() -> void:
 	if not _shoot_timer.is_stopped():
 		return
 	current_ammo -= 1
+	emit_signal("fire")
 	recoil_degree_actual = rand_range(-current_recoil, current_recoil)
 	var recoil_increment = max_recoil*0.1
 	current_recoil = clamp(current_recoil+recoil_increment, 0.0, max_recoil)
