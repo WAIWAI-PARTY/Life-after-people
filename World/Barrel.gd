@@ -5,7 +5,7 @@ onready var anim = $AnimationPlayer
 onready var sprite = $Sprite
 
 func _on_hurtbox_area_entered(_area):
-	var shakeEffect = get_node("/root/World/Camera2D/shake")
+	var shakeEffect = get_tree().get_nodes_in_group("shake")[0]
 	sprite.scale = Vector2(2.5,2.5)
 	anim.play("anim")
 	shakeEffect.shake(0.5, 30, 10)
