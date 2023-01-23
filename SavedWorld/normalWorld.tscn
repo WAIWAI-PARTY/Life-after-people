@@ -42,6 +42,7 @@ adjustment_enabled = true
 adjustment_saturation = 1.18
 
 [node name="World" type="Node2D"]
+script = ExtResource( 26 )
 
 [node name="Skybg" type="Sprite" parent="."]
 position = Vector2( 225, -135 )
@@ -243,19 +244,21 @@ position = Vector2( 428, -23 )
 
 [node name="Pigeon" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( 23, -8 )
-frame = 2
+frame = 3
 
 [node name="Pigeon2" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( 7, -8 )
 animation = "Pigeon2"
+frame = 2
 
 [node name="Pigeon3" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( -9, -8 )
 animation = "Pigeon2"
+frame = 2
 
 [node name="Pigeon4" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( -25, -8 )
-frame = 1
+frame = 2
 
 [node name="lasershooter" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 332, 124 )
@@ -294,9 +297,6 @@ environment = SubResource( 1 )
 
 [node name="bulletrefractor" parent="." instance=ExtResource( 25 )]
 position = Vector2( -13, 118 )
-
-[node name="sceneController" type="Node2D" parent="."]
-script = ExtResource( 26 )
 
 [node name="Camera2D" parent="." instance=ExtResource( 15 )]
 position = Vector2( 143, 95 )
