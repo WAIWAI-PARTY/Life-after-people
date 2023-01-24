@@ -10,7 +10,7 @@ config_version=4
 
 [application]
 
-config/name="Life after people"
+config/name="Time Leap"
 run/main_scene="res://SavedWorld/normalWorld.tscn"
 config/icon="res://imports/GuttyKreum_Osakav5/OsakaRPGMakerExample2_1088x832.png"
 
