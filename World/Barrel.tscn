@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://imports/barrel-export.png" type="Texture" id=1]
+[ext_resource path="res://imports/barrel.png" type="Texture" id=1]
 [ext_resource path="res://hitandhurt/hurtbox.tscn" type="PackedScene" id=2]
 [ext_resource path="res://World/Barrel.gd" type="Script" id=3]
 [ext_resource path="res://hitandhurt/hitbox.tscn" type="PackedScene" id=4]
@@ -8,8 +8,8 @@
 [ext_resource path="res://imports/sound/explosion.wav" type="AudioStream" id=6]
 
 [sub_resource type="CapsuleShape2D" id=6]
-radius = 7.14283
-height = 11.4286
+radius = 5.71426
+height = 14.2858
 
 [sub_resource type="Animation" id=4]
 length = 0.001
@@ -142,8 +142,8 @@ tracks/5/keys = {
 }
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 14.2857
-height = 2.85714
+radius = 12.8571
+height = 14.2857
 
 [sub_resource type="CircleShape2D" id=3]
 radius = 93.2519
@@ -154,19 +154,17 @@ collision_mask = 0
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -2.85714 )
-scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 1 )
 hframes = 11
 
 [node name="MediumShadow" type="Sprite" parent="Sprite"]
 show_behind_parent = true
-position = Vector2( 0.714286, 10 )
-scale = Vector2( 1.25893, 1 )
+position = Vector2( 1.90735e-06, 17.5 )
+scale = Vector2( 1.8125, 1.07143 )
 texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.681, 7.143 )
+position = Vector2( 0, 12.8571 )
 rotation = 1.5708
 shape = SubResource( 6 )
 
@@ -178,7 +176,7 @@ anims/anim = SubResource( 5 )
 collision_mask = 0
 
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
-position = Vector2( 0.713, -1.429 )
+scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 
 [node name="hitbox" parent="." instance=ExtResource( 4 )]

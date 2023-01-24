@@ -1,17 +1,20 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://imports/bullet.png" type="Texture" id=1]
 [ext_resource path="res://Weapons/Bullets.gd" type="Script" id=2]
 [ext_resource path="res://hitandhurt/hitbox.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 0.399936
-height = 1.60013
+radius = 0.800004
+height = 1.59999
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 0.4
+height = 1.6
 
 [node name="Bullets" type="KinematicBody2D"]
 scale = Vector2( 2.5, 2.5 )
 collision_layer = 0
-collision_mask = 0
 script = ExtResource( 2 )
 speed = 300
 health = 3
@@ -26,13 +29,17 @@ collision_mask = 9
 damage = 20
 
 [node name="CollisionShape2D" parent="hitbox" index="0"]
-position = Vector2( 2.38322e-08, -2.67029e-06 )
+position = Vector2( -2.98023e-08, 0 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="FlyingTimer" type="Timer" parent="."]
 one_shot = true
 autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource( 2 )
 
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="FlyingTimer" to="." method="_on_FlyingTimer_timeout"]
