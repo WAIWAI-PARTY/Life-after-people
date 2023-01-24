@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Enemy/MrC.tscn" type="PackedScene" id=1]
 [ext_resource path="res://SceneDesign/Scenestaticsprite/BrokenFurnitures.tscn" type="PackedScene" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://imports/Modern_Exteriors_v1.0/Modern_Exteriors_16x16/Modern_Exteriors_Singles_16x16/Modern_Exteriors_Singles_144.png" type="Texture" id=20]
 [ext_resource path="res://imports/brokenbuilding.png" type="Texture" id=21]
 [ext_resource path="res://imports/Modern_Exteriors_v1.0/Modern_Exteriors_16x16/Modern_Exteriors_Singles_16x16/Modern_Exteriors_Singles_145.png" type="Texture" id=22]
+[ext_resource path="res://SceneDesign/Scenestaticsprite/perfectFurniture.tscn" type="PackedScene" id=23]
 [ext_resource path="res://imports/Modern_Exteriors_v1.0/Modern_Exteriors_16x16/Ready_To_Use_16x16/Modern_Exteriors_RTU_1_layer_1_16x16.png" type="Texture" id=24]
 [ext_resource path="res://SavedWorld/sceneController.gd" type="Script" id=26]
 [ext_resource path="res://Weapons/scar.tscn" type="PackedScene" id=27]
@@ -303,12 +304,12 @@ frame = 3
 [node name="Pigeon2" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( 7, -8 )
 animation = "Pigeon2"
-frame = 1
+frame = 2
 
 [node name="Pigeon3" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( -9, -8 )
 animation = "Pigeon2"
-frame = 1
+frame = 2
 
 [node name="Pigeon4" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( -25, -8 )
@@ -316,9 +317,6 @@ frame = 2
 
 [node name="Furnitures2" type="YSort" parent="YSort"]
 position = Vector2( 2000, 0 )
-
-[node name="BrokenFurnitures" parent="YSort/Furnitures2" instance=ExtResource( 2 )]
-position = Vector2( 154, 39 )
 
 [node name="Lockers" type="YSort" parent="YSort/Furnitures2"]
 position = Vector2( -88, -48 )
@@ -364,16 +362,19 @@ frame = 2
 [node name="Pigeon2" parent="YSort/Furnitures2/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( 7, -8 )
 animation = "Pigeon2"
-frame = 0
+frame = 2
 
 [node name="Pigeon3" parent="YSort/Furnitures2/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( -9, -8 )
 animation = "Pigeon2"
-frame = 0
+frame = 2
 
 [node name="Pigeon4" parent="YSort/Furnitures2/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( -25, -8 )
 frame = 1
+
+[node name="perfectFurniture" parent="YSort/Furnitures2" instance=ExtResource( 23 )]
+position = Vector2( 154, 39 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
