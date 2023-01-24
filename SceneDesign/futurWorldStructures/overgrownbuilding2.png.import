@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/overgrownbuilding2.png-d0c034b6e77b640a5feaca8b189c1213.stex"
+path="res://.import/overgrownbuilding2.png-abbba37b4ed1cc38c21e3050d5e19203.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imports/overgrownbuilding2.png"
-dest_files=[ "res://.import/overgrownbuilding2.png-d0c034b6e77b640a5feaca8b189c1213.stex" ]
+source_file="res://SceneDesign/futurWorldStructures/overgrownbuilding2.png"
+dest_files=[ "res://.import/overgrownbuilding2.png-abbba37b4ed1cc38c21e3050d5e19203.stex" ]
 
 [params]
 
