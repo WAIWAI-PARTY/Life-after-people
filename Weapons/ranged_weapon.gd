@@ -1,22 +1,26 @@
 extends Node2D
 
 export(int) var max_ammo = 10
-export(int) var reserve_ammo = 30 setget set_reserve_ammo
+
 export(float) var max_recoil = 10.0
 export(float) var reload_time = 1.0
 export(float) var fire_rate = 0.13
-export(int) var bullet_type = 0
+export(String) var bullet_type = "normal"
 export(int) var bullet_per_shot = 1
 export(int) var accuracy = 10
 
 var current_recoil = 0.0
-var current_ammo = max_ammo
+onready var current_ammo = PlayerStats.get_mag(get_parent().name)
+onready var reserve_ammo = PlayerStats.get_bullet_reserve(bullet_type)
 var recoil_degree_actual = 0
 
 onready var _reload_timer := $ReloadTimer
 onready var _shoot_timer := $ShootTimer
 
-onready var bullets = [preload("res://Weapons/Bullets.tscn"), preload("res://Weapons/push_off_bullet.tscn")]
+onready var bullets = {
+	"normal":preload("res://Weapons/Bullets.tscn"),
+	"push_off":preload("res://Weapons/push_off_bullet.tscn")
+}
 onready var BulletScene = bullets[bullet_type]
 
 signal fire
@@ -49,6 +53,7 @@ func shoot() -> void:
 	if not _shoot_timer.is_stopped():
 		return
 	current_ammo -= 1
+	PlayerStats.set_mag(get_parent().name, current_ammo)
 	emit_signal("fire")
 	recoil_degree_actual = rand_range(-current_recoil, current_recoil)
 	var recoil_increment = max_recoil*0.1
@@ -73,9 +78,13 @@ func refill_ammo() -> void:
 	if reserve_ammo >= ammo_missing:
 		set_reserve_ammo(reserve_ammo - ammo_missing)
 		current_ammo = max_ammo
+		PlayerStats.set_bullet_reserve(bullet_type, reserve_ammo)
+		PlayerStats.set_mag(get_parent().name, current_ammo)
 	else:
 		current_ammo += reserve_ammo
+		PlayerStats.set_mag(get_parent().name, current_ammo)
 		set_reserve_ammo(0)
+		PlayerStats.set_bullet_reserve(bullet_type, 0)
 
 func set_reserve_ammo(value: int) -> void:
 	reserve_ammo = value
