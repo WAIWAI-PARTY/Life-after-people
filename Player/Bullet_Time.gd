@@ -11,9 +11,11 @@ func _process(_delta):
 	if Input.is_action_just_pressed("bullet_time") and can_bullet and !is_bulleting():
 		start_bullet_time(get_parent().sprite, get_parent().b_time_duration)
 		get_parent().state = get_parent().WALK
+	
 
 func ghost_instance():
 	var ghost: Sprite = ghost_scene.instance()
+	ghost.gay_mode = true
 	get_parent().get_parent().add_child(ghost)
 	ghost.global_position = Vector2(global_position.x, global_position.y-18)
 	ghost.texture = sprite.texture
@@ -24,11 +26,11 @@ func ghost_instance():
 
 func start_bullet_time(sprite, duration):
 	var player = get_parent()
-	player.speed_factor = 5
-	Engine.time_scale = 0.2
+	player.speed_factor = 11
+	Engine.time_scale = 0.1
 	dash.can_dash = false
 	self.sprite = sprite
-	sprite.material.set_shader_param("mix_weight", 0.7)
+	sprite.material.set_shader_param("mix_weight", 0.3)
 	sprite.material.set_shader_param("whiten",true)
 	duration_timer.wait_time = duration
 	duration_timer.start()

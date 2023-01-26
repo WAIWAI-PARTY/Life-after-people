@@ -10,7 +10,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="GhostTimer" type="Timer" parent="."]
-wait_time = 0.04
+wait_time = 0.01
 
 [node name="CD" type="Timer" parent="."]
 
