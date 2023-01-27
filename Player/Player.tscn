@@ -140,7 +140,7 @@ tracks/0/keys = {
 radius = 5.0
 height = 14.0
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=["player"]]
 collision_layer = 32
 script = ExtResource( 1 )
 
@@ -149,6 +149,7 @@ material = SubResource( 3 )
 position = Vector2( 0, -18 )
 texture = ExtResource( 2 )
 hframes = 10
+frame = 1
 
 [node name="MediumShadow" type="Sprite" parent="Sprite"]
 show_behind_parent = true

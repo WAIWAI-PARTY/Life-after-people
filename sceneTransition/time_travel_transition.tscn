@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://sceneTransition/time_travel_transition.gd" type="Script" id=1]
 
@@ -30,7 +30,23 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 0.831373, 0.827451, 0.827451, 0.564706 ) ]
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.564706 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "dissolve_back"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.564706 ), Color( 1, 1, 1, 0 ) ]
 }
 
 [node name="time_travel_transition" type="CanvasLayer"]
@@ -45,3 +61,6 @@ mouse_filter = 2
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 1 )
 anims/dissolve = SubResource( 2 )
+anims/dissolve_back = SubResource( 3 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
