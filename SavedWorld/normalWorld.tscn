@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Enemy/MrC.tscn" type="PackedScene" id=1]
 [ext_resource path="res://SceneDesign/Scenestaticsprite/BrokenFurnitures.tscn" type="PackedScene" id=2]
@@ -28,6 +28,7 @@
 [ext_resource path="res://SavedWorld/sceneController.gd" type="Script" id=26]
 [ext_resource path="res://Weapons/scar.tscn" type="PackedScene" id=27]
 [ext_resource path="res://SceneDesign/Scenestaticsprite/HotelHoriSign.tscn" type="PackedScene" id=28]
+[ext_resource path="res://default_env.tres" type="Environment" id=29]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 26 )
@@ -348,21 +349,21 @@ position = Vector2( 428, -23 )
 
 [node name="Pigeon" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( 23, -8 )
-frame = 4
+frame = 1
 
 [node name="Pigeon2" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( 7, -8 )
 animation = "Pigeon2"
-frame = 0
+frame = 1
 
 [node name="Pigeon3" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( -9, -8 )
 animation = "Pigeon2"
-frame = 0
+frame = 1
 
 [node name="Pigeon4" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( -25, -8 )
-frame = 3
+frame = 0
 
 [node name="Furnitures2" type="YSort" parent="YSort"]
 position = Vector2( 2000, 0 )
@@ -406,21 +407,20 @@ position = Vector2( 428, -23 )
 
 [node name="Pigeon" parent="YSort/Furnitures2/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( 23, -8 )
-frame = 3
+frame = 0
 
 [node name="Pigeon2" parent="YSort/Furnitures2/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( 7, -8 )
 animation = "Pigeon2"
-frame = 0
+frame = 1
 
 [node name="Pigeon3" parent="YSort/Furnitures2/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( -9, -8 )
 animation = "Pigeon2"
-frame = 0
+frame = 1
 
 [node name="Pigeon4" parent="YSort/Furnitures2/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( -25, -8 )
-frame = 2
 
 [node name="HoriHotelSign2" parent="YSort/Furnitures2" instance=ExtResource( 28 )]
 position = Vector2( 335, -54 )
@@ -456,11 +456,13 @@ position = Vector2( -30, 42 )
 [node name="SpawnTimer" type="Timer" parent="Spawner"]
 wait_time = 0.1
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 29 )
+
 [node name="Camera2D" parent="." instance=ExtResource( 15 )]
 position = Vector2( 80, 15 )
 rotating = true
 current = true
-zoom = Vector2( 0.25, 0.25 )
 
 [connection signal="timeout" from="Spawner/SpawnTimer" to="Spawner" method="_on_SpawnTimer_timeout"]
 
