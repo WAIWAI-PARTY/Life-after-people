@@ -23,6 +23,7 @@ onready var anim_player = $AnimationPlayer
 
 func _ready():
 	randomize()
+	PlayerStats.set_health(1000)
 	PlayerStats.connect("no_health", self, "player_death_reset")
 
 func _process(delta):
