@@ -109,7 +109,7 @@ tracks/3/enabled = true
 tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
+"update": 0,
 "values": [ true ]
 }
 tracks/4/type = "method"
@@ -164,7 +164,7 @@ scale = Vector2( 1.8125, 1.07143 )
 texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 12.8571 )
+position = Vector2( 0, 10 )
 rotation = 1.5708
 shape = SubResource( 6 )
 
@@ -173,14 +173,15 @@ anims/RESET = SubResource( 4 )
 anims/anim = SubResource( 5 )
 
 [node name="hurtbox" parent="." instance=ExtResource( 2 )]
-collision_mask = 0
+scale = Vector2( 1.34286, 1.4 )
+collision_layer = 0
+collision_mask = 20
 
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
 shape = SubResource( 1 )
 
 [node name="hitbox" parent="." instance=ExtResource( 4 )]
-visible = false
-collision_layer = 0
+collision_layer = 4
 collision_mask = 8
 damage = 500
 
