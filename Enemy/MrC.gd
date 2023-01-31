@@ -9,8 +9,6 @@ export var shooter_timer_wait_time = 0.1
 export(int) var spawn_point_count = 1
 export var radius = 10
 
-onready var attack = false
-onready var area =  $Area2D
 onready var stats = $Stats
 onready var pdz = $PlayerDetectionZone
 onready var MrC = $Sprite
