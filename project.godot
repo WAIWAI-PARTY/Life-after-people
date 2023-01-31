@@ -165,6 +165,7 @@ time_travel={
 2d_physics/layer_5="enemy hit"
 2d_physics/layer_6="player"
 2d_physics/layer_7="enemy"
+2d_physics/layer_8="bullet"
 
 [physics]
 

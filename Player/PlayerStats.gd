@@ -12,7 +12,8 @@ var mags = {
 	"scar":30
 }
 var bullets = {
-	"normal": 1000
+	"normal": 1000,
+	"push_off":1000
 }
 
 func _ready():

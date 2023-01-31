@@ -3,6 +3,8 @@
 [ext_resource path="res://SceneDesign/Scenestaticsprite/rooftopStruct.png" type="Texture" id=1]
 
 [node name="StaticBody2D" type="StaticBody2D"]
+collision_layer = 129
+collision_mask = 129
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )

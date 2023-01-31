@@ -83,7 +83,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.2, 0.3 ),
+"times": PoolRealArray( 0, 0.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -140,10 +140,30 @@ tracks/5/keys = {
 } ],
 "times": PoolRealArray( 0 )
 }
+tracks/6/type = "bezier"
+tracks/6/path = NodePath("hitbox/CollisionShape2D:scale:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray( 0.1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.4 )
+}
+tracks/7/type = "bezier"
+tracks/7/path = NodePath("hitbox/CollisionShape2D:scale:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"points": PoolRealArray( 0.1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.4 )
+}
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 12.8571
-height = 14.2857
+radius = 9.57445
+height = 9.42253
 
 [sub_resource type="CircleShape2D" id=3]
 radius = 93.2519
@@ -187,6 +207,7 @@ damage = 500
 
 [node name="CollisionShape2D" parent="hitbox" index="0"]
 position = Vector2( -4.76837e-07, -4.76837e-07 )
+scale = Vector2( 0.1, 0.1 )
 shape = SubResource( 3 )
 disabled = true
 
