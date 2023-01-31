@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://SceneDesign/Scenestaticsprite/tunnelOutflow2.tscn" type="PackedScene" id=1]
 [ext_resource path="res://SceneDesign/Scenestaticsprite/BrokenFurnitures.tscn" type="PackedScene" id=2]
@@ -30,6 +30,7 @@
 [ext_resource path="res://SceneDesign/Scenestaticsprite/HotelHoriSign.tscn" type="PackedScene" id=28]
 [ext_resource path="res://default_env.tres" type="Environment" id=29]
 [ext_resource path="res://SceneDesign/Scenestaticsprite/tunnelOutflow1.tscn" type="PackedScene" id=30]
+[ext_resource path="res://Enemy/MrC.tscn" type="PackedScene" id=31]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 26 )
@@ -265,6 +266,9 @@ show_collision = true
 format = 1
 tile_data = PoolIntArray( 1245177, 7, 0, 1245178, 8, 0, 1245179, 8, 0, 1245180, 8, 0, 1245181, 8, 0, 1245182, 8, 0, 1245183, 8, 0, 1179648, 8, 0, 1179649, 8, 0, 1179650, 8, 0, 1179651, 8, 0, 1179652, 8, 0, 1179653, 8, 0, 1179654, 8, 0, 1179655, 8, 0, 1179656, 8, 0, 1179657, 8, 0, 1179658, 8, 0, 1179659, 8, 0, 1179660, 8, 0, 1179661, 8, 0, 1179662, 8, 0, 1179663, 8, 0, 1179664, 8, 0, 1179665, 8, 0, 1179666, 8, 0, 1179667, 8, 0, 1179668, 8, 0, 1179669, 8, 0, 1179670, 8, 0, 1179671, 8, 0, 1179672, 8, 0, 1179673, 8, 0, 1179674, 8, 0, 1179675, 8, 0, 1179676, 8, 0, 1179677, 9, 0 )
 
+[node name="MrC" parent="YSort" instance=ExtResource( 31 )]
+position = Vector2( 2224, 137 )
+
 [node name="Player" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 44, 186 )
 maxSpeed = 125
@@ -330,7 +334,7 @@ position = Vector2( 155, 107 )
 position = Vector2( 156, 161 )
 
 [node name="BrokenFurnitures" parent="YSort/Furnitures" instance=ExtResource( 2 )]
-position = Vector2( 154, 39 )
+position = Vector2( 216, -15 )
 
 [node name="Lockers" type="YSort" parent="YSort/Furnitures"]
 position = Vector2( -88, -48 )
@@ -371,7 +375,7 @@ position = Vector2( 428, -23 )
 
 [node name="Pigeon" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( 23, -8 )
-frame = 1
+frame = 4
 
 [node name="Pigeon2" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( 7, -8 )
@@ -385,7 +389,7 @@ frame = 0
 
 [node name="Pigeon4" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( -25, -8 )
-frame = 0
+frame = 3
 
 [node name="Furnitures2" type="YSort" parent="YSort"]
 position = Vector2( 2000, 0 )
@@ -429,7 +433,7 @@ position = Vector2( 428, -23 )
 
 [node name="Pigeon" parent="YSort/Furnitures2/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( 23, -8 )
-frame = 0
+frame = 3
 
 [node name="Pigeon2" parent="YSort/Furnitures2/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( 7, -8 )
@@ -443,18 +447,19 @@ frame = 0
 
 [node name="Pigeon4" parent="YSort/Furnitures2/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( -25, -8 )
+frame = 2
 
 [node name="HoriHotelSign2" parent="YSort/Furnitures2" instance=ExtResource( 28 )]
 position = Vector2( 335, -54 )
 
 [node name="perfectFurniture" parent="YSort/Furnitures2" instance=ExtResource( 23 )]
-position = Vector2( 154, 39 )
+position = Vector2( 216, -15 )
 
 [node name="chimneyTunnel2" parent="YSort/Furnitures2" instance=ExtResource( 25 )]
 position = Vector2( 155, 107 )
 
 [node name="chimneyTunnel3" parent="YSort/Furnitures2" instance=ExtResource( 25 )]
-position = Vector2( 155, 141 )
+position = Vector2( 156, 161 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

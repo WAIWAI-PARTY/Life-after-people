@@ -9,7 +9,8 @@ export var shooter_timer_wait_time = 0.1
 export(int) var spawn_point_count = 1
 export var radius = 10
 
-
+onready var attack = false
+onready var area =  $Area2D
 onready var stats = $Stats
 onready var pdz = $PlayerDetectionZone
 onready var MrC = $Sprite
@@ -82,11 +83,12 @@ func _process(delta):
 	velocity = move_and_slide(velocity)
 
 func _on_ShootTimer_timeout():
-	for s in rotater.get_children():
-		var bullet = bullet_scene.instance()
-		get_tree().root.add_child(bullet)
-		bullet.position = s.global_position
-		bullet.look_at(_player)
+	if pdz.can_see_player():
+		for s in rotater.get_children():
+			var bullet = bullet_scene.instance()
+			get_tree().root.add_child(bullet)
+			bullet.position = s.global_position
+			bullet.look_at(_player)
 		
 
 func move(pos,delta):
@@ -119,3 +121,5 @@ func pick_and_start():
 func _on_hurtbox_area_entered(area):
 	stats.health-=area.damage
 	blink.play("blink_start")
+
+
