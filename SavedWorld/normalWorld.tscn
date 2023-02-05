@@ -270,7 +270,7 @@ tile_data = PoolIntArray( 1245177, 7, 0, 1245178, 8, 0, 1245179, 8, 0, 1245180, 
 position = Vector2( 2224, 137 )
 
 [node name="Player" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 44, 186 )
+position = Vector2( 107, 71 )
 maxSpeed = 125
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
@@ -377,7 +377,7 @@ position = Vector2( 428, -23 )
 
 [node name="Pigeon" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( 23, -8 )
-frame = 4
+frame = 1
 
 [node name="Pigeon2" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( 7, -8 )
@@ -391,7 +391,7 @@ frame = 3
 
 [node name="Pigeon4" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( -25, -8 )
-frame = 3
+frame = 0
 
 [node name="Furnitures2" type="YSort" parent="YSort"]
 position = Vector2( 2000, 0 )
@@ -435,7 +435,7 @@ position = Vector2( 428, -23 )
 
 [node name="Pigeon" parent="YSort/Furnitures2/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( 23, -8 )
-frame = 3
+frame = 0
 
 [node name="Pigeon2" parent="YSort/Furnitures2/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( 7, -8 )
@@ -449,7 +449,6 @@ frame = 3
 
 [node name="Pigeon4" parent="YSort/Furnitures2/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( -25, -8 )
-frame = 2
 
 [node name="HoriHotelSign2" parent="YSort/Furnitures2" instance=ExtResource( 28 )]
 position = Vector2( 335, -54 )
@@ -492,7 +491,7 @@ wait_time = 0.1
 environment = ExtResource( 29 )
 
 [node name="Camera2D" parent="." instance=ExtResource( 15 )]
-position = Vector2( 44, 186 )
+position = Vector2( 107, 71 )
 rotating = true
 current = true
 
