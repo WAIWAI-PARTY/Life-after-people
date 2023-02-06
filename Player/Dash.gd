@@ -17,8 +17,7 @@ func start_dash(sprite, duration, direction):
 	self.sprite = sprite
 	sprite.material.set_shader_param("mix_weight", 0.7)
 	sprite.material.set_shader_param("whiten",true)
-	duration_timer.wait_time = duration
-	duration_timer.start()
+	duration_timer.start(duration)
 	
 	ghost_timer.start()
 	instance_ghost()
@@ -49,8 +48,7 @@ func end_dash():
 	ghost_timer.stop()
 	sprite.material.set_shader_param("whiten", false)
 	can_dash = false
-	yield(get_tree().create_timer(dash_delay), "timeout")
-	can_dash = true
+	$CD_Timer.start()
 
 
 func _on_DurationTimer_timeout():
@@ -59,3 +57,7 @@ func _on_DurationTimer_timeout():
 
 func _on_GhostTimer_timeout():
 	instance_ghost()
+
+
+func _on_CD_Timer_timeout():
+	can_dash = true
