@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://imports/Modern_Exteriors_v1.0/Modern_Exteriors_16x16/Animated_16x16/Animated_sheets_16x16/Shutter_full_16x16.png" type="Texture" id=1]
+
+[node name="Sprite" type="Sprite"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0.0932693, -0.258831, 41.9067, 28.2588 )
