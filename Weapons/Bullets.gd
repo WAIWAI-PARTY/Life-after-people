@@ -26,9 +26,6 @@ func _process(delta):
 		queue_free()
 
 func _on_hitbox_area_entered(_area):
-	if health > 0:
-		health-=1
-	else:
 		queue_free()
 	
 func _on_FlyingTimer_timeout():

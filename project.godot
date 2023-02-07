@@ -27,8 +27,8 @@ settings/fps/force_fps=144
 
 window/size/width=640
 window/size/height=360
-window/size/test_width=1280
-window/size/test_height=720
+window/size/test_width=1920
+window/size/test_height=1080
 window/dpi/allow_hidpi=true
 window/vsync/use_vsync=false
 mouse_cursor/custom_image="res://UI/crosshair.png"
@@ -166,6 +166,7 @@ time_travel={
 2d_physics/layer_6="player"
 2d_physics/layer_7="enemy"
 2d_physics/layer_8="bullet"
+2d_physics/layer_9="airwall"
 
 [physics]
 
