@@ -4,7 +4,7 @@ export(int) var maxSpeed = 100
 export(int) var aclt = 800
 export(int) var frict = 1000
 export(float) var dash_duration = 0.2
-export(float) var b_time_duration = 0.4
+export(float) var b_time_duration = 0.5
 
 var velocity = Vector2.ZERO
 var speed_factor = 1
@@ -61,6 +61,7 @@ func walk_state(delta):
 func dash_state():
 	dash.start_dash(sprite, dash_duration, input_vector)
 	state = WALK
+
 func idle():
 	AnimState.travel("idle")
 	if Input.is_action_just_pressed("dash") && dash.can_dash && !dash.is_dashing():

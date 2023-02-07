@@ -24,7 +24,7 @@ func ghost_instance():
 
 func start_bullet_time(sprite, duration):
 	var player = get_parent()
-	player.speed_factor = 5
+	player.speed_factor = 5.2
 	Engine.time_scale = 0.2
 	dash.can_dash = false
 	self.sprite = sprite

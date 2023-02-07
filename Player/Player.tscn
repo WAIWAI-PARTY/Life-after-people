@@ -79,7 +79,7 @@ nodes/Animation/position = Vector2( -100, 140 )
 nodes/TimeScale/node = SubResource( 13 )
 nodes/TimeScale/position = Vector2( 107, 139 )
 nodes/output/position = Vector2( 300, 160 )
-node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "Animation" ]
+node_connections = [ "TimeScale", 0, "Animation", "output", 0, "TimeScale" ]
 
 [sub_resource type="AnimationNodeAnimation" id=16]
 animation = "walk"
@@ -92,7 +92,7 @@ nodes/Animation/node = SubResource( 16 )
 nodes/Animation/position = Vector2( -80, 140 )
 nodes/TimeScale/node = SubResource( 17 )
 nodes/TimeScale/position = Vector2( 100, 120 )
-node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "Animation" ]
+node_connections = [ "TimeScale", 0, "Animation", "output", 0, "TimeScale" ]
 
 [sub_resource type="AnimationNodeStateMachine" id=10]
 states/idle/node = SubResource( 14 )
