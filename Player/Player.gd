@@ -7,7 +7,7 @@ export(float) var dash_duration = 0.2
 export(float) var b_time_duration = 0.5
 
 var velocity = Vector2.ZERO
-var speed_factor = 1
+var speed_factor = 1.25
 var input_vector = Vector2.ZERO
 enum {IDLE, WALK, DASH, B_TIME}
 var state = IDLE
