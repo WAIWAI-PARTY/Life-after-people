@@ -1076,6 +1076,9 @@ texture = ExtResource( 13 )
 texture_scale = 24.96
 color = Color( 1, 0.94902, 0.627451, 1 )
 energy = 0.25
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Camera2DFuture" parent="." instance=ExtResource( 1 )]
 position = Vector2( 64, 130 )
@@ -1113,3 +1116,6 @@ modulate = Color( 0.992157, 0.164706, 0.164706, 1 )
 margin_right = 40.0
 margin_bottom = 14.0
 text = "i am in future"
+__meta__ = {
+"_edit_lock_": true
+}
