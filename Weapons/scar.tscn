@@ -5,22 +5,19 @@
 [ext_resource path="res://Weapons/ranged_weapon.tscn" type="PackedScene" id=3]
 
 [node name="scar" type="Node2D"]
-position = Vector2( -1, 0 )
 z_index = 10
 z_as_relative = false
 script = ExtResource( 1 )
 
 [node name="Scar" type="Sprite" parent="."]
-position = Vector2( 3, -1 )
-scale = Vector2( 0.9, 0.8 )
+position = Vector2( 3, -2 )
 texture = ExtResource( 2 )
 
 [node name="ranged_weapon" parent="." instance=ExtResource( 3 )]
-position = Vector2( -1, -2 )
 max_ammo = 30
 
 [node name="muzzle" parent="ranged_weapon" index="3"]
-position = Vector2( 19, -2 )
+position = Vector2( 19, -3 )
 
 [connection signal="fire" from="ranged_weapon" to="." method="_on_ranged_weapon_fire"]
 
