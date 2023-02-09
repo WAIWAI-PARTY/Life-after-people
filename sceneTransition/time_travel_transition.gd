@@ -8,5 +8,6 @@ func time_transition(value) -> void:
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "dissolve":
-		get_tree().get_nodes_in_group("player")[0].position.x += travel_distance
+		get_node("/root/DemoLevel1/FutureWorld").position.x += travel_distance
+		get_node("/root/DemoLevel1/PastWorld").position.x -= travel_distance
 		$AnimationPlayer.play("dissolve_back")
