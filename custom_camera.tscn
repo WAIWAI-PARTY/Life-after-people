@@ -3,6 +3,7 @@
 [ext_resource path="res://Camera2D.gd" type="Script" id=1]
 
 [node name="Camera2D" type="Camera2D" groups=["camera"]]
+editor_draw_limits = true
 
 [node name="shake" type="Node" parent="." groups=["shake"]]
 script = ExtResource( 1 )
