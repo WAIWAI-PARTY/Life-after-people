@@ -80,3 +80,6 @@ func _on_Dash_dash_end():
 func player_death_reset():
 	Engine.time_scale = 1
 	queue_free()
+
+
+
