@@ -936,7 +936,7 @@ tile_data = PoolIntArray( -524265, 22, 0, -458726, 12, 0, -393193, 8, 0, -327652
 [node name="FutureWorld" type="Node2D" parent="."]
 position = Vector2( -116, 0 )
 
-[node name="FutureTilemaps" type="YSort" parent="FutureWorld"]
+[node name="FutureTilemaps" type="Node2D" parent="FutureWorld"]
 
 [node name="rockfloor" type="TileMap" parent="FutureWorld/FutureTilemaps"]
 position = Vector2( 7.62939e-06, 7.62939e-06 )
@@ -977,6 +977,7 @@ tile_data = PoolIntArray( -524265, 22, 0, -458726, 12, 0, -393193, 8, 0, -327652
 
 [node name="stagae2propsTop" type="TileMap" parent="FutureWorld/FutureTilemaps"]
 position = Vector2( 34, 17 )
+z_index = 2
 tile_set = SubResource( 9 )
 cell_size = Vector2( 16, 16 )
 cell_y_sort = true
@@ -995,20 +996,6 @@ position = Vector2( -122, -73 )
 
 [node name="ModernExteriorsSingles170" parent="FutureWorld/FutureTilemaps/buildings1" instance=ExtResource( 10 )]
 position = Vector2( -179, 39 )
-
-[node name="Player" parent="FutureWorld" instance=ExtResource( 2 )]
-position = Vector2( 237, 175 )
-maxSpeed = 125
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="FutureWorld/Player"]
-scale = Vector2( 0.8, 0.8 )
-remote_path = NodePath("../../../Camera2DFuture")
-
-[node name="scar" parent="FutureWorld/Player" instance=ExtResource( 3 )]
-position = Vector2( 0, -7 )
-scale = Vector2( 0.8, 0.8 )
-z_index = 0
-z_as_relative = true
 
 [node name="hitbox" type="Area2D" parent="FutureWorld"]
 position = Vector2( 1, -11 )
@@ -1035,6 +1022,20 @@ shape = SubResource( 11 )
 
 [node name="Futureprop" type="YSort" parent="FutureWorld"]
 
+[node name="Player" parent="FutureWorld/Futureprop" instance=ExtResource( 2 )]
+position = Vector2( 237, 175 )
+maxSpeed = 125
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="FutureWorld/Futureprop/Player"]
+scale = Vector2( 0.8, 0.8 )
+remote_path = NodePath("../../../../Camera2DFuture")
+
+[node name="scar" parent="FutureWorld/Futureprop/Player" instance=ExtResource( 3 )]
+position = Vector2( 0, -7 )
+scale = Vector2( 0.8, 0.8 )
+z_index = 0
+z_as_relative = true
+
 [node name="ColorRect" type="ColorRect" parent="FutureWorld/Futureprop"]
 margin_left = 82.0
 margin_top = 20.0
@@ -1043,11 +1044,11 @@ margin_bottom = 44.0
 color = Color( 0.141176, 0.141176, 0.141176, 1 )
 
 [node name="stairs" parent="FutureWorld/Futureprop" instance=ExtResource( 7 )]
-position = Vector2( 105, 62.5 )
-scale = Vector2( 1, 1.25 )
+position = Vector2( 105.512, 80 )
+scale = Vector2( 1.02439, 1.25 )
 
 [node name="tunnelTopfence" parent="FutureWorld/Futureprop" instance=ExtResource( 6 )]
-position = Vector2( 103, 24 )
+position = Vector2( 105, 17 )
 scale = Vector2( 1.3, 1.3 )
 collision_layer = 129
 collision_mask = 129
@@ -1074,10 +1075,10 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="stage1" type="Area2D" parent="FutureWorld"]
+[node name="stage2" type="Area2D" parent="FutureWorld"]
 script = ExtResource( 14 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FutureWorld/stage1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FutureWorld/stage2"]
 position = Vector2( 425.5, 528 )
 shape = SubResource( 21 )
 
@@ -1126,5 +1127,5 @@ position = Vector2( -122, -73 )
 [node name="ModernExteriorsSingles170" parent="PastWorld/buildings2" instance=ExtResource( 10 )]
 position = Vector2( -179, 39 )
 
-[connection signal="body_entered" from="FutureWorld/stage1" to="FutureWorld/stage1" method="_on_stage1_body_entered"]
-[connection signal="body_exited" from="FutureWorld/stage1" to="FutureWorld/stage1" method="_on_stage1_body_exited"]
+[connection signal="body_entered" from="FutureWorld/stage2" to="FutureWorld/stage2" method="_on_stage1_body_entered"]
+[connection signal="body_exited" from="FutureWorld/stage2" to="FutureWorld/stage2" method="_on_stage1_body_exited"]
