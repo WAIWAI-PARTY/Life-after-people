@@ -4,6 +4,6 @@
 
 [node name="Sprite" type="Sprite"]
 texture = ExtResource( 1 )
-offset = Vector2( 0, -14 )
+offset = Vector2( 0, 15 )
 region_enabled = true
 region_rect = Rect2( 0.0932693, -0.258831, 41.9067, 28.2588 )
