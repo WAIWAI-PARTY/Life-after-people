@@ -382,12 +382,12 @@ frame = 0
 [node name="Pigeon2" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( 7, -8 )
 animation = "Pigeon2"
-frame = 0
+frame = 1
 
 [node name="Pigeon3" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( -9, -8 )
 animation = "Pigeon2"
-frame = 0
+frame = 1
 
 [node name="Pigeon4" parent="YSort/Furnitures/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( -25, -8 )
@@ -438,12 +438,12 @@ position = Vector2( 23, -8 )
 [node name="Pigeon2" parent="YSort/Furnitures2/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( 7, -8 )
 animation = "Pigeon2"
-frame = 0
+frame = 1
 
 [node name="Pigeon3" parent="YSort/Furnitures2/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( -9, -8 )
 animation = "Pigeon2"
-frame = 0
+frame = 1
 
 [node name="Pigeon4" parent="YSort/Furnitures2/AnimatedExteriors" instance=ExtResource( 3 )]
 position = Vector2( -25, -8 )
