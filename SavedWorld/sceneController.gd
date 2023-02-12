@@ -10,7 +10,7 @@ func _process(_delta):
 			#movePlayerParent(travelled)
 			#$Camera2DFuture.limit_left = -100000
 			$CanvasLayer/Label.text ="i am in past"
-			#TimeTravelTransition.time_transition(10000)
+			TimeTravelTransition.time_transition(10000)
 			#$Camera2DFuture.limit_left = -140+10000
 		else:
 			travelled = false
