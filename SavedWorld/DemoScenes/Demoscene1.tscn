@@ -884,11 +884,11 @@ points = PoolVector2Array( 47.3511, 38.7927, 44.2107, 41.3723, 31.5371, 44.5126,
 41/shapes = [  ]
 41/z_index = 0
 
-[sub_resource type="RectangleShape2D" id=11]
-extents = Vector2( 191.5, 3.625 )
-
 [sub_resource type="RectangleShape2D" id=21]
 extents = Vector2( 280.5, 143 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 191.5, 3.625 )
 
 [node name="DemoLevel1" type="Node2D"]
 script = ExtResource( 12 )
@@ -954,6 +954,14 @@ position = Vector2( -122, -73 )
 position = Vector2( -179, 39 )
 
 [node name="Pastprop" type="YSort" parent="PastWorld"]
+
+[node name="stage2" type="Area2D" parent="PastWorld"]
+position = Vector2( 10000, 0 )
+script = ExtResource( 14 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PastWorld/stage2"]
+position = Vector2( 425.5, 528 )
+shape = SubResource( 21 )
 
 [node name="FutureWorld" type="Node2D" parent="."]
 position = Vector2( -116, 0 )
@@ -1101,7 +1109,7 @@ __meta__ = {
 }
 
 [node name="Position2D" type="Position2D" parent="."]
-position = Vector2( -48, 419 )
+position = Vector2( 589.264, 669.362 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 121, 175 )
@@ -1118,15 +1126,19 @@ z_index = 0
 z_as_relative = true
 
 [node name="Camera2DFuture" parent="." instance=ExtResource( 1 )]
-position = Vector2( 121, 175 )
+position = Vector2( 375.504, 289.653 )
 scale = Vector2( 0.8, 0.8 )
 rotating = true
 current = true
 limit_left = -250
 limit_top = -100
+limit_right = 362
+limit_bottom = 348
 limit_smoothed = true
 smoothing_enabled = true
 smoothing_speed = 2.0
 
+[connection signal="body_entered" from="PastWorld/stage2" to="PastWorld/stage2" method="_on_stage1_body_entered"]
+[connection signal="body_exited" from="PastWorld/stage2" to="PastWorld/stage2" method="_on_stage1_body_exited"]
 [connection signal="body_entered" from="FutureWorld/stage2" to="FutureWorld/stage2" method="_on_stage1_body_entered"]
 [connection signal="body_exited" from="FutureWorld/stage2" to="FutureWorld/stage2" method="_on_stage1_body_exited"]
