@@ -18,6 +18,7 @@ config/icon="res://imports/GuttyKreum_Osakav5/OsakaRPGMakerExample2_1088x832.png
 
 PlayerStats="*res://Player/PlayerStats.tscn"
 TimeTravelTransition="*res://sceneTransition/time_travel_transition.tscn"
+SceneController="*res://SavedWorld/sceneController.gd"
 
 [debug]
 
