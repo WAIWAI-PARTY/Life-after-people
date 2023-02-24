@@ -7,7 +7,7 @@ func _on_stage1_body_entered(body):
 		$"../Camera2DFuture".limit_left = -60
 		$"../Camera2DFuture".limit_top = 359
 		$"../Camera2DFuture".limit_right = 620
-		$"../Camera2DFuture".limit_bottom = 709
+		$"../Camera2DFuture".limit_bottom = 800
 
 
 
